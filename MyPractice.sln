@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "silverlight", "silverlight"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightUnitTest", "test\silverlight\SilverlightUnitTest\SilverlightUnitTest.csproj", "{D2EC36EB-50C4-48C6-A3DA-F45729DDC1DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "silverlight", "silverlight", "{5F155C5E-6B00-4235-9572-B09E11B5D104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightApp", "src\silverlight\SilverlightApp\SilverlightApp.csproj", "{64013C9B-5DD9-402E-A05F-35B18FC1AD6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +23,18 @@ Global
 		{D2EC36EB-50C4-48C6-A3DA-F45729DDC1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2EC36EB-50C4-48C6-A3DA-F45729DDC1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2EC36EB-50C4-48C6-A3DA-F45729DDC1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64013C9B-5DD9-402E-A05F-35B18FC1AD6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64013C9B-5DD9-402E-A05F-35B18FC1AD6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64013C9B-5DD9-402E-A05F-35B18FC1AD6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64013C9B-5DD9-402E-A05F-35B18FC1AD6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4DD1D051-BA0E-47A1-BDA2-D4ADB151C0C3} = {27A8F3DA-962C-48B4-B51C-26D1D744A34B}
+		{5F155C5E-6B00-4235-9572-B09E11B5D104} = {F8D04B85-DEB2-43D7-89C1-55E62821F313}
+		{64013C9B-5DD9-402E-A05F-35B18FC1AD6E} = {F8D04B85-DEB2-43D7-89C1-55E62821F313}
 		{D2EC36EB-50C4-48C6-A3DA-F45729DDC1DC} = {4DD1D051-BA0E-47A1-BDA2-D4ADB151C0C3}
 	EndGlobalSection
 EndGlobal
