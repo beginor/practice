@@ -15,3 +15,7 @@ TestResults
 Debug/
 Release/
 obj/
+bin/
+Bin/
+ClientBin/
+clientbin/
