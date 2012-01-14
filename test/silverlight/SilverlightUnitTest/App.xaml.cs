@@ -17,7 +17,8 @@ namespace SilverlightUnitTest {
 		}
 
 		private void Application_Startup(object sender, StartupEventArgs e) {
-			this.RootVisual = UnitTestSystem.CreateTestPage();
+			var settings = UnitTestSystem.CreateDefaultSettings();
+			this.RootVisual = UnitTestSystem.CreateTestPage(settings);
 		}
 
 		private void Application_Exit(object sender, EventArgs e) {

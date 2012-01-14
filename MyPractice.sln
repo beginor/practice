@@ -19,6 +19,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningMvc", "src\server\L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningRazor", "src\server\LearningRazor\LearningRazor.csproj", "{6A8768DF-CB2D-43C7-A306-BBBE6FE84CE0}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SilverlightHost", "src\server\SilverlightHost\", "{39A00407-5F0D-4916-B7F3-CB9F6D8CA032}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/SilverlightHost"
+		Debug.AspNetCompiler.PhysicalPath = "src\server\SilverlightHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SilverlightHost\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SilverlightHost"
+		Release.AspNetCompiler.PhysicalPath = "src\server\SilverlightHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SilverlightHost\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8000"
+		VWDDynamicPort = "false"
+		VWDVirtualPath = "/"
+		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
+		ProjOutputReferences = "{D2EC36EB-50C4-48C6-A3DA-F45729DDC1DC}|ClientBin|false;{64013C9B-5DD9-402E-A05F-35B18FC1AD6E}|ClientBin|false;"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +66,10 @@ Global
 		{6A8768DF-CB2D-43C7-A306-BBBE6FE84CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A8768DF-CB2D-43C7-A306-BBBE6FE84CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A8768DF-CB2D-43C7-A306-BBBE6FE84CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A00407-5F0D-4916-B7F3-CB9F6D8CA032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A00407-5F0D-4916-B7F3-CB9F6D8CA032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A00407-5F0D-4916-B7F3-CB9F6D8CA032}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A00407-5F0D-4916-B7F3-CB9F6D8CA032}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +82,6 @@ Global
 		{64013C9B-5DD9-402E-A05F-35B18FC1AD6E} = {5F155C5E-6B00-4235-9572-B09E11B5D104}
 		{42205140-993D-438E-B278-6EE36EF7C3D1} = {461C5674-6A21-4B9A-958F-2314D4597F24}
 		{6A8768DF-CB2D-43C7-A306-BBBE6FE84CE0} = {461C5674-6A21-4B9A-958F-2314D4597F24}
+		{39A00407-5F0D-4916-B7F3-CB9F6D8CA032} = {461C5674-6A21-4B9A-958F-2314D4597F24}
 	EndGlobalSection
 EndGlobal
