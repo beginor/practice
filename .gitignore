@@ -1,14 +1,6 @@
 *.suo
-*.ncb
-*.psd
-*.exe
-*.dll
-*.pdb
 *.manifest
 *.user
-*.ilk
-*.exp
-*.aps
 *.pidb
 *.DS_Store
 TestResults
