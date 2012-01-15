@@ -60,6 +60,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Client">
+      <HintPath>..\..\..\lib\arcgis-server-web-api\silverlight-v2.3\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Silverlight.Testing">
       <HintPath>..\..\..\lib\silverlight\toolkit-dec11\Microsoft.Silverlight.Testing.dll</HintPath>
     </Reference>

@@ -28,9 +28,9 @@ namespace SilverlightUnitTest {
 		[TestMethod, Asynchronous]
 		public void TestEventAsyncPattern() {
 			new Thread(() => {
+				var webClient = new WebClient();
 				var source = new TaskCompletionSource<string>();
-				var c = new WebClient();
-				c.DownloadStringCompleted += (sender, args) => {
+				webClient.DownloadStringCompleted += (sender, args) => {
 					if (args.Cancelled) {
 						source.SetCanceled();
 						return;
@@ -41,10 +41,11 @@ namespace SilverlightUnitTest {
 					}
 					source.SetResult(args.Result);
 				};
-				c.DownloadStringAsync(new Uri(UrlToTest, UriKind.Absolute), null);
+				webClient.DownloadStringAsync(new Uri(UrlToTest, UriKind.Absolute), null);
 
 				source.Task.Wait();
-				Assert.IsNotNull(source.Task.Result);
+				var result = source.Task.Result;
+				Assert.IsNotNull(result);
 
 				this.EnqueueTestComplete();
 			}).Start();
@@ -52,7 +53,23 @@ namespace SilverlightUnitTest {
 
 		[TestMethod, Asynchronous]
 		public void TestCallbackAsyncModel() {
-			
+			var source = new TaskCompletionSource<int>();
+			Action<int> callback = i => source.SetResult(i);
+			AddAsync(1, 2, callback);
+			source.Task.Wait();
+			var result = source.Task.Result;
+			Assert.AreEqual(1 + 2, result);
+			this.TestComplete();
+		}
+
+		private static void AddAsync(int a, int b, Action<int> callback) {
+			new Thread(() => {
+				Thread.Sleep(2000);
+				if (callback != null) {
+					var result = a + b;
+					callback(result);
+				}
+			}).Start();
 		}
 	}
 }
