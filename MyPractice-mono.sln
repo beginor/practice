@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryboardDemo", "src\monot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIAnimStudy", "src\monotouch\UIAnimStudy\UIAnimStudy.csproj", "{CD3D9466-A29A-4D10-B1FD-8831B7E13170}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAStudy", "src\monotouch\CAStudy\CAStudy.csproj", "{E9F44438-27DE-4CD0-B42A-A41C81569B69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -33,11 +35,20 @@ Global
 		{CD3D9466-A29A-4D10-B1FD-8831B7E13170}.Release|iPhone.Build.0 = Release|iPhone
 		{CD3D9466-A29A-4D10-B1FD-8831B7E13170}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{CD3D9466-A29A-4D10-B1FD-8831B7E13170}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Debug|iPhone.Build.0 = Debug|iPhone
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Release|iPhone.ActiveCfg = Release|iPhone
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Release|iPhone.Build.0 = Release|iPhone
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ED3AD0E4-B9C8-4E43-B27B-6858D61F6042} = {E34DCC85-6B15-48CF-A707-210D80562355}
 		{87A2DAB2-A720-44C9-88CC-0F79881E37B9} = {ED3AD0E4-B9C8-4E43-B27B-6858D61F6042}
 		{CD3D9466-A29A-4D10-B1FD-8831B7E13170} = {ED3AD0E4-B9C8-4E43-B27B-6858D61F6042}
+		{E9F44438-27DE-4CD0-B42A-A41C81569B69} = {ED3AD0E4-B9C8-4E43-B27B-6858D61F6042}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = src\monotouch\StoryboardDemo\StoryboardDemo.csproj

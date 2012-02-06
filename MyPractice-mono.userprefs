@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/monotouch/CAStudy/AppDelegate.cs">
+    <Files>
+      <File FileName="src/monotouch/CAStudy/Main.cs" Line="18" Column="2" />
+      <File FileName="src/monotouch/CAStudy/AppDelegate.cs" Line="32" Column="53" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
