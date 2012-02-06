@@ -51,6 +51,6 @@ Global
 		{E9F44438-27DE-4CD0-B42A-A41C81569B69} = {ED3AD0E4-B9C8-4E43-B27B-6858D61F6042}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = src\monotouch\StoryboardDemo\StoryboardDemo.csproj
+		StartupItem = src\monotouch\CAStudy\CAStudy.csproj
 	EndGlobalSection
 EndGlobal

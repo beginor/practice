@@ -30,17 +30,7 @@ namespace CAStudy {
 			
 			// If you have defined a view, add it here:
 			// window.AddSubview (navigationController.View);
-			CALayer layerA = CALayer.Create();
-			layerA.Name = "LayerA";
-			layerA.Bounds = new System.Drawing.RectangleF(0f, 0f, 100f, 25f);
-			layerA.BorderWidth = 2.0f;
-			layerA.BorderColor = new CGColor(1.0f, 0f, 0f, 1f);
-			layerA.ContentsGravity = CALayer.GravityCenter;
-			layerA.Position = new System.Drawing.PointF(100f, 100f);
-			
-			window.RootViewController = new UIViewController();
-			window.RootViewController.View.Layer.AddSublayer(layerA);
-			
+			window.RootViewController = new ViewController();
 			// make the window visible
 			window.MakeKeyAndVisible();
 			

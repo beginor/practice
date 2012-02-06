@@ -2,10 +2,11 @@
 *.manifest
 *.user
 *.pidb
-.DS_Store
+*.DS_Store
 TestResults
 obj
 bin
 Bin
 ClientBin
 clientbin
+build
