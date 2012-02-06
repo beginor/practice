@@ -31,7 +31,8 @@ namespace CAStudy {
 		
 		private void AddToolbarItems() {
 			var items = new List<UIBarButtonItem>{
-				new UIBarButtonItem("Setup", UIBarButtonItemStyle.Bordered, (s, e) => { this.SetupLayer(); })
+				new UIBarButtonItem("Setup", UIBarButtonItemStyle.Bordered, (s, e) => { this.SetupLayer(); }),
+				new UIBarButtonItem("Move", UIBarButtonItemStyle.Bordered, (s, e) => { this.MoveLayer(); })
 			};
 			this.Toolbar.SetItems(items.ToArray(), true);
 		}
@@ -54,6 +55,15 @@ namespace CAStudy {
 			this.View.Layer.AddSublayer(layer);
 		}
 
+		private void MoveLayer() {
+			var layer = this.View.Layer.Sublayers.FirstOrDefault(l => l.Name == "TestLayer");
+			if (layer == null) {
+				return;
+			}
+			var pos = layer.Position;
+			pos.X = pos.X == 50f ? 270f : 50f;
+			layer.Position = pos;
+		}
 		
 		public override void ViewDidUnload() {
 			base.ViewDidUnload();
