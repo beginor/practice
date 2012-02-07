@@ -13,6 +13,8 @@
 		52F9270314E1574100876175 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F9270114E1574100876175 /* InfoPlist.strings */; };
 		52F9270514E1574100876175 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F9270414E1574100876175 /* main.m */; };
 		52F9270914E1574100876175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F9270814E1574100876175 /* AppDelegate.m */; };
+		52F9271214E1579400876175 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F9271014E1579300876175 /* ViewController.m */; };
+		52F9271314E1579400876175 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F9271114E1579300876175 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		52F926F814E1574100876175 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		52F926FA14E1574100876175 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52F926FC14E1574100876175 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		52F9270014E1574100876175 /* CAStudy-Info.plist */ = {isa = PBXFileReference; path = "CAStudy-Info.plist"; sourceTree = "<group>"; };
+		52F9270014E1574100876175 /* CAStudy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CAStudy-Info.plist"; sourceTree = "<group>"; };
 		52F9270214E1574100876175 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52F9270414E1574100876175 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		52F9270614E1574100876175 /* CAStudy-Prefix.pch */ = {isa = PBXFileReference; path = "CAStudy-Prefix.pch"; sourceTree = "<group>"; };
-		52F9270714E1574100876175 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		52F9270614E1574100876175 /* CAStudy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAStudy-Prefix.pch"; sourceTree = "<group>"; };
+		52F9270714E1574100876175 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52F9270814E1574100876175 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		52F9270F14E1579300876175 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		52F9271014E1579300876175 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		52F9271114E1579300876175 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,9 @@
 				52F9270714E1574100876175 /* AppDelegate.h */,
 				52F9270814E1574100876175 /* AppDelegate.m */,
 				52F926FF14E1574100876175 /* Supporting Files */,
+				52F9270F14E1579300876175 /* ViewController.h */,
+				52F9271014E1579300876175 /* ViewController.m */,
+				52F9271114E1579300876175 /* ViewController.xib */,
 			);
 			path = CAStudy;
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52F9270314E1574100876175 /* InfoPlist.strings in Resources */,
+				52F9271314E1579400876175 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +162,7 @@
 			files = (
 				52F9270514E1574100876175 /* main.m in Sources */,
 				52F9270914E1574100876175 /* AppDelegate.m in Sources */,
+				52F9271214E1579400876175 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

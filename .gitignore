@@ -3,6 +3,7 @@
 *.user
 *.pidb
 *.DS_Store
+*.userprefs
 TestResults
 obj
 bin
