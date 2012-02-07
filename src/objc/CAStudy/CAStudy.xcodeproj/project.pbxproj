@@ -1,0 +1,263 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52F926F914E1574100876175 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F926F814E1574100876175 /* UIKit.framework */; };
+		52F926FB14E1574100876175 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F926FA14E1574100876175 /* Foundation.framework */; };
+		52F926FD14E1574100876175 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F926FC14E1574100876175 /* CoreGraphics.framework */; };
+		52F9270314E1574100876175 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52F9270114E1574100876175 /* InfoPlist.strings */; };
+		52F9270514E1574100876175 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F9270414E1574100876175 /* main.m */; };
+		52F9270914E1574100876175 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F9270814E1574100876175 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52F926F414E1574100876175 /* CAStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F926F814E1574100876175 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		52F926FA14E1574100876175 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52F926FC14E1574100876175 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		52F9270014E1574100876175 /* CAStudy-Info.plist */ = {isa = PBXFileReference; path = "CAStudy-Info.plist"; sourceTree = "<group>"; };
+		52F9270214E1574100876175 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52F9270414E1574100876175 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52F9270614E1574100876175 /* CAStudy-Prefix.pch */ = {isa = PBXFileReference; path = "CAStudy-Prefix.pch"; sourceTree = "<group>"; };
+		52F9270714E1574100876175 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		52F9270814E1574100876175 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52F926F114E1574100876175 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F926F914E1574100876175 /* UIKit.framework in Frameworks */,
+				52F926FB14E1574100876175 /* Foundation.framework in Frameworks */,
+				52F926FD14E1574100876175 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52F926E914E1574100876175 = {
+			isa = PBXGroup;
+			children = (
+				52F926FE14E1574100876175 /* CAStudy */,
+				52F926F714E1574100876175 /* Frameworks */,
+				52F926F514E1574100876175 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52F926F514E1574100876175 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52F926F414E1574100876175 /* CAStudy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52F926F714E1574100876175 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52F926F814E1574100876175 /* UIKit.framework */,
+				52F926FA14E1574100876175 /* Foundation.framework */,
+				52F926FC14E1574100876175 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52F926FE14E1574100876175 /* CAStudy */ = {
+			isa = PBXGroup;
+			children = (
+				52F9270714E1574100876175 /* AppDelegate.h */,
+				52F9270814E1574100876175 /* AppDelegate.m */,
+				52F926FF14E1574100876175 /* Supporting Files */,
+			);
+			path = CAStudy;
+			sourceTree = "<group>";
+		};
+		52F926FF14E1574100876175 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52F9270014E1574100876175 /* CAStudy-Info.plist */,
+				52F9270114E1574100876175 /* InfoPlist.strings */,
+				52F9270414E1574100876175 /* main.m */,
+				52F9270614E1574100876175 /* CAStudy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52F926F314E1574100876175 /* CAStudy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52F9270C14E1574100876175 /* Build configuration list for PBXNativeTarget "CAStudy" */;
+			buildPhases = (
+				52F926F014E1574100876175 /* Sources */,
+				52F926F114E1574100876175 /* Frameworks */,
+				52F926F214E1574100876175 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CAStudy;
+			productName = CAStudy;
+			productReference = 52F926F414E1574100876175 /* CAStudy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52F926EB14E1574100876175 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 52F926EE14E1574100876175 /* Build configuration list for PBXProject "CAStudy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52F926E914E1574100876175;
+			productRefGroup = 52F926F514E1574100876175 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52F926F314E1574100876175 /* CAStudy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52F926F214E1574100876175 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F9270314E1574100876175 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52F926F014E1574100876175 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F9270514E1574100876175 /* main.m in Sources */,
+				52F9270914E1574100876175 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52F9270114E1574100876175 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52F9270214E1574100876175 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52F9270A14E1574100876175 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		52F9270B14E1574100876175 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52F9270D14E1574100876175 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CAStudy/CAStudy-Prefix.pch";
+				INFOPLIST_FILE = "CAStudy/CAStudy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		52F9270E14E1574100876175 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CAStudy/CAStudy-Prefix.pch";
+				INFOPLIST_FILE = "CAStudy/CAStudy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52F926EE14E1574100876175 /* Build configuration list for PBXProject "CAStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F9270A14E1574100876175 /* Debug */,
+				52F9270B14E1574100876175 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52F9270C14E1574100876175 /* Build configuration list for PBXNativeTarget "CAStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52F9270D14E1574100876175 /* Debug */,
+				52F9270E14E1574100876175 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52F926EB14E1574100876175 /* Project object */;
+}
