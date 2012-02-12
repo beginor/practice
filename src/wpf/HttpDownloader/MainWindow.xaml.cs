@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Windows;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
 using WinForms = System.Windows.Forms;
 using IO = System.IO;
 
@@ -93,7 +82,7 @@ namespace HttpDownloader {
 					IO.Directory.CreateDirectory(dir);
 				}
 				else if (IO.File.Exists(fullPath)) {
-					IO.File.Delete(fullPath);
+					return;
 				}
 				var webClient = new WebClient();
 				webClient.DownloadFile(uri, fullPath);
@@ -108,6 +97,9 @@ namespace HttpDownloader {
 			var host = uri.DnsSafeHost;
 			var filePath = host + uri.AbsolutePath;
 			filePath = filePath.Replace(IO.Path.AltDirectorySeparatorChar, IO.Path.DirectorySeparatorChar);
+			if (filePath.LastIndexOf(IO.Path.DirectorySeparatorChar) == filePath.Length - 1) {
+				filePath = filePath + "Default.aspx";
+			}
 			return filePath;
 		}
 
