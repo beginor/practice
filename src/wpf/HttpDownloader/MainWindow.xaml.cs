@@ -98,7 +98,7 @@ namespace HttpDownloader {
 			var filePath = host + uri.AbsolutePath;
 			filePath = filePath.Replace(IO.Path.AltDirectorySeparatorChar, IO.Path.DirectorySeparatorChar);
 			if (filePath.LastIndexOf(IO.Path.DirectorySeparatorChar) == filePath.Length - 1) {
-				filePath = filePath + "Default.aspx";
+				filePath = filePath + "default.htm";
 			}
 			return filePath;
 		}
