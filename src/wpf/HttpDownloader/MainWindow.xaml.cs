@@ -55,11 +55,11 @@ namespace HttpDownloader {
 			this.LocalDirectoryBrowsButton.IsEnabled = false;
 
 			var tasks = new Task[urlCount];
-			var context = System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext();
+			var uiSyncContext = System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext();
 			Task.Factory.StartNew(() => {
 				for (int i = 0; i < urlCount; i++) {
 					var uri = new Uri(urls[i]);
-					tasks[i] = Task.Factory.StartNew(() => this.SaveUri(uri, rootDirectory)).ContinueWith(t => this.DownloadProgressBar.Value += 1, context);
+					tasks[i] = Task.Factory.StartNew(() => this.SaveUri(uri, rootDirectory)).ContinueWith(t => this.DownloadProgressBar.Value += 1, uiSyncContext);
 				}
 				Task.WaitAll(tasks);
 			}).ContinueWith(t => {
@@ -70,7 +70,7 @@ namespace HttpDownloader {
 				this.UrlsTextBox.IsEnabled = true;
 				this.LocalDirectoryTextBox.IsEnabled = true;
 				this.LocalDirectoryBrowsButton.IsEnabled = true;
-			}, context);
+			}, uiSyncContext);
 		}
 
 		private void SaveUri(Uri uri, string rootDirectory) {
