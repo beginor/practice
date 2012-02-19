@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>ASP.NET Web API</title>
+	<script type="text/javascript" src="http://www-app.gdepb.gov.cn/ext-core/ext-core-debug.js"></script>
+</head>
+<body>
+	<div>
+		<h1>All Categories</h1>
+		<ul id='categories' />
+	</div>
+	<div>
+		<label for="prodId">ID:</label>
+		<input type="text" id="prodId" size="5" />
+		<input type="button" value="Search" onclick="find();" />
+		<p id="product" />
+	</div>
+	<script type="text/javascript">
+		Ext.onReady(function() {
+			Ext.Ajax.request({
+				url: 'api/category/',
+				disableCaching: false,
+				success: function(request) {
+					var categories = Ext.util.JSON.decode(request.responseText);
+					Ext.each(categories, function(c) {
+						var str = String.format("{0}, {1}", c.CategoryName, c.Description);
+						Ext.fly('categories').createChild({ tag: 'li', html: str });
+					});
+				},
+				failure: function (request) {
+					Ext.fly('categories').update('Error: ' + request.responseText);
+				}
+			});
+		});
+
+		function find() {
+			var id = Ext.fly('prodId').getValue();
+			Ext.Ajax.request({
+				url: 'api/category/' + id,
+				disableCaching: false,
+				success: function(request) {
+					var c = Ext.util.JSON.decode(request.responseText);
+					var str = String.format("{0}, {1}", c.CategoryName, c.Description);
+					Ext.fly('product').update(str);
+				},
+				failure: function (request) {
+					Ext.fly('product').update('Error: ' + request.responseText);
+				}
+			});
+		}
+	</script>
+</body>
+</html>
