@@ -18,7 +18,7 @@
 	<script type="text/javascript">
 		Ext.onReady(function() {
 			Ext.Ajax.request({
-				url: 'api/category/',
+				url: 'api/categories/',
 				disableCaching: false,
 				success: function(request) {
 					var categories = Ext.util.JSON.decode(request.responseText);
@@ -36,7 +36,7 @@
 		function find() {
 			var id = Ext.fly('prodId').getValue();
 			Ext.Ajax.request({
-				url: 'api/category/' + id,
+				url: 'api/categories/' + id,
 				disableCaching: false,
 				success: function(request) {
 					var c = Ext.util.JSON.decode(request.responseText);
