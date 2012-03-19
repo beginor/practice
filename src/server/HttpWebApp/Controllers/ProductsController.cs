@@ -21,19 +21,14 @@ namespace HttpWebApp.Controllers {
 
 		public Product GetProductById(int id) {
 			var product = this.HibernateContext.Products.FirstOrDefault(p => p.ProductID == id);
-
 			if (product == null) {
 				throw new HttpResponseException(HttpStatusCode.NotFound);
 			}
-
 			return product;
 		}
 
 		public HttpResponseMessage<Product> PostProduct(Product product) {
-			using (var trans = this.HibernateContext.Session.BeginTransaction()) {
-				this.HibernateContext.Session.Update(product);
-				trans.Commit();
-			}
+			this.HibernateContext.Session.Save(product);
 			var result = new HttpResponseMessage<Product>(product, HttpStatusCode.Created);
 			var location = Url.Route(null, new {
 				id = product.ProductID
@@ -43,22 +38,17 @@ namespace HttpWebApp.Controllers {
 		}
 
 		public HttpResponseMessage PutProduct(int id, Product product) {
-			using (var trans = this.HibernateContext.Session.BeginTransaction()) {
-				product.ProductID = id;
-				this.HibernateContext.Session.Save(product);
-				trans.Commit();
+			if (!this.HibernateContext.Products.Any(p => p.ProductID == id)) {
+				throw new HttpResponseException(HttpStatusCode.NotFound);
 			}
+			product.ProductID = id;
+			this.HibernateContext.Update(product);
 			return new HttpResponseMessage(HttpStatusCode.OK);
 		}
 
 		public HttpResponseMessage DeleteProduct(int id) {
 			var product = this.HibernateContext.Products.FirstOrDefault(p => p.ProductID == id);
-			if (product == null) {
-				throw new HttpResponseException(HttpStatusCode.NotFound);
-			}
-			var trans = this.HibernateContext.Session.BeginTransaction();
-			this.HibernateContext.Session.Delete(product);
-			trans.Commit();
+			this.HibernateContext.Delete(product);
 			return new HttpResponseMessage(HttpStatusCode.NoContent);
 		}
 	}
