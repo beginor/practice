@@ -14,9 +14,9 @@ namespace UnitTest {
 		[Test]
 		public void TestRequest() {
 			var client = new HttpClient {
-				BaseAddress = new Uri("http://localhost:25422/", UriKind.Absolute)
+				BaseAddress = new Uri("http://localhost:25422/api/", UriKind.Absolute)
 			};
-			var requestTask = client.GetAsync("api/categories");
+			var requestTask = client.GetAsync("categorytest");
 			requestTask.Wait();
 			var responseMessage = requestTask.Result;
 			responseMessage.EnsureSuccessStatusCode();
@@ -27,11 +27,6 @@ namespace UnitTest {
 			var result = readTask.Result;
 
 			Assert.IsTrue(result.Any());
-
-			var task = client.GetAsync("api/categories/1").ContinueWith(t => t.Result.Content.ReadAsAsync<Category>());
-			task.Wait();
-			Assert.IsNotNull(task.Result);
-			Assert.AreEqual(1, task.Result.Result.CategoryID);
 		}
 	}
 }
