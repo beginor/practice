@@ -18,13 +18,13 @@ namespace UnitTest {
 		[SetUp]
 		public void SetUp() {
 			this._httpClient = new HttpClient {
-				BaseAddress = new Uri("http://localhost:25422/api/categorytest/", UriKind.Absolute)
+				BaseAddress = new Uri("http://localhost:25422/api/", UriKind.Absolute)
 			};
 		}
 
 		[Test]
 		public void TestGetAll() {
-			var requestTask = this._httpClient.GetAsync("");
+			var requestTask = this._httpClient.GetAsync("categorytest");
 			requestTask.Wait();
 			var responseMessage = requestTask.Result;
 			responseMessage.EnsureSuccessStatusCode();
@@ -40,7 +40,7 @@ namespace UnitTest {
 		[Test]
 		public void TestGetById() {
 			const int id = 1;
-			var requestTask = this._httpClient.GetAsync(id.ToString(CultureInfo.InvariantCulture));
+			var requestTask = this._httpClient.GetAsync("categorytest/" + id);
 			requestTask.Wait();
 			var responseMsg = requestTask.Result;
 			responseMsg.EnsureSuccessStatusCode();
@@ -60,9 +60,10 @@ namespace UnitTest {
 				Description = "My category description"
 			};
 			var formatter = new JsonMediaTypeFormatter();
-			var requestMsg = new HttpRequestMessage<Category>(cat, new MediaTypeHeaderValue("application/json"), new [] { formatter } );
+			var mediaType = new MediaTypeHeaderValue("application/json");
+			var requestMsg = new HttpRequestMessage<Category>(cat, mediaType, new MediaTypeFormatter[] { formatter } );
 			
-			var requestTask = this._httpClient.PostAsync("", requestMsg.Content);
+			var requestTask = this._httpClient.PostAsync("categorytest", requestMsg.Content);
 			requestTask.Wait();
 			var responseMessage = requestTask.Result;
 			responseMessage.EnsureSuccessStatusCode();
