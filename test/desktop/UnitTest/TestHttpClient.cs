@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
 using HttpWebApp.Models;
 using NUnit.Framework;
 using System.Net.Http;
@@ -19,7 +16,7 @@ namespace UnitTest {
 		[SetUp]
 		public void SetUp() {
 			this._httpClient = new HttpClient {
-				BaseAddress = new Uri("http://localhost/HttpWebApp/", UriKind.Absolute)
+				BaseAddress = new Uri("http://localhost:25422/HttpWebApp/", UriKind.Absolute)
 			};
 		}
 
@@ -41,7 +38,8 @@ namespace UnitTest {
 		[Test]
 		public void TestGetById() {
 			const int id = 1;
-			var requestTask = this._httpClient.GetAsync("api/categorytest/" + id);
+			var uri = string.Format("api/categorytest/{0}", id);
+			var requestTask = this._httpClient.GetAsync(uri);
 			requestTask.Wait();
 			var responseMsg = requestTask.Result;
 			responseMsg.EnsureSuccessStatusCode();
@@ -61,14 +59,12 @@ namespace UnitTest {
 				Description = "My category description"
 			};
 			var formatter = new JsonMediaTypeFormatter();
-			var request = new HttpRequestMessage<Category>(cat, HttpMethod.Post, new Uri(this._httpClient.BaseAddress, "api/categorytest"), new MediaTypeFormatter[] { formatter });
+			var request = new HttpRequestMessage<Category>(cat, formatter.SupportedMediaTypes.First(), new MediaTypeFormatter[] { formatter }) {
+				Method = HttpMethod.Post,
+				RequestUri = new Uri("api/categorytest", UriKind.Relative)
+			};
 
-			var readContentTask = request.Content.ReadAsStringAsync();
-			readContentTask.Wait();
-			var strContent = new StringContent(readContentTask.Result, Encoding.UTF8, formatter.SupportedMediaTypes.First().MediaType);
-			
-			var requestTask = this._httpClient.PostAsync("api/categorytest", strContent);
-			//var requestTask = this._httpClient.SendAsync(request);
+			var requestTask = this._httpClient.SendAsync(request);
 			requestTask.Wait();
 
 			var response = requestTask.Result;
@@ -76,6 +72,7 @@ namespace UnitTest {
 
 			var task = response.Content.ReadAsAsync<Category>();
 			task.Wait();
+
 			Assert.Greater(task.Result.CategoryID, 1);
 		}
 
@@ -86,14 +83,25 @@ namespace UnitTest {
 				CategoryName = "My category",
 				Description = "My category description"
 			};
+
+			var uri = string.Format("api/categorytest/{0}", cat.CategoryID);
 			var formatter = new JsonMediaTypeFormatter();
-			var request = new HttpRequestMessage<Category>(cat);
+			var request = new HttpRequestMessage<Category>(cat, formatter.SupportedMediaTypes.First(), new [] { formatter }) {
+				RequestUri = new Uri(uri, UriKind.Relative),
+				Method = HttpMethod.Put
+			};
 
-			var readContentTask = request.Content.ReadAsStringAsync();
-			readContentTask.Wait();
-			var strContent = new StringContent(readContentTask.Result, Encoding.UTF8, formatter.SupportedMediaTypes.First().MediaType);
+			var requestTask = this._httpClient.SendAsync(request);
+			requestTask.Wait();
 
-			var requestTask = this._httpClient.PutAsync("api/categorytest/" + cat.CategoryID, strContent);
+			var response = requestTask.Result;
+			response.EnsureSuccessStatusCode();
+		}
+
+		[Test]
+		public void TestDelete() {
+			var uri = "api/categorytest/4";
+			var requestTask = this._httpClient.DeleteAsync(uri);
 			requestTask.Wait();
 
 			var response = requestTask.Result;

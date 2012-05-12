@@ -4,14 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Routing;
 using HttpWebApp.Models;
 
 namespace HttpWebApp.Controllers {
 
 	public class CategoryTestController : ApiController {
 		
-		private static readonly IList<Category> Data = new List<Category> {
+		private static readonly List<Category> Data = new List<Category> {
 			new Category {
 				CategoryID = 1,
 				CategoryName = "Cat 1",
@@ -60,8 +59,13 @@ namespace HttpWebApp.Controllers {
 				throw new HttpResponseException(HttpStatusCode.NotFound);
 			}
 			cat.CategoryName = category.CategoryName;
-			cat.Description = category.Description;
+			cat.Description = category.Description + " (update at " + DateTime.Now + ")";
 			return new HttpResponseMessage(HttpStatusCode.OK);
+		}
+
+		public HttpResponseMessage DeleteCategory(int id) {
+			Data.RemoveAll(c => c.CategoryID == id);
+			return new HttpResponseMessage(HttpStatusCode.NoContent);
 		}
 	}
 }
