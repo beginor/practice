@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Text;
 using HttpWebApp.Models;
 using NUnit.Framework;
 using System.Net.Http;
@@ -18,13 +19,13 @@ namespace UnitTest {
 		[SetUp]
 		public void SetUp() {
 			this._httpClient = new HttpClient {
-				BaseAddress = new Uri("http://localhost:25422/api/", UriKind.Absolute)
+				BaseAddress = new Uri("http://localhost/HttpWebApp/", UriKind.Absolute)
 			};
 		}
 
 		[Test]
 		public void TestGetAll() {
-			var requestTask = this._httpClient.GetAsync("categorytest");
+			var requestTask = this._httpClient.GetAsync("api/categorytest");
 			requestTask.Wait();
 			var responseMessage = requestTask.Result;
 			responseMessage.EnsureSuccessStatusCode();
@@ -40,7 +41,7 @@ namespace UnitTest {
 		[Test]
 		public void TestGetById() {
 			const int id = 1;
-			var requestTask = this._httpClient.GetAsync("categorytest/" + id);
+			var requestTask = this._httpClient.GetAsync("api/categorytest/" + id);
 			requestTask.Wait();
 			var responseMsg = requestTask.Result;
 			responseMsg.EnsureSuccessStatusCode();
@@ -60,13 +61,43 @@ namespace UnitTest {
 				Description = "My category description"
 			};
 			var formatter = new JsonMediaTypeFormatter();
-			var mediaType = new MediaTypeHeaderValue("application/json");
-			var requestMsg = new HttpRequestMessage<Category>(cat, mediaType, new MediaTypeFormatter[] { formatter } );
+			var request = new HttpRequestMessage<Category>(cat, HttpMethod.Post, new Uri(this._httpClient.BaseAddress, "api/categorytest"), new MediaTypeFormatter[] { formatter });
+
+			var readContentTask = request.Content.ReadAsStringAsync();
+			readContentTask.Wait();
+			var strContent = new StringContent(readContentTask.Result, Encoding.UTF8, formatter.SupportedMediaTypes.First().MediaType);
 			
-			var requestTask = this._httpClient.PostAsync("categorytest", requestMsg.Content);
+			var requestTask = this._httpClient.PostAsync("api/categorytest", strContent);
+			//var requestTask = this._httpClient.SendAsync(request);
 			requestTask.Wait();
-			var responseMessage = requestTask.Result;
-			responseMessage.EnsureSuccessStatusCode();
+
+			var response = requestTask.Result;
+			response.EnsureSuccessStatusCode();
+
+			var task = response.Content.ReadAsAsync<Category>();
+			task.Wait();
+			Assert.Greater(task.Result.CategoryID, 1);
+		}
+
+		[Test]
+		public void TestPut() {
+			var cat = new Category {
+				CategoryID = 4,
+				CategoryName = "My category",
+				Description = "My category description"
+			};
+			var formatter = new JsonMediaTypeFormatter();
+			var request = new HttpRequestMessage<Category>(cat);
+
+			var readContentTask = request.Content.ReadAsStringAsync();
+			readContentTask.Wait();
+			var strContent = new StringContent(readContentTask.Result, Encoding.UTF8, formatter.SupportedMediaTypes.First().MediaType);
+
+			var requestTask = this._httpClient.PutAsync("api/categorytest/" + cat.CategoryID, strContent);
+			requestTask.Wait();
+
+			var response = requestTask.Result;
+			response.EnsureSuccessStatusCode();
 		}
 	}
 }

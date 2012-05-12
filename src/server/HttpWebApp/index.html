@@ -18,12 +18,12 @@
 	<script type="text/javascript">
 		Ext.onReady(function() {
 			Ext.Ajax.request({
-				url: 'api/categories/',
+				url: 'api/categorytest/',
 				disableCaching: false,
 				success: function(request) {
 					var categories = Ext.util.JSON.decode(request.responseText);
 					Ext.each(categories, function(c) {
-						var str = String.format("{0}, {1}", c.CategoryName, c.Description);
+						var str = String.format("{0}, {1}, {2}", c.CategoryID, c.CategoryName, c.Description);
 						Ext.fly('categories').createChild({ tag: 'li', html: str });
 					});
 				},
@@ -36,7 +36,7 @@
 		function find() {
 			var id = Ext.fly('prodId').getValue();
 			Ext.Ajax.request({
-				url: 'api/categories/' + id,
+				url: 'api/categorytest/' + id,
 				disableCaching: false,
 				success: function(request) {
 					var c = Ext.util.JSON.decode(request.responseText);

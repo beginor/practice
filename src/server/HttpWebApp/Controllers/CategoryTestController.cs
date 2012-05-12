@@ -50,8 +50,18 @@ namespace HttpWebApp.Controllers {
 			var url = Url.Route(null, new {
 				id = categoryId
 			});
-			message.Headers.Location = new Uri(url);
+			message.Headers.Location = new Uri(url, UriKind.Relative);
 			return message;
-		} 
+		}
+
+		public HttpResponseMessage PutCategory(int id, Category category) {
+			var cat = Data.FirstOrDefault(c => c.CategoryID == id);
+			if (cat == null) {
+				throw new HttpResponseException(HttpStatusCode.NotFound);
+			}
+			cat.CategoryName = category.CategoryName;
+			cat.Description = category.Description;
+			return new HttpResponseMessage(HttpStatusCode.OK);
+		}
 	}
 }
