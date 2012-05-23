@@ -1,0 +1,212 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5277B9ED156BC8E5003E4A23 /* native-activity.c in Sources */ = {isa = PBXBuildFile; fileRef = 5277B9EC156BC8E5003E4A23 /* native-activity.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5277B9E4156BC7F3003E4A23 /* libAndroidNDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAndroidNDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5277B9EC156BC8E5003E4A23 /* native-activity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "native-activity.c"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5277B9E1156BC7F3003E4A23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5277B9D9156BC7F3003E4A23 = {
+			isa = PBXGroup;
+			children = (
+				5277B9EB156BC8CB003E4A23 /* Src */,
+				5277B9E5156BC7F3003E4A23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5277B9E5156BC7F3003E4A23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5277B9E4156BC7F3003E4A23 /* libAndroidNDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5277B9EB156BC8CB003E4A23 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				5277B9EC156BC8E5003E4A23 /* native-activity.c */,
+			);
+			name = Src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5277B9E2156BC7F3003E4A23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5277B9E3156BC7F3003E4A23 /* AndroidNDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5277B9E8156BC7F3003E4A23 /* Build configuration list for PBXNativeTarget "AndroidNDK" */;
+			buildPhases = (
+				5277B9E0156BC7F3003E4A23 /* Sources */,
+				5277B9E1156BC7F3003E4A23 /* Frameworks */,
+				5277B9E2156BC7F3003E4A23 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AndroidNDK;
+			productName = AndroidNDK;
+			productReference = 5277B9E4156BC7F3003E4A23 /* libAndroidNDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5277B9DB156BC7F3003E4A23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 5277B9DE156BC7F3003E4A23 /* Build configuration list for PBXProject "AndroidNDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5277B9D9156BC7F3003E4A23;
+			productRefGroup = 5277B9E5156BC7F3003E4A23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5277B9E3156BC7F3003E4A23 /* AndroidNDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5277B9E0156BC7F3003E4A23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5277B9ED156BC8E5003E4A23 /* native-activity.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5277B9E6156BC7F3003E4A23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"~/android/ndk/platforms/android-14/arch-arm/usr/include",
+					"~/android/ndk/sources/android/native_app_glue",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5277B9E7156BC7F3003E4A23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"~/android/ndk/platforms/android-14/arch-arm/usr/include",
+					"~/android/ndk/sources/android/native_app_glue",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5277B9E9156BC7F3003E4A23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5277B9EA156BC7F3003E4A23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5277B9DE156BC7F3003E4A23 /* Build configuration list for PBXProject "AndroidNDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5277B9E6156BC7F3003E4A23 /* Debug */,
+				5277B9E7156BC7F3003E4A23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5277B9E8156BC7F3003E4A23 /* Build configuration list for PBXNativeTarget "AndroidNDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5277B9E9156BC7F3003E4A23 /* Debug */,
+				5277B9EA156BC7F3003E4A23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5277B9DB156BC7F3003E4A23 /* Project object */;
+}
