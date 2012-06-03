@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using HttpWebApp.Models;
+using Newtonsoft.Json;
 
 namespace HttpWebApp.Controllers {
 
@@ -20,14 +22,21 @@ namespace HttpWebApp.Controllers {
 		public Product GetProductById(int id) {
 			var product = this.HibernateContext.Products.FirstOrDefault(p => p.ProductID == id);
 			if (product == null) {
-				throw new HttpResponseException(HttpStatusCode.NotFound);
+				var msg = new HttpResponseMessage(HttpStatusCode.NotFound);
+				throw new HttpResponseException(msg);
 			}
 			return product;
 		}
 
-		public HttpResponseMessage<Product> PostProduct(Product product) {
+		public HttpResponseMessage PostProduct(Product product) {
 			this.HibernateContext.Session.Save(product);
-			var result = new HttpResponseMessage<Product>(product, HttpStatusCode.Created);
+			var result = new HttpResponseMessage(HttpStatusCode.Created);
+			var formatter = new JsonMediaTypeFormatter {
+				SerializerSettings = {
+					Formatting = Formatting.Indented
+				}
+			};
+			result.Content = new ObjectContent<Product>(product, formatter, formatter.SupportedMediaTypes.First().MediaType);
 			var location = Url.Route(null, new {
 				id = product.ProductID
 			});
@@ -36,8 +45,8 @@ namespace HttpWebApp.Controllers {
 		}
 
 		public HttpResponseMessage PutProduct(int id, Product product) {
-			if (!this.HibernateContext.Products.Any(p => p.ProductID == id)) {
-				throw new HttpResponseException(HttpStatusCode.NotFound);
+			if (this.HibernateContext.Products.All(p => p.ProductID != id)) {
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
 			}
 			product.ProductID = id;
 			this.HibernateContext.Update(product);

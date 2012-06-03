@@ -26,7 +26,8 @@ namespace HttpWebApp {
 		protected virtual void RegisterObjectContainer() {
 			IObjectContainerFactory factory = new ObjectContainerFactory();
 			var container = factory.CreateContainer(Server.MapPath("~/unity.config"));
-			GlobalConfiguration.Configuration.ServiceResolver.SetResolver(new UnityDependencyResolver(container));
+			GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+			//GlobalConfiguration.Configuration.ServiceResolver.SetResolver(new UnityDependencyResolver(container));
 		}
 
 		protected virtual void RegisterApiRoutes(RouteCollection routes) {

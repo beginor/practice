@@ -52,10 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\src\server\HttpWebApp\Models\Category.cs">
+    <Compile Include="..\HttpWebApp\Models\Category.cs">
       <Link>Models\Category.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\src\server\HttpWebApp\Models\Product.cs">
+    <Compile Include="..\HttpWebApp\Models\Product.cs">
       <Link>Models\Product.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

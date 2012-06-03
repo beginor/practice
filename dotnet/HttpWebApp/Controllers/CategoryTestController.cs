@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using HttpWebApp.Models;
 
@@ -35,17 +36,19 @@ namespace HttpWebApp.Controllers {
 		public Category GetCategoryById(int id) {
 			var category = Data.FirstOrDefault(c => c.CategoryID == id);
 			if (category == null) {
-				throw new HttpResponseException(HttpStatusCode.NotFound);
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
 			}
 			return category;
 		}
 
-		public HttpResponseMessage<Category> PostCategory(Category category) {
+		public HttpResponseMessage PostCategory(Category category) {
 			var categoryId = Data.Max(c => c.CategoryID) + 1;
 			category.CategoryID = categoryId;
 			Data.Add(category);
 
-			var message = new HttpResponseMessage<Category>(category, HttpStatusCode.Created);
+			var message = new HttpResponseMessage(HttpStatusCode.Created) {
+				Content = new ObjectContent<Category>(category, new JsonMediaTypeFormatter())
+			};
 			var url = Url.Route(null, new {
 				id = categoryId
 			});
@@ -56,7 +59,7 @@ namespace HttpWebApp.Controllers {
 		public HttpResponseMessage PutCategory(int id, Category category) {
 			var cat = Data.FirstOrDefault(c => c.CategoryID == id);
 			if (cat == null) {
-				throw new HttpResponseException(HttpStatusCode.NotFound);
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
 			}
 			cat.CategoryName = category.CategoryName;
 			cat.Description = category.Description + " (update at " + DateTime.Now + ")";

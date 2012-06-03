@@ -58,10 +58,8 @@ namespace UnitTest {
 				CategoryName = "My category",
 				Description = "My category description"
 			};
-			var formatter = new JsonMediaTypeFormatter();
-			var request = new HttpRequestMessage<Category>(cat, formatter.SupportedMediaTypes.First(), new MediaTypeFormatter[] { formatter }) {
-				Method = HttpMethod.Post,
-				RequestUri = new Uri("api/categorytest", UriKind.Relative)
+			var request = new HttpRequestMessage(HttpMethod.Post, "api/categorytest") {
+				Content = new ObjectContent<Category>(cat, new JsonMediaTypeFormatter())
 			};
 
 			var requestTask = this._httpClient.SendAsync(request);
@@ -84,11 +82,8 @@ namespace UnitTest {
 				Description = "My category description"
 			};
 
-			var uri = string.Format("api/categorytest/{0}", cat.CategoryID);
-			var formatter = new JsonMediaTypeFormatter();
-			var request = new HttpRequestMessage<Category>(cat, formatter.SupportedMediaTypes.First(), new [] { formatter }) {
-				RequestUri = new Uri(uri, UriKind.Relative),
-				Method = HttpMethod.Put
+			var request = new HttpRequestMessage(HttpMethod.Put, string.Format("api/categorytest/{0}", cat.CategoryID)) {
+				Content = new ObjectContent<Category>(cat, new JsonMediaTypeFormatter())
 			};
 
 			var requestTask = this._httpClient.SendAsync(request);

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using HttpWebApp.Models;
 
@@ -16,11 +17,11 @@ namespace HttpWebApp.Controllers {
 
 		public Category Get(int id) {
 			if (id <= 0) {
-				throw new HttpResponseException("Invalid id", HttpStatusCode.BadRequest);
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.BadRequest));
 			}
 			var category = this.HibernateContext.Categories.FirstOrDefault(c => c.CategoryID == id);
 			if (category == null) {
-				throw new HttpResponseException("Not found", HttpStatusCode.NotFound);
+				throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
 			}
 			return category;
 		}

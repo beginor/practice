@@ -2,7 +2,7 @@
 using System.Diagnostics;
 
 namespace HttpWebApp {
-
+	/*
 	public class Logger : System.Web.Http.Common.ILogger {
 
 		private log4net.ILog _log = log4net.LogManager.GetLogger(typeof(Logger));
@@ -15,4 +15,5 @@ namespace HttpWebApp {
 			_log.DebugFormat("category: {0}, level: {1}, message: {2}", category, level, messageCallback());
 		}
 	}
+	*/
 }
