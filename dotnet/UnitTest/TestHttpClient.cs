@@ -102,5 +102,29 @@ namespace UnitTest {
 			var response = requestTask.Result;
 			response.EnsureSuccessStatusCode();
 		}
+
+		[Test]
+		public void TestPostMessage() {
+			var content = new Dictionary<string, string> {
+				{ "username", "zhang" },
+				{ "password", "zhimin" },
+				{ "savepass", "true" }
+			};
+			var request = new HttpRequestMessage(HttpMethod.Post, "http://zhang.gdepb.gov.cn/website/test.mvc/login") {
+				Content = new FormUrlEncodedContent(content)
+			};
+
+			var client = new HttpClient();
+			var requestTask = client.SendAsync(request);
+			requestTask.Wait();
+
+			var response = requestTask.Result;
+			Assert.True(response.IsSuccessStatusCode);
+
+			var readTask = response.Content.ReadAsStringAsync();
+			readTask.Wait();
+
+			Assert.IsNotNull(readTask.Result);
+		}
 	}
 }
