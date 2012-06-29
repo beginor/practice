@@ -32,11 +32,11 @@ int Monster_init(void *self)
 
 Object MonsterProto = {
 	.init = Monster_init,
-	.attack = Monster_attack;
-}
+	.attack = Monster_attack
+};
 
 
-void *Rome_move(void *self, Direction direction)
+void *Room_move(void *self, Direction direction)
 {
 	Room *room = self;
 	Room *next = NULL;
@@ -107,7 +107,7 @@ int Map_attack(void *self, int damage)
 	Map *map = self;
 	Room *location = map->location;
 	
-	return location._(attack)(location, damage);
+	return location->_(attack)(location, damage);
 }
 
 
@@ -191,7 +191,7 @@ int process_input(Map *game)
 			break;
 			
 		default:
-			printf("What?: %d\n, ch);
+			printf("What?: %d\n", ch);
 	}
 	
 	return 1;
