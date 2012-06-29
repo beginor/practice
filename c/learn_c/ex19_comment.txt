@@ -1,0 +1,10 @@
+I use Debian 6, when  trying to make ex19, I got the following error:
+
+make ex19
+cc -Wall -g   -c -o object.o object.c
+cc1: error: object.c: Value too large for defined data type
+make: *** [object.o] Error 1
+
+but the code can be compiled and run under osx.
+
+Its a pleasure to read you book, thanks!
