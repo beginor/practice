@@ -7,6 +7,7 @@
 *.cache
 *.xap
 *.Publish.xml
+*.dSYM
 [Tt]est[Rr]esults
 [Oo]bj
 [Oo]utput
