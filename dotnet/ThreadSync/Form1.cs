@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,7 +16,7 @@ namespace ThreadSync {
 
 		private void button1_Click(object sender, EventArgs e) {
 			Debug.WriteLine("Window Form Method.ThreadId:#{0}", Thread.CurrentThread.ManagedThreadId);
-			this.label1.Text = "Asynchronous Start.";
+			this.AddValue("Asynchronous Start.");
 
 			DoWork work = DoWorkMethod;
 			work.BeginInvoke(OnWorkCallback, work);
@@ -27,7 +28,23 @@ namespace ThreadSync {
 			if (work != null) {
 				work.EndInvoke(ar);
 			}
-			this.label1.Text = "Asyncronous End";
+			this.UpdateStatus("Asyncronous End");
+		}
+
+		void UpdateStatus(string input) {
+			ISynchronizeInvoke async = this.listBox1;
+			if (async.InvokeRequired) {
+				Action<string> action = this.AddValue;
+				async.Invoke(action, new object[] { input });
+			}
+			else {
+				this.AddValue(input);
+			}
+		}
+
+		void AddValue(string input) {
+			var item = string.Format("[(#{2}){0}]Context is null:{1}", input, Thread.CurrentContext == null, Thread.CurrentThread.ManagedThreadId);
+			this.listBox1.Items.Add(item);
 		}
 
 		private void DoWorkMethod() {
