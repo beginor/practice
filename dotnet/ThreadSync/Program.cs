@@ -21,11 +21,11 @@ namespace ThreadSync {
 
 			var form = new Form1();
 			Console.WriteLine("2.ThreadID:#{1},Synchronization Context is null?{0}", SynchronizationContext.Current == null, Thread.CurrentThread.ManagedThreadId);
-			//Application.Run(form);
+			Application.Run(form);
 
-			new Thread(Work).Start();
+			//new Thread(Work).Start();
 
-			Console.Read();
+			//Console.Read();
 		}
 
 		static void Work() {

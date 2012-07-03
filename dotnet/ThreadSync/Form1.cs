@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -18,28 +19,27 @@ namespace ThreadSync {
 			Debug.WriteLine("Window Form Method.ThreadId:#{0}", Thread.CurrentThread.ManagedThreadId);
 			this.AddValue("Asynchronous Start.");
 
+			var context = SynchronizationContext.Current;
+
 			DoWork work = DoWorkMethod;
-			work.BeginInvoke(OnWorkCallback, work);
+			work.BeginInvoke(OnWorkCallback, context);
 		}
 
 		private void OnWorkCallback(IAsyncResult ar) {
 			Debug.WriteLine("Asyncronous Callback Method.Thread: #{0}", Thread.CurrentThread.ManagedThreadId);
-			DoWork work = ar.AsyncState as DoWork;
+			AsyncResult async = (AsyncResult)ar;
+
+			DoWork work = (DoWork)async.AsyncDelegate;
 			if (work != null) {
 				work.EndInvoke(ar);
 			}
-			this.UpdateStatus("Asyncronous End");
+			this.UpdateStatus("Asyncronous End", ar.AsyncState);
 		}
 
-		void UpdateStatus(string input) {
-			ISynchronizeInvoke async = this.listBox1;
-			if (async.InvokeRequired) {
-				Action<string> action = this.AddValue;
-				async.Invoke(action, new object[] { input });
-			}
-			else {
-				this.AddValue(input);
-			}
+		void UpdateStatus(string input, object syncContext) {
+			var context = syncContext as SynchronizationContext;
+			var callback = new SendOrPostCallback(p => this.AddValue(p.ToString()));
+			context.Post(callback, input);
 		}
 
 		void AddValue(string input) {
