@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g
 
-all: ex14 ex15 ex16 ex17 ex18 ex19 ex20 ex22_main ex23 ex24 ex25 ex27 ex29
+all: ex14 ex15 ex16 ex17 ex18 ex19 ex20 ex22_main ex23 ex24 ex25 ex27 ex29 ex31
 
 ex19: object.o
 
@@ -27,3 +27,4 @@ clean:
 	rm -f ex25
 	rm -f ex27
 	rm -f ex29
+	rm -f ex31
