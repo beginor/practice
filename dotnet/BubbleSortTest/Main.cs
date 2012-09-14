@@ -30,16 +30,19 @@ namespace BubbleSortTest {
 			if (array.Length <= 1) {
 				return;
 			}
-
+			var n = array.Length;
 			var swaped = false;
+			int count = 0;
 			do {
 				for (var i = 0; i < array.Length - 1; i++) {
 					if (array[i].CompareTo(array[i + 1]) > 0) {
 						Swap(ref array[i], ref array[i + 1]);
 						swaped = true;
 					}
-					Console.WriteLine("           : {0}", string.Join(",", array));
+					Console.WriteLine("          {1}: {0}", string.Join(",", array), count);
+					count += 1;
 				}
+				n = n - 1;
 			}
 			while (!swaped);
 		}
