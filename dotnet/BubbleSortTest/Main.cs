@@ -31,20 +31,21 @@ namespace BubbleSortTest {
 				return;
 			}
 			var n = array.Length;
-			var swaped = false;
+			//var swaped = false;
 			int count = 0;
 			do {
-				for (var i = 0; i < array.Length - 1; i++) {
+				var newn = 0;
+				for (var i = 0; i < n - 1; i++) {
 					if (array[i].CompareTo(array[i + 1]) > 0) {
 						Swap(ref array[i], ref array[i + 1]);
-						swaped = true;
+						newn = i + 1;
 					}
 					Console.WriteLine("          {1}: {0}", string.Join(",", array), count);
 					count += 1;
 				}
-				n = n - 1;
+				n = newn;
 			}
-			while (!swaped);
+			while (n > 0);
 		}
 	}
 }
