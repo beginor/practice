@@ -28,8 +28,67 @@ namespace HibernateTest.Tests {
 		}
 
 		[Test]
-		public void TestLambdaQuery() {
-			
+		public void TestGetEntity() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				session.Get<Category>(1);
+			}
+			using (var session = this._sessionFactory.OpenSession()) {
+				session.Get<Category>(1);
+			}
+		}
+
+		[Test]
+		public void TestHqlQuery() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				var query = session.CreateQuery("from Category")
+					.SetCacheMode(CacheMode.Normal)
+					.SetCacheRegion("AllCategories")
+					.SetCacheable(true);
+				query.List<Category>();
+			}
+			using (var session = this._sessionFactory.OpenSession()) {
+				var query = session.CreateQuery("from Category")
+					.SetCacheMode(CacheMode.Normal)
+					.SetCacheRegion("AllCategories")
+					.SetCacheable(true);
+				query.List<Category>();
+			}
+		}
+
+		[Test]
+		public void TestLinqQuery() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				var query = session.Query<Category>()
+					.Cacheable()
+					.CacheMode(CacheMode.Normal)
+					.CacheRegion("AllCategories");
+				var result = query.ToList();
+			}
+			using (var session = this._sessionFactory.OpenSession()) {
+				var query = session.Query<Category>()
+					.Cacheable()
+					.CacheMode(CacheMode.Normal)
+					.CacheRegion("AllCategories");
+				var result = query.ToList();
+			}
+		}
+
+		[Test]
+		public void TestQueryOver() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				var query = session.QueryOver<Category>()
+					.Cacheable()
+					.CacheMode(CacheMode.Normal)
+					.CacheRegion("AllCategories");
+				query.List();
+			}
+			using (var session = this._sessionFactory.OpenSession()) {
+				var query = session.QueryOver<Category>()
+					.Cacheable()
+					.CacheMode(CacheMode.Normal)
+					.CacheRegion("AllCategories");
+				query.List();
+			}
 		}
 	}
 }
