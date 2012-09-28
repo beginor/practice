@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using HibernateTest.Models;
 using NHibernate.Linq;
 using NUnit.Framework;
@@ -31,6 +32,48 @@ namespace HibernateTest.Tests {
 			using (var session = this._sessionFactory.OpenSession()) {
 				var categories = session.Query<Category>().ToList();
 				Assert.Greater(categories.Count, 0);
+			}
+		}
+
+		[Test]
+		public void TestSessionCache() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				var cat = session.Get<Category>(1);
+				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
+				cat = session.Get<Category>(1);
+				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
+			}
+		}
+
+		[Test]
+		public void TestSessionGet() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				Console.WriteLine("Before Get Category");
+				var cat = session.Get<Category>(1);
+				Console.WriteLine("After Get Category");
+			}
+		}
+
+		[Test]
+		public void TestSessionLoad() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				Console.WriteLine("Before Load Category");
+				var cat = session.Load<Category>(1);
+				Console.WriteLine("After Load Category");
+				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
+			}
+		}
+
+		[Test]
+		public void TestSessionLambdaQuery() {
+			using (var session = this._sessionFactory.OpenSession()) {
+				(from c in session.Query<Category>()
+				 where c.CategoryID == 1
+				 select c).First();
+
+				(from c in session.Query<Category>()
+				 where c.CategoryID == 1
+				 select c).First();
 			}
 		}
 	}
