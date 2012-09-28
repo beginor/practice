@@ -9,7 +9,7 @@ using NHibernate.Cfg;
 namespace HibernateTest.Tests {
 
 	[TestFixture]
-	public class TestHibernate {
+	public class SessionCacheTest {
 
 		private ISessionFactory _sessionFactory;
 
