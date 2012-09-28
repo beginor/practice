@@ -76,7 +76,6 @@ namespace HibernateTest.Tests {
 				(from c in session.Query<Category>()
 				 where c.CategoryID == 1
 				 select c).First();
-				var cat = session.Get<Category>(1);
 			}
 		}
 
