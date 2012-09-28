@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="HibernateTest" namespace="HibernateTest.Models">
+	<class name="Customer" table="[Customers]" schema="[dbo]">
+		<id name="CustomerID" column="[CustomerID]" type="string" />
+		<property name="CompanyName" column="[CompanyName]" type="string"/>
+		<property name="ContactName" column="[ContactName]" type="string"/>
+		<property name="ContactTitle" column="[ContactTitle]" type="string"/>
+		<property name="Address" column="[Address]" type="string"/>
+		<property name="City" column="[City]" type="string"/>
+		<property name="Region" column="[Region]" type="string"/>
+		<property name="PostalCode" column="[PostalCode]" type="string"/>
+		<property name="Country" column="[Country]" type="string"/>
+		<property name="Phone" column="[Phone]" type="string"/>
+		<property name="Fax" column="[Fax]" type="string"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="HibernateTest" namespace="HibernateTest.Models">
+	<class name="Employee" table="[Employees]" schema="[dbo]">
+		<id name="EmployeeID" column="[EmployeeID]" type="int" />
+		<property name="LastName" column="[LastName]" type="string"/>
+		<property name="FirstName" column="[FirstName]" type="string"/>
+		<property name="Title" column="[Title]" type="string"/>
+		<property name="TitleOfCourtesy" column="[TitleOfCourtesy]" type="string"/>
+		<property name="BirthDate" column="[BirthDate]" type="datetime"/>
+		<property name="HireDate" column="[HireDate]" type="datetime"/>
+		<property name="Address" column="[Address]" type="string"/>
+		<property name="City" column="[City]" type="string"/>
+		<property name="Region" column="[Region]" type="string"/>
+		<property name="PostalCode" column="[PostalCode]" type="string"/>
+		<property name="Country" column="[Country]" type="string"/>
+		<property name="HomePhone" column="[HomePhone]" type="string"/>
+		<property name="Extension" column="[Extension]" type="string"/>
+		<property name="Photo" column="[Photo]" type="binary"/>
+		<property name="Notes" column="[Notes]" type="string"/>
+		<property name="ReportsTo" column="[ReportsTo]" type="int"/>
+		<property name="PhotoPath" column="[PhotoPath]" type="string"/>
+	</class>
+</hibernate-mapping>
