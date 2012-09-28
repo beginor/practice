@@ -38,8 +38,10 @@ namespace HibernateTest.Tests {
 		[Test]
 		public void TestSessionCache() {
 			using (var session = this._sessionFactory.OpenSession()) {
+				Console.WriteLine("First get category 1");
 				var cat = session.Get<Category>(1);
 				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
+				Console.WriteLine("second get category 1");
 				cat = session.Get<Category>(1);
 				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
 			}
@@ -74,6 +76,19 @@ namespace HibernateTest.Tests {
 				(from c in session.Query<Category>()
 				 where c.CategoryID == 1
 				 select c).First();
+				var cat = session.Get<Category>(1);
+			}
+		}
+
+		[Test]
+		public void TestStatelessSession() {
+			using (var session = this._sessionFactory.OpenStatelessSession()) {
+				Console.WriteLine("First get category 1");
+				var cat = session.Get<Category>(1);
+				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
+				Console.WriteLine("second get category 1");
+				cat = session.Get<Category>(1);
+				Console.WriteLine("{0}, {1}", cat.CategoryID, cat.CategoryName);
 			}
 		}
 	}
