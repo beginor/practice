@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="HibernateTest" namespace="HibernateTest.Models">
+	<class name="EmployeeTerritory" table="[EmployeeTerritories]" schema="[dbo]">
+		<id name="EmployeeID" column="[EmployeeID]" type="int" />
+		<property name="TerritoryID" column="[TerritoryID]" type="string"/>
+	</class>
+</hibernate-mapping>

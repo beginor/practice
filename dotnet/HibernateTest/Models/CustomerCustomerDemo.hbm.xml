@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="HibernateTest" namespace="HibernateTest.Models">
+	<class name="CustomerCustomerDemo" table="[CustomerCustomerDemo]" schema="[dbo]">
+		<id name="CustomerID" column="[CustomerID]" type="string" />
+		<property name="CustomerTypeID" column="[CustomerTypeID]" type="string"/>
+	</class>
+</hibernate-mapping>
