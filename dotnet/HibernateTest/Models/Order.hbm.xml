@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="HibernateTest" namespace="HibernateTest.Models">
+	<class name="Order" table="[Orders]" schema="[dbo]">
+		<id name="OrderID" column="[OrderID]" type="int" />
+		<property name="CustomerID" column="[CustomerID]" type="string"/>
+		<property name="EmployeeID" column="[EmployeeID]" type="int"/>
+		<property name="OrderDate" column="[OrderDate]" type="datetime"/>
+		<property name="RequiredDate" column="[RequiredDate]" type="datetime"/>
+		<property name="ShippedDate" column="[ShippedDate]" type="datetime"/>
+		<property name="ShipVia" column="[ShipVia]" type="int"/>
+		<property name="Freight" column="[Freight]" type="decimal"/>
+		<property name="ShipName" column="[ShipName]" type="string"/>
+		<property name="ShipAddress" column="[ShipAddress]" type="string"/>
+		<property name="ShipCity" column="[ShipCity]" type="string"/>
+		<property name="ShipRegion" column="[ShipRegion]" type="string"/>
+		<property name="ShipPostalCode" column="[ShipPostalCode]" type="string"/>
+		<property name="ShipCountry" column="[ShipCountry]" type="string"/>
+	</class>
+</hibernate-mapping>
