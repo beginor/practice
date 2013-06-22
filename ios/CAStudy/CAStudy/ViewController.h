@@ -12,4 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
+@property (weak, nonatomic) IBOutlet UIImageView *firstView;
+@property (weak, nonatomic) IBOutlet UIView *secondView;
+- (IBAction)animateItemClick:(id)sender;
 @end

@@ -39,6 +39,8 @@
 - (void)viewDidUnload
 {
     [self setToolbar:nil];
+	[self setFirstView:nil];
+	[self setSecondView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -50,4 +52,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)animateItemClick:(id)sender {
+	[UIView beginAnimations:@"ToggleViews" context:nil];
+	self.firstView.alpha = 0.0;
+	self.secondView.alpha = 1.0f;
+	[UIView setAnimationDuration:1.0];
+	[UIView commitAnimations];
+}
 @end
