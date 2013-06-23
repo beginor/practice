@@ -34,10 +34,21 @@ namespace AnimationCs
 
 		partial void SwitchBarItemClick (NSObject sender)
 		{
-			UIView.Animate(1.0, () => {
-				this.FirstView.Alpha = 0.0f;
-				this.SecondView.Alpha = 1.0f;
-			});
+			UIView.Animate(
+				1.0,
+				0.0,
+				UIViewAnimationOptions.CurveEaseIn,
+				() => this.FirstView.Alpha = 0.0f,
+				() => {
+					UIView.Animate(
+						1.0,
+						1.0,
+						UIViewAnimationOptions.CurveEaseOut,
+						() => this.FirstView.Alpha = 1.0f,
+						null
+					);
+				}
+			);
 		}
 	}
 }

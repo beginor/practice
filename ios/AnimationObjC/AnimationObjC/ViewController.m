@@ -33,9 +33,19 @@
 }
 
 - (IBAction)switchBarBtnItemClick:(id)sender {
-	[UIView animateWithDuration:1.0 animations:^{
-		self.firstView.alpha = 0.0;
-		self.secondView.alpha = 1.0;
-	}];
+	[UIView animateWithDuration:1.0
+								 delay:0.0
+							  options:UIViewAnimationOptionCurveEaseIn
+						  animations:^{
+							  self.firstView.alpha = 0.0;
+						  }
+						  completion:^(BOOL finished){
+							  [UIView animateWithDuration:1.0
+															delay:1.0
+														 options:UIViewAnimationOptionCurveEaseOut animations:^{
+															 self.firstView.alpha = 1.0;
+														 }
+													 completion:nil];
+						  }];
 }
 @end
