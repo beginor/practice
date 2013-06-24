@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IdeaTest</string>
+    <string name="activity_main_action1">activity_main_action1</string>
+</resources>
