@@ -23,15 +23,18 @@ namespace Cn.Beginor.ContextActionMode {
 		}
 
 		#region IOnLongClickListener implementation
-
 		bool View.IOnLongClickListener.OnLongClick(View v) {
+			return StartActionMode();
+		}
+		#endregion
+
+		bool StartActionMode() {
 			if (this._actionMode != null) {
 				return false;
 			}
 			this._actionMode = this.StartActionMode(this);
 			return true;
 		}
-		#endregion
 
 		#region ICallback implementation
 		bool ActionMode.ICallback.OnActionItemClicked(ActionMode mode, IMenuItem item) {
@@ -68,6 +71,20 @@ namespace Cn.Beginor.ContextActionMode {
 		public override bool OnCreateOptionsMenu(IMenu menu) {
 			this.MenuInflater.Inflate(Resource.Menu.activity_main, menu);
 			return true;
+		}
+
+		public override bool OnOptionsItemSelected(IMenuItem item) {
+			switch (item.ItemId) {
+				case Resource.Id.activity_main_action1:
+					this.StartActionMode();
+					return true;
+				case Resource.Id.activity_main_action2:
+					this.StartActivity(typeof(MyListActivity));
+					return true;
+				default:
+					return base.OnOptionsItemSelected(item);
+			}
+
 		}
 	}
 }

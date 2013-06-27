@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+<string-array name="country">
+	<item>Afghanistan</item>
+	<item>Albania</item>
+	<item>Algeria</item>
+	<item>American Samoa</item>
+	<item>Andorra</item>
+	<item>Angola</item>
+	<item>Anguilla</item>
+	<item>Antarctica</item>
+	<item>Antigua and Barbuda</item>
+	<item>Argentina</item>
+	<item>Armenia</item>
+	<item>Aruba</item>
+	<item>Australia</item>
+	<item>Austria</item>
+	<item>Azerbaijan</item>
+	<item>Bahrain</item>
+	<item>Bangladesh</item>
+	<item>Barbados</item>
+	<item>Belarus</item>
+	<item>Belgium</item>
+	<item>Belize</item>
+	<item>Benin</item>
+	<item>Bermuda</item>
+	<item>Bhutan</item>
+	<item>Bolivia</item>
+	<item>Bosnia and Herzegovina</item>
+	<item>Botswana</item>
+	<item>Bouvet Island</item>
+	<item>Brazil</item>
+	<item>British Indian Ocean Territory</item>
+</string-array>
+</resources>

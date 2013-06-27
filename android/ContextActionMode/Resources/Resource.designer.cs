@@ -23,6 +23,17 @@ namespace Cn.Beginor.ContextActionMode
 		{
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int country = 2130968576;
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -37,6 +48,9 @@ namespace Cn.Beginor.ContextActionMode
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int list_item_background_color = 2130837505;
+			
 			private Drawable()
 			{
 			}
@@ -45,23 +59,44 @@ namespace Cn.Beginor.ContextActionMode
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int activity_main_action1 = 2131099649;
+			// aapt resource value: 0x7f070003
+			public const int activity_list_action1 = 2131165187;
 			
-			// aapt resource value: 0x7f060002
-			public const int activity_main_action2 = 2131099650;
+			// aapt resource value: 0x7f070004
+			public const int activity_list_action2 = 2131165188;
 			
-			// aapt resource value: 0x7f060003
-			public const int activity_main_context_action1 = 2131099651;
+			// aapt resource value: 0x7f070005
+			public const int activity_list_context_action1 = 2131165189;
 			
-			// aapt resource value: 0x7f060004
-			public const int activity_main_context_action2 = 2131099652;
+			// aapt resource value: 0x7f070006
+			public const int activity_list_context_action2 = 2131165190;
 			
-			// aapt resource value: 0x7f060005
-			public const int activity_main_context_action3 = 2131099653;
+			// aapt resource value: 0x7f070007
+			public const int activity_list_context_action3 = 2131165191;
 			
-			// aapt resource value: 0x7f060000
-			public const int activity_main_hello_textview = 2131099648;
+			// aapt resource value: 0x7f070000
+			public const int activity_list_listview = 2131165184;
+			
+			// aapt resource value: 0x7f070001
+			public const int activity_list_listview_item_textview = 2131165185;
+			
+			// aapt resource value: 0x7f070008
+			public const int activity_main_action1 = 2131165192;
+			
+			// aapt resource value: 0x7f070009
+			public const int activity_main_action2 = 2131165193;
+			
+			// aapt resource value: 0x7f07000a
+			public const int activity_main_context_action1 = 2131165194;
+			
+			// aapt resource value: 0x7f07000b
+			public const int activity_main_context_action2 = 2131165195;
+			
+			// aapt resource value: 0x7f07000c
+			public const int activity_main_context_action3 = 2131165196;
+			
+			// aapt resource value: 0x7f070002
+			public const int activity_main_hello_textview = 2131165186;
 			
 			private Id()
 			{
@@ -72,7 +107,13 @@ namespace Cn.Beginor.ContextActionMode
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int activity_main = 2130903040;
+			public const int activity_list = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int activity_list_listview_item = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int activity_main = 2130903042;
 			
 			private Layout()
 			{
@@ -82,11 +123,17 @@ namespace Cn.Beginor.ContextActionMode
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int activity_main = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int activity_list = 2131099648;
 			
-			// aapt resource value: 0x7f050001
-			public const int activity_main_context = 2131034113;
+			// aapt resource value: 0x7f060001
+			public const int activity_list_context = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int activity_main = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int activity_main_context = 2131099651;
 			
 			private Menu()
 			{
@@ -96,29 +143,50 @@ namespace Cn.Beginor.ContextActionMode
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040002
-			public const int activity_main_action1 = 2130968578;
+			// aapt resource value: 0x7f05000a
+			public const int activity_list_action1 = 2131034122;
 			
-			// aapt resource value: 0x7f040003
-			public const int activity_main_action2 = 2130968579;
+			// aapt resource value: 0x7f05000b
+			public const int activity_list_action2 = 2131034123;
 			
-			// aapt resource value: 0x7f040005
-			public const int activity_main_context_action1 = 2130968581;
+			// aapt resource value: 0x7f05000c
+			public const int activity_list_context_action1 = 2131034124;
 			
-			// aapt resource value: 0x7f040006
-			public const int activity_main_context_action2 = 2130968582;
+			// aapt resource value: 0x7f05000d
+			public const int activity_list_context_action2 = 2131034125;
 			
-			// aapt resource value: 0x7f040007
-			public const int activity_main_context_action3 = 2130968583;
+			// aapt resource value: 0x7f05000e
+			public const int activity_list_context_action3 = 2131034126;
 			
-			// aapt resource value: 0x7f040004
-			public const int activity_main_context_mode_title = 2130968580;
+			// aapt resource value: 0x7f050009
+			public const int activity_list_context_mode_title = 2131034121;
 			
-			// aapt resource value: 0x7f040001
-			public const int activity_main_hello = 2130968577;
+			// aapt resource value: 0x7f050008
+			public const int activity_list_title = 2131034120;
 			
-			// aapt resource value: 0x7f040000
-			public const int app_name = 2130968576;
+			// aapt resource value: 0x7f050002
+			public const int activity_main_action1 = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int activity_main_action2 = 2131034115;
+			
+			// aapt resource value: 0x7f050005
+			public const int activity_main_context_action1 = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int activity_main_context_action2 = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int activity_main_context_action3 = 2131034119;
+			
+			// aapt resource value: 0x7f050004
+			public const int activity_main_context_mode_title = 2131034116;
+			
+			// aapt resource value: 0x7f050001
+			public const int activity_main_hello = 2131034113;
+			
+			// aapt resource value: 0x7f050000
+			public const int app_name = 2131034112;
 			
 			private String()
 			{
