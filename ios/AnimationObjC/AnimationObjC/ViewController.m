@@ -10,6 +10,9 @@
 
 @interface ViewController ()
 
+@property UIView *currentView;
+@property UIView *swapView;
+
 @end
 
 @implementation ViewController
@@ -18,6 +21,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	self.currentView = self.firstView;
+	self.swapView = self.secondView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,19 +38,18 @@
 }
 
 - (IBAction)switchBarBtnItemClick:(id)sender {
-	[UIView animateWithDuration:1.0
-								 delay:0.0
-							  options:UIViewAnimationOptionCurveEaseIn
-						  animations:^{
-							  self.firstView.alpha = 0.0;
-						  }
-						  completion:^(BOOL finished){
-							  [UIView animateWithDuration:1.0
-															delay:1.0
-														 options:UIViewAnimationOptionCurveEaseOut animations:^{
-															 self.firstView.alpha = 1.0;
-														 }
-													 completion:nil];
-						  }];
+	[UIView transitionWithView:self.view
+							duration:1.0
+							 options:UIViewAnimationOptionTransitionCurlUp
+						 animations:^{
+							 self.currentView.hidden = YES;
+							 self.swapView.hidden = NO;
+						 }
+						 completion:^(BOOL finished) {
+							 UIView *tmp = self.currentView;
+							 self.currentView = self.swapView;
+							 self.swapView = tmp;
+						 }
+	 ];
 }
 @end

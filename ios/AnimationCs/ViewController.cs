@@ -36,18 +36,26 @@ namespace AnimationCs
 		{
 			UIView.Animate(
 				1.0,
-				0.0,
+				1.0,
 				UIViewAnimationOptions.CurveEaseIn,
-				() => this.FirstView.Alpha = 0.0f,
 				() => {
+					this.FirstView.Alpha = 0.0;
 					UIView.Animate(
 						1.0,
 						1.0,
-						UIViewAnimationOptions.CurveEaseOut,
-						() => this.FirstView.Alpha = 1.0f,
+						UIViewAnimationOptions.OverrideInheritedCurve |
+						UIViewAnimationOptions.CurveLinear |
+						UIViewAnimationOptions.OverrideInheritedDuration |
+						UIViewAnimationOptions.Repeat |
+						UIViewAnimationOptions.Autoreverse,
+						() => {
+							UIView.SetAnimationRepeatCount(2.f);
+							this.SecondView.Alpha = 0.0;
+						},
 						null
 					);
-				}
+				},
+				null
 			);
 		}
 	}
