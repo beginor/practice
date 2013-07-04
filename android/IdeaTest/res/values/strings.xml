@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IdeaTest</string>
+    <string name="activity_main_action1">activity_main_action1</string>
+    <string name="fragment_place_context_delete_item_title">删除所选地区</string>
+    <string name="fragment_place_context_cancel_item_title">取消</string>
+</resources>

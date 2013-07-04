@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">ContextModeDemo</string>
+	
+	<string name="activity_main_hello">Hello World, Long Press Me!</string>
+	<string name="activity_main_action1">Edit</string>
+	<string name="activity_main_action2">Go to List Demo</string>
+	<string name="activity_main_context_mode_title">Context Mode Demo</string>
+	<string name="activity_main_context_action1">Action1</string>
+	<string name="activity_main_context_action2">Action2</string>
+	<string name="activity_main_context_action3">Action3</string>
+	
+	<string name="activity_list_title">List Demo</string>
+	<string name="activity_list_context_mode_title">List Context Demo</string>
+	<string name="activity_list_action1">Edit</string>
+	<string name="activity_list_action2">About</string>
+	<string name="activity_list_context_action1">Action1</string>
+	<string name="activity_list_context_action2">Action2</string>
+	<string name="activity_list_context_action3">Action3</string>
+</resources>

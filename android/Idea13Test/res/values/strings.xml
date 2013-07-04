@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Idea13Test</string>
-    <string name="button_text">Button</string>
-    <string name="hello_world">Hello World, MainActivity</string>
-</resources>
