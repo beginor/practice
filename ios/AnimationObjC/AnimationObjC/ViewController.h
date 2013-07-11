@@ -11,6 +11,6 @@
 @interface ViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet UIView *secondView;
-@property (retain, nonatomic) IBOutlet UIView *firstView;
+
 - (IBAction)switchBarBtnItemClick:(id)sender;
 @end

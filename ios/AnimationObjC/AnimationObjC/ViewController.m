@@ -10,8 +10,7 @@
 
 @interface ViewController ()
 
-@property UIView *currentView;
-@property UIView *swapView;
+@property BOOL displayPrimary;
 
 @end
 
@@ -21,8 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	self.currentView = self.firstView;
-	self.swapView = self.secondView;
+	self.displayPrimary = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,23 +31,19 @@
 
 - (void)dealloc {
     [_secondView release];
-    [_firstView release];
     [super dealloc];
 }
 
 - (IBAction)switchBarBtnItemClick:(id)sender {
-	[UIView transitionWithView:self.view
-							duration:1.0
-							 options:UIViewAnimationOptionTransitionCurlUp
-						 animations:^{
-							 self.currentView.hidden = YES;
-							 self.swapView.hidden = NO;
-						 }
+	UIView *fromView = (self.displayPrimary ? self.view : self.secondView);
+	UIView *toView = (self.displayPrimary ? self.secondView : self.view);
+	UIViewAnimationOptions option = (self.displayPrimary ? UIViewAnimationOptionTransitionFlipFromRight : UIViewAnimationOptionTransitionFlipFromLeft);
+	[UIView transitionFromView:fromView toView:toView duration:1.0 options:option
 						 completion:^(BOOL finished) {
-							 UIView *tmp = self.currentView;
-							 self.currentView = self.swapView;
-							 self.swapView = tmp;
+							 if (finished) {
+								 self.displayPrimary = !self.displayPrimary;
+							 }
 						 }
-	 ];
+	];
 }
 @end
