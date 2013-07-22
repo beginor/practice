@@ -21,19 +21,19 @@ namespace MonoBinding {
 
 	}
 
-	[Category]
+	//[Category]
 	[BaseType(typeof(BindingObject))]
 	public partial interface Extension {
 
 		[Export("stringCategoryMethod")]
-		string StringCategoryMethod ();
+		string StringCategoryMethod ([Target]BindingObject obj);
 
 		[Export("stringArrayCategoryMethod")]
-		string[] StringArrayCategoryMethod();
+		string[] StringArrayCategoryMethod([Target]BindingObject obj);
 	}
 
+	//[Category]
 	[BaseType(typeof(UIView))]
-	[Category]
 	public partial interface MyUIViewExtension {
 
 		[Export("makeBackgroundRed")]
