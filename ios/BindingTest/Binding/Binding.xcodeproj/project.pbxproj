@@ -1,0 +1,266 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52E863B5179C28A6001FB8D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E863B4179C28A6001FB8D0 /* Foundation.framework */; };
+		52E863BA179C28A6001FB8D0 /* BindingObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52E863B9179C28A6001FB8D0 /* BindingObject.h */; };
+		52E863BC179C28A6001FB8D0 /* BindingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E863BB179C28A6001FB8D0 /* BindingObject.m */; };
+		52E863C5179C2A24001FB8D0 /* BindingObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E863C4179C2A24001FB8D0 /* BindingObject+Extension.m */; };
+		52F265BF179D7AE2007C78E3 /* UIView+MyUIViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F265BE179D7AE2007C78E3 /* UIView+MyUIViewExtension.m */; };
+		52F265C1179D7B29007C78E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F265C0179D7B29007C78E3 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52E863AF179C28A6001FB8D0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				52E863BA179C28A6001FB8D0 /* BindingObject.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		52E863B1179C28A6001FB8D0 /* libBinding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBinding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E863B4179C28A6001FB8D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52E863B8179C28A6001FB8D0 /* Binding-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Binding-Prefix.pch"; sourceTree = "<group>"; };
+		52E863B9179C28A6001FB8D0 /* BindingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingObject.h; sourceTree = "<group>"; };
+		52E863BB179C28A6001FB8D0 /* BindingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingObject.m; sourceTree = "<group>"; };
+		52E863C2179C29F2001FB8D0 /* BindingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingProtocol.h; sourceTree = "<group>"; };
+		52E863C3179C2A24001FB8D0 /* BindingObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BindingObject+Extension.h"; sourceTree = "<group>"; };
+		52E863C4179C2A24001FB8D0 /* BindingObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BindingObject+Extension.m"; sourceTree = "<group>"; };
+		52F265BD179D7AE2007C78E3 /* UIView+MyUIViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MyUIViewExtension.h"; sourceTree = "<group>"; };
+		52F265BE179D7AE2007C78E3 /* UIView+MyUIViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MyUIViewExtension.m"; sourceTree = "<group>"; };
+		52F265C0179D7B29007C78E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52E863AE179C28A6001FB8D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52F265C1179D7B29007C78E3 /* UIKit.framework in Frameworks */,
+				52E863B5179C28A6001FB8D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52E863A8179C28A6001FB8D0 = {
+			isa = PBXGroup;
+			children = (
+				52E863B6179C28A6001FB8D0 /* Binding */,
+				52E863B3179C28A6001FB8D0 /* Frameworks */,
+				52E863B2179C28A6001FB8D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52E863B2179C28A6001FB8D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52E863B1179C28A6001FB8D0 /* libBinding.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52E863B3179C28A6001FB8D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52E863B4179C28A6001FB8D0 /* Foundation.framework */,
+				52F265C0179D7B29007C78E3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52E863B6179C28A6001FB8D0 /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				52E863B9179C28A6001FB8D0 /* BindingObject.h */,
+				52E863BB179C28A6001FB8D0 /* BindingObject.m */,
+				52E863B7179C28A6001FB8D0 /* Supporting Files */,
+				52E863C2179C29F2001FB8D0 /* BindingProtocol.h */,
+				52E863C3179C2A24001FB8D0 /* BindingObject+Extension.h */,
+				52E863C4179C2A24001FB8D0 /* BindingObject+Extension.m */,
+				52F265BD179D7AE2007C78E3 /* UIView+MyUIViewExtension.h */,
+				52F265BE179D7AE2007C78E3 /* UIView+MyUIViewExtension.m */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		52E863B7179C28A6001FB8D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52E863B8179C28A6001FB8D0 /* Binding-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52E863B0179C28A6001FB8D0 /* Binding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52E863BF179C28A6001FB8D0 /* Build configuration list for PBXNativeTarget "Binding" */;
+			buildPhases = (
+				52E863AD179C28A6001FB8D0 /* Sources */,
+				52E863AE179C28A6001FB8D0 /* Frameworks */,
+				52E863AF179C28A6001FB8D0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Binding;
+			productName = Binding;
+			productReference = 52E863B1179C28A6001FB8D0 /* libBinding.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52E863A9179C28A6001FB8D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = gdeic;
+			};
+			buildConfigurationList = 52E863AC179C28A6001FB8D0 /* Build configuration list for PBXProject "Binding" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52E863A8179C28A6001FB8D0;
+			productRefGroup = 52E863B2179C28A6001FB8D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52E863B0179C28A6001FB8D0 /* Binding */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52E863AD179C28A6001FB8D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E863BC179C28A6001FB8D0 /* BindingObject.m in Sources */,
+				52E863C5179C2A24001FB8D0 /* BindingObject+Extension.m in Sources */,
+				52F265BF179D7AE2007C78E3 /* UIView+MyUIViewExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		52E863BD179C28A6001FB8D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		52E863BE179C28A6001FB8D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52E863C0179C28A6001FB8D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Binding.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Binding/Binding-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		52E863C1179C28A6001FB8D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Binding.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Binding/Binding-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52E863AC179C28A6001FB8D0 /* Build configuration list for PBXProject "Binding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E863BD179C28A6001FB8D0 /* Debug */,
+				52E863BE179C28A6001FB8D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52E863BF179C28A6001FB8D0 /* Build configuration list for PBXNativeTarget "Binding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E863C0179C28A6001FB8D0 /* Debug */,
+				52E863C1179C28A6001FB8D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52E863A9179C28A6001FB8D0 /* Project object */;
+}
