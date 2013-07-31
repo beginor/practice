@@ -31,9 +31,9 @@ namespace MonoBindingTest {
 		[Test]
 		public void TestStringCategoryMethod() {
 			var bindObj = new BindingObject ();
-			var catObj = new Extension ();
+			//var catObj = new Extension ();
 
-			var strCatResult = catObj.StringCategoryMethod(bindObj);
+			var strCatResult = bindObj.StringCategoryMethod();
 			Assert.IsNotNull (strCatResult);
 			Assert.AreEqual ("return of string category method", strCatResult);
 		}
@@ -41,9 +41,9 @@ namespace MonoBindingTest {
 		[Test]
 		public void TestStringArrayCategoryMethod() {
 			var bindObj = new BindingObject ();
-			var catObj = new Extension ();
+			//var catObj = new Extension ();
 
-			var strArrCatResult = catObj.StringArrayCategoryMethod (bindObj);
+			var strArrCatResult = bindObj.StringArrayCategoryMethod ();
 			Assert.AreEqual (1, strArrCatResult.Length);
 			Assert.AreEqual ("return of string array category method", strArrCatResult [0]);
 		}

@@ -3,6 +3,7 @@ using System.Drawing;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.ComponentModel;
 
 namespace MonoBinding {
 
@@ -19,21 +20,16 @@ namespace MonoBinding {
 		[Export("stringArrayMethod")]
 		string[] StringArrayMethod();
 
-	}
-
-	//[Category]
-	[BaseType(typeof(BindingObject))]
-	public partial interface Extension {
-
 		[Export("stringCategoryMethod")]
-		string StringCategoryMethod ([Target]BindingObject obj);
+		string StringCategoryMethod ();
 
 		[Export("stringArrayCategoryMethod")]
-		string[] StringArrayCategoryMethod([Target]BindingObject obj);
+		string[] StringArrayCategoryMethod();
 	}
 
-	//[Category]
+
 	[BaseType(typeof(UIView))]
+	[Category]
 	public partial interface MyUIViewExtension {
 
 		[Export("makeBackgroundRed")]
