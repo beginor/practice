@@ -64,6 +64,8 @@ packages
 *.pidb
 *.userprefs
 *.dll.mdb
+
 # idea project folder
 .idea
 gen
+out

@@ -17,7 +17,7 @@
             android:text="New Button"
             android:id="@+id/button"
             android:layout_gravity="center"
-            android:background="@drawable/list_item_background_checked"/>
+            />
 
     <TextView
             android:layout_width="wrap_content"
@@ -26,7 +26,6 @@
             android:text="Large Text"
             android:id="@+id/textView"
             android:layout_gravity="center"
-            android:background="@drawable/list_item_background_normal"
             android:layout_margin="4dp"/>
 
     <TextView
@@ -35,7 +34,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/textView2"
-            android:background="@drawable/list_item_background_checked"
             android:layout_gravity="center"
             android:layout_margin="4dp"/>
 
