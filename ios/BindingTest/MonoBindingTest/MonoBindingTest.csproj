@@ -92,6 +92,9 @@
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
     <Compile Include="BindingObjectTest.cs" />
+    <Compile Include="MyProtocol.cs" />
+    <Compile Include="BindingObject_CategoryTest.cs" />
+    <Compile Include="DelegateTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

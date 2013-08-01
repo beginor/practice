@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BindingProtocol.h"
 
 @interface BindingObject : NSObject
 
@@ -15,5 +16,13 @@
 - (NSString *) stringMethod;
 
 - (NSArray *) stringArrayMethod;
+
+- (void) callDelegate1Method;
+
+- (void) callDelegate2Method;
+
+@property (nonatomic, assign) id delegate1;
+
+@property (nonatomic, assign) id<BindingProtocol> delegate2;
 
 @end

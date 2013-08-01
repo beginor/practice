@@ -10,4 +10,6 @@
 
 @protocol BindingProtocol <NSObject>
 
+- (void) stringProtocolMethod:(NSString*)string;
+
 @end

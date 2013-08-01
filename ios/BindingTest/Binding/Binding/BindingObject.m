@@ -23,4 +23,16 @@
 	//[NSArray arrayWithObject:@"Hello,world"];
 	return arr;
 }
+
+- (void) callDelegate1Method {
+	if (self.delegate1 != nil) {
+		[self.delegate1 performSelector:NSSelectorFromString(@"stringProtocolMethod:") withObject:@"Hello, delegate method 1 !"];
+	}
+}
+
+- (void) callDelegate2Method {
+	if (self.delegate2 != nil) {
+		[self.delegate2 stringProtocolMethod:@"Hello, delegate method 2 !"];
+	}
+}
 @end
