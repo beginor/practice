@@ -9,6 +9,8 @@ void bubble_sort(int arr[], int N);
 
 void shell_sort(int arr[], int N);
 
+void merge_sort(int arr[], int N);
+
 void swap(int arr[], int i, int j);
 
 #endif

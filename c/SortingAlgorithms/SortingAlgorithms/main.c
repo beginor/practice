@@ -76,6 +76,24 @@ void test_shell_sort() {
     free(array);
 }
 
+// test merge sort
+void test_merge_sort() {
+    int * array;
+    int len = 10;
+    array = (int *)malloc(sizeof(int) * len);
+    fill_random_array(array, len);
+    
+    printf("before merge sort: \n");
+    print_array(array, len);
+    
+    merge_sort(array, len);
+    
+    printf("after merge sort: \n");
+    print_array(array, len);
+    
+    free(array);
+}
+
 int main(int argc, const char * argv[]) {
     test_insertion_sort();
 
@@ -85,5 +103,7 @@ int main(int argc, const char * argv[]) {
 
     test_shell_sort();
 
+    test_merge_sort();
+    
     return 0;
 }
