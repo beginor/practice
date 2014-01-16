@@ -94,6 +94,24 @@ void test_merge_sort() {
     free(array);
 }
 
+// test heap sort
+void test_heap_sort() {
+    int * array;
+    int len = 10;
+    array = (int *)malloc(sizeof(int) * len);
+    fill_random_array(array, len);
+    
+    printf("before heap sort: \n");
+    print_array(array, len);
+    
+    heap_sort(array, len);
+    
+    printf("after heap sort: \n");
+    print_array(array, len);
+    
+    free(array);
+}
+
 int main(int argc, const char * argv[]) {
     test_insertion_sort();
 
@@ -104,6 +122,8 @@ int main(int argc, const char * argv[]) {
     test_shell_sort();
 
     test_merge_sort();
+    
+    test_heap_sort();
     
     return 0;
 }

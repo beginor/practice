@@ -3,7 +3,7 @@
 #include "sort_algs.h"
 #include "sort_algs_helpers.h"
 
-void insertion_sort(int arr[], int N) {
+void insertion_sort(int arr[], const int N) {
     for (int i = 1; i < N; i++) {
         for (int j = i; j > 0 && arr[j] > arr[j - 1]; j--) {
             swap(arr, j, j - 1);
@@ -12,7 +12,7 @@ void insertion_sort(int arr[], int N) {
     }
 }
 
-void selection_sort(int arr[], int N) {
+void selection_sort(int arr[], const int N) {
     for (int i = 0; i < N; i++) {
         int k = i;
         for (int j = i + 1; j < N; j++) {
@@ -24,7 +24,7 @@ void selection_sort(int arr[], int N) {
     }
 }
 
-void bubble_sort(int arr[], int N) {
+void bubble_sort(int arr[], const int N) {
     for (int i = 0; i < N; i++) {
         int swapped = 0;
         for (int j = N; j > i; j--) {
@@ -39,7 +39,7 @@ void bubble_sort(int arr[], int N) {
     }
 }
 
-void shell_sort(int arr[], int N) {
+void shell_sort(int arr[], const int N) {
     int h = 1;
     while (3 * h < N) { h = h * 3 + 1; }
 
@@ -88,11 +88,53 @@ void merge_sort_impl(int arr[], int aux[], int lo, int hi) {
     }
 }
 
-void merge_sort(int arr[], int N) {
+void merge_sort(int arr[], const int N) {
     int * aux;
     aux = (int *)malloc(sizeof(int) * N);
     merge_sort_impl(arr, aux, 0, N - 1);
     free(aux);
+}
+
+void swim(int heap[], int k) {
+    while (k > 1 && heap[k / 2] > heap[k]) {
+        swap(heap, k / 2, k);
+        k = k / 2;
+    }
+}
+
+void sink(int heap[], int k, const int N) {
+    while (2 * k <= N) {
+        int j = 2 * k;
+        if (j < N && heap[j] < heap[j + 1]) {
+            j++;
+        }
+        if (heap[k] > heap[j]) {
+            break;
+        }
+        swap(heap, k, j);
+        k = j;
+    }
+}
+
+void heap_sort(int arr[], const int N) {
+    int * heap;
+    heap = (int *)malloc(sizeof(int) * (N + 1));
+    for (int i = 1; i <= N; i++) {
+        heap[i] = arr[i - 1];
+    }
+    
+    for (int k = N / 2; k >= 1; k--) {
+        sink(heap, k, N);
+    }
+    int n = N;
+    while (n > 1) {
+        swap(heap, 1, n--);
+        sink(heap, 1, n);
+    }
+    for (int i = 0; i < N; i++) {
+        arr[i] = heap[i + 1];
+    }
+    free(heap);
 }
 
 void swap(int arr[], int i, int j) {
