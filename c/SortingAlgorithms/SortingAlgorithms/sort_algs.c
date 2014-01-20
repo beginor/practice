@@ -117,24 +117,15 @@ void sink(int heap[], int k, const int N) {
 }
 
 void heap_sort(int arr[], const int N) {
-    int * heap;
-    heap = (int *)malloc(sizeof(int) * (N + 1));
-    for (int i = 1; i <= N; i++) {
-        heap[i] = arr[i - 1];
+    const int len = N - 1;
+    for (int k = len / 2; k >= 1; k--) {
+        sink(arr, k, len);
     }
-    
-    for (int k = N / 2; k >= 1; k--) {
-        sink(heap, k, N);
-    }
-    int n = N;
+    int n = len;
     while (n > 1) {
-        swap(heap, 1, n--);
-        sink(heap, 1, n);
+        swap(arr, 1, n--);
+        sink(arr, 1, n);
     }
-    for (int i = 0; i < N; i++) {
-        arr[i] = heap[i + 1];
-    }
-    free(heap);
 }
 
 void swap(int arr[], int i, int j) {

@@ -97,9 +97,12 @@ void test_merge_sort() {
 // test heap sort
 void test_heap_sort() {
     int * array;
-    int len = 10;
+    int len = 11;
     array = (int *)malloc(sizeof(int) * len);
     fill_random_array(array, len);
+    
+    // for heap, array[0] is waste.
+    array[0] = -1;
     
     printf("before heap sort: \n");
     print_array(array, len);
