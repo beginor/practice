@@ -71,3 +71,7 @@ packages
 .idea
 gen
 out
+
+# xcode
+*.xcodeproj
+*.dSYM
