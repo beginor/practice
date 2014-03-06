@@ -2,20 +2,12 @@
 #include <wchar.h>
 
 int wmain(int argc, WCHAR *argv[]) {
-    wchar_t *s1 = L"Zetcode, ";
-    wchar_t *s2 = L"tutorials ";
-    wchar_t *s3 = L"for ";
-    wchar_t *s4 = L"programmers.\n";
+    wchar_t str[] = L"Europa";
 
-    int len = lstrlenW(s1) + lstrlenW(s2) + lstrlenW(s3) + lstrlenW(s4);
-    wchar_t *buff = malloc(sizeof(wchar_t) * (len + 1));
-    lstrcpyW(buff, s1);
-    lstrcatW(buff, s2);
-    lstrcatW(buff, s3);
-    lstrcatW(buff, s4);
+    CharLowerW(str);
+    wprintf(L"%ls\n", str);
 
-    wprintf(buff);
-
-    free(buff);
+    CharUpperW(str);
+    wprintf(L"%ls\n", str);
     return EXIT_SUCCESS;
 }

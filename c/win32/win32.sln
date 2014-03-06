@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "console_app", "console_app\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win_app", "win_app\win_app.vcxproj", "{65E18DBB-0A08-416F-9D04-61DEADAC02F8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dynamic_array", "dynamic_array\dynamic_array.vcxproj", "{2912540D-AB2E-4B4C-8114-6E23F823092C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{65E18DBB-0A08-416F-9D04-61DEADAC02F8}.Debug|Win32.Build.0 = Debug|Win32
 		{65E18DBB-0A08-416F-9D04-61DEADAC02F8}.Release|Win32.ActiveCfg = Release|Win32
 		{65E18DBB-0A08-416F-9D04-61DEADAC02F8}.Release|Win32.Build.0 = Release|Win32
+		{2912540D-AB2E-4B4C-8114-6E23F823092C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2912540D-AB2E-4B4C-8114-6E23F823092C}.Debug|Win32.Build.0 = Debug|Win32
+		{2912540D-AB2E-4B4C-8114-6E23F823092C}.Release|Win32.ActiveCfg = Release|Win32
+		{2912540D-AB2E-4B4C-8114-6E23F823092C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
