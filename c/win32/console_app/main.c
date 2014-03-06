@@ -1,18 +1,12 @@
-#define _UNICODE
-#define UNICODE
-
 #include <Windows.h>
-#include <tchar.h>
+#include <wchar.h>
 
-int _tmain(int argc, TCHAR *argv[]) {
-    PDWORD chars = NULL;
-    HANDLE outputHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+int wmain(int argc, WCHAR *argv[]) {
+    char *name = "Jane";
+    wchar_t *town = L"Bratislava";
 
-    if (outputHandle == INVALID_HANDLE_VALUE) {
-        _tprintf(L"Cannot retrieve standard output handle\n (%d)", GetLastError());
-    }
-
-    WriteConsoleW(outputHandle, argv[1], _tcslen(argv[1]), chars, NULL);
+    wprintf(L"The length of the name string is %d\n", lstrlenA(name));
+    wprintf(L"The town string length is %d\n", lstrlenW(town));
 
     return EXIT_SUCCESS;
 }
