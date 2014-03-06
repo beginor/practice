@@ -4,16 +4,10 @@
 #define STR_EQUAL 0
 
 int wmain(int argc, WCHAR *argv[]) {
-    SYSTEMTIME st;
-    wchar_t buff[50];
+    SYSTEMTIME lt;
+    GetLocalTime(&lt);
 
-    GetLocalTime(&st);
-
-    wsprintfW(buff, L"Today is %d-%d-%d\n", st.wYear, st.wMonth, st.wDay);
-
-    wprintf(buff);
-
-    //free(buff);
+    wprintf(L"The local time is: %02d:%02d:%02d\n", lt.wHour, lt.wMinute, lt.wSecond);
 
     return EXIT_SUCCESS;
 }
