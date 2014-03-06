@@ -4,23 +4,16 @@
 #define STR_EQUAL 0
 
 int wmain(int argc, WCHAR *argv[]) {
-    wchar_t *s1 = L"Strong";
-    wchar_t *s2 = L"strong";
+    SYSTEMTIME st;
+    wchar_t buff[50];
 
-    if (lstrcmpW(s1, s2) == STR_EQUAL) {
-        wprintf(L"%ls and %ls are equal\n", s1, s2);
-    }
-    else {
-        wprintf(L"%ls and %ls are not equal\n", s1, s2);
-    }
+    GetLocalTime(&st);
 
-    wprintf(L"When applying case insensitive comparison:\n");
-    if (lstrcmpiW(s1, s2) == STR_EQUAL) {
-        wprintf(L"%ls and %ls are equal\n", s1, s2);
-    }
-    else {
-        wprintf(L"%ls and %ls are not equal\n", s1, s2);
-    }
+    wsprintfW(buff, L"Today is %d-%d-%d\n", st.wYear, st.wMonth, st.wDay);
+
+    wprintf(buff);
+
+    //free(buff);
 
     return EXIT_SUCCESS;
 }
