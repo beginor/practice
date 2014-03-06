@@ -1,13 +1,26 @@
 #include <Windows.h>
 #include <wchar.h>
 
+#define STR_EQUAL 0
+
 int wmain(int argc, WCHAR *argv[]) {
-    wchar_t str[] = L"Europa";
+    wchar_t *s1 = L"Strong";
+    wchar_t *s2 = L"strong";
 
-    CharLowerW(str);
-    wprintf(L"%ls\n", str);
+    if (lstrcmpW(s1, s2) == STR_EQUAL) {
+        wprintf(L"%ls and %ls are equal\n", s1, s2);
+    }
+    else {
+        wprintf(L"%ls and %ls are not equal\n", s1, s2);
+    }
 
-    CharUpperW(str);
-    wprintf(L"%ls\n", str);
+    wprintf(L"When applying case insensitive comparison:\n");
+    if (lstrcmpiW(s1, s2) == STR_EQUAL) {
+        wprintf(L"%ls and %ls are equal\n", s1, s2);
+    }
+    else {
+        wprintf(L"%ls and %ls are not equal\n", s1, s2);
+    }
+
     return EXIT_SUCCESS;
 }
