@@ -34,7 +34,6 @@
 *.sdf
 ipch/ 
 *.dbmdl
-*.csproj.user
 *.cache
 *.swp
 *.vspscc
@@ -45,6 +44,9 @@ ipch/
 *.Publish.xml
 *.manifest
 *.xap
+*.sdf
+*.opensdf
+*.filters
 
 #Tools
 _ReSharper.*
