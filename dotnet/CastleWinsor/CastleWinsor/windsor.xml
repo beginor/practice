@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <properties>
+        <database>www.gdepb.gov.cn</database>
+    </properties>
+
+    <components>
+        <component id="console" service="CastleWinsor.ILog, CastleWinsor" type="CastleWinsor.ConsoleLog, CastleWinsor">
+        </component>
+        <component id="debug" service="CastleWinsor.ILog, CastleWinsor" type="CastleWinsor.DebugLog, CastleWinsor">
+        </component>
+
+        <component type="CastleWinsor.TestController, CastleWinsor">
+            <parameters>
+                <log>${debug}</log>
+                <Database>#{database}</Database>
+            </parameters>
+        </component>
+
+    </components>
+</configuration>
