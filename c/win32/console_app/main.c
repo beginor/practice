@@ -10,6 +10,30 @@ void Quick_sort_demo() {
     
 }
 
+typedef struct {
+    int length;
+    int *arr;
+} MyArray;
+
+MyArray * MyArray_init(int length) {
+    MyArray *arr = malloc(sizeof(MyArray));
+    arr->length = length;
+    arr->arr = malloc(length * sizeof(int));
+    for (int i = 0; i < length; i++) {
+        *(arr->arr + i) = i + 1;
+    }
+    return arr;
+}
+
+void MyArray_destroy(MyArray *arr) {
+    if (arr) {
+        if (arr->arr) {
+            free(arr->arr);
+        }
+        arr->length = 0;
+    }
+}
+
 int search(const char *pat, const char *txt) {
     int M = strlen(pat);
     int N = strlen(txt);
@@ -27,6 +51,38 @@ int search(const char *pat, const char *txt) {
     return N;
 }
 
+void testSearch(const char* pat, const char* txt) {
+    int find = search(pat, txt);
+
+    printf("%s\n", txt);
+    for (int i = 0; i < find; i++) {
+        printf("%s", " ");
+    }
+    printf("%s\n", pat);
+}
+
+void testKmpSearch(const char* pat, const char* txt) {
+    KMP *kmp = KMP_init(pat, 256);
+    int find = KMP_search(kmp, txt);
+    KMP_free(kmp);
+    free(kmp);
+
+    printf("%s\n", txt);
+    for (int i = 0; i < find; i++) {
+        printf("%s", " ");
+    }
+    printf("%s\n", pat);
+}
+
+int* testReturnArray() {
+    int len = 10;
+    int* a = malloc(len * sizeof(int));
+    for (int i = 0; i < len; i++) {
+        *(a + i) = i;
+    }
+    return a;
+}
+
 int wmain(int argc, WCHAR *argv[]) {
     SYSTEMTIME lt;
     GetLocalTime(&lt);
@@ -39,27 +95,18 @@ int wmain(int argc, WCHAR *argv[]) {
     char *txt = "AABACAABABACAA";
     char *pat = "ABABAC";
 
-    int find = search(pat, txt);
-
-    printf("%s\n", txt);
-    for (int i = 0; i < find; i++) {
-        printf("%s", " ");
-    }
-    printf("%s\n", pat);
+    testSearch(pat, txt);
 
     printf("\n");
 
-    KMP *kmp = KMP_init(pat, 256);
-    int find2 = KMP_search(kmp, txt);
-    KMP_free(kmp);
-    free(kmp);
+    //testKmpSearch(pat, txt);
 
-    printf("%s\n", txt);
-    for (int i = 0; i < find; i++) {
-        printf("%s", " ");
-    }
-    printf("%s\n", pat);
+    int* arr = testReturnArray();
+    free(arr);
 
+    MyArray *myArr = MyArray_init(10);
+    MyArray_destroy(myArr);
+    
     //free(txt);
     //free(pat);
 
