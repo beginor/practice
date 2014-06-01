@@ -1,0 +1,12 @@
+﻿USE [test_db]
+GO
+
+CREATE TABLE `testtable` (
+  `Id` varchar(50) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `Data1` int(11) DEFAULT NULL,
+  `Data2` int(11) DEFAULT NULL,
+  `Data3` float DEFAULT NULL,
+  `UpdateTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

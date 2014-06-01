@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="NHibernateBatchTest" namespace="NHibernateBatchTest.Data">
+    <class name="TestData" table="TestTable">
+        <id name="Id" column="Id" type="string" />
+        <property name="Name" column="Name" type="string"/>
+        <property name="Data1" column="Data1" type="int"/>
+        <property name="Data2" column="Data2" type="int"/>
+        <property name="Data3" column="Data3" type="double"/>
+        <property name="UpdateTime" column="UpdateTime" type="datetime"/>
+    </class>
+</hibernate-mapping>
