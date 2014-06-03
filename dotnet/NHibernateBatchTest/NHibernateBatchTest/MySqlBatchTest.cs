@@ -32,8 +32,8 @@ namespace NHibernateBatchTest {
             cfg.SetProperty(Environment.UseQueryCache, "false");
             cfg.SetProperty(Environment.GenerateStatistics, "false");
             cfg.SetProperty(Environment.CommandTimeout, "500");
-            cfg.SetProperty(Environment.BatchSize, "100");
-            cfg.SetProperty(Environment.BatchStrategy, typeof(MySqlClientBatchingBatcherFactory).AssemblyQualifiedName);
+            cfg.SetProperty(Environment.BatchSize, "0");
+            //cfg.SetProperty(Environment.BatchStrategy, typeof(MySqlClientBatchingBatcherFactory).AssemblyQualifiedName);
             cfg.AddAssembly(typeof(MySqlBatchTest).Assembly);
 
             sessionFactory = cfg.BuildSessionFactory();
@@ -72,7 +72,7 @@ namespace NHibernateBatchTest {
             Console.WriteLine("MySqlBatchTest Test_1_BlockInsertWithSession: " + watch.Elapsed);
         }
 
-        [Test]
+        [Test, Ignore]
         public void Test_2_BlockInsertWithStatelessSession() {
             Stopwatch watch = new Stopwatch();
             watch.Start();
