@@ -8,6 +8,7 @@ using NHibernate.MySQLBatcher;
 using NHibernateBatchTest.Data;
 using NUnit.Framework;
 using Environment = NHibernate.Cfg.Environment;
+using System.Diagnostics;
 
 namespace NHibernateBatchTest {
 
@@ -50,6 +51,8 @@ namespace NHibernateBatchTest {
 
         [Test]
         public void Test_1_BlockInsertWithSession() {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
             using (var session = sessionFactory.OpenSession()) {
                 for (int i = 0; i < InsertCount; i++) {
                     var data = new TestData {
@@ -65,10 +68,14 @@ namespace NHibernateBatchTest {
                 session.Flush();
                 session.Clear();
             }
+            watch.Stop();
+            Console.WriteLine("MySqlBatchTest Test_1_BlockInsertWithSession: " + watch.Elapsed);
         }
 
         [Test]
         public void Test_2_BlockInsertWithStatelessSession() {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
             using (var session = sessionFactory.OpenStatelessSession()) {
                 //session.SetBatchSize(1000);
                 for (int i = 0; i < InsertCount; i++) {
@@ -83,6 +90,8 @@ namespace NHibernateBatchTest {
                     session.Insert(data);
                 }
             }
+            watch.Stop();
+            Console.WriteLine("MySqlBatchTest Test_2_BlockInsertWithStatelessSession: " + watch.Elapsed);
         }
 
     }
