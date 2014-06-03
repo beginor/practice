@@ -30,7 +30,7 @@ namespace NHibernateBatchTest {
             cfg.SetProperty(Environment.UseQueryCache, "false");
             cfg.SetProperty(Environment.GenerateStatistics, "false");
             cfg.SetProperty(Environment.CommandTimeout, "500");
-            cfg.SetProperty(Environment.BatchSize, "10");
+            cfg.SetProperty(Environment.BatchSize, "100");
             cfg.SetProperty(Environment.BatchStrategy, typeof(SqlClientBatchingBatcherFactory).AssemblyQualifiedName);
             cfg.AddAssembly(typeof(SqlServerBatchTest).Assembly);
 
