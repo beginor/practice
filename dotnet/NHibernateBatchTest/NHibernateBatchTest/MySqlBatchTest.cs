@@ -23,7 +23,7 @@ namespace NHibernateBatchTest {
         [TestFixtureSetUp]
         public void FixtureSetUp() {
             var cfg = new Configuration();
-            cfg.SetProperty(Environment.ConnectionString, "Server=127.0.0.1;Database=test_db;Uid=root;Pwd=root;");
+            cfg.SetProperty(Environment.ConnectionString, "Server=172.21.24.15;Database=test_db;Uid=udev;Pwd=devdev;");
             cfg.SetProperty(Environment.ConnectionProvider, "NHibernate.Connection.DriverConnectionProvider");
             cfg.SetProperty(Environment.ConnectionDriver, "NHibernate.Driver.MySqlDataDriver");
             cfg.SetProperty(Environment.Dialect, "NHibernate.Dialect.MySQL5Dialect");

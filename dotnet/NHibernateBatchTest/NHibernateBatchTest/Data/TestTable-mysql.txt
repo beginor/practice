@@ -1,7 +1,7 @@
 ﻿USE [test_db]
 GO
 
-CREATE TABLE `testtable` (
+CREATE TABLE `TestTable` (
   `Id` varchar(50) NOT NULL,
   `Name` varchar(45) DEFAULT NULL,
   `Data1` int(11) DEFAULT NULL,

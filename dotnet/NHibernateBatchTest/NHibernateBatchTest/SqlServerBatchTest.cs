@@ -22,7 +22,7 @@ namespace NHibernateBatchTest {
         [TestFixtureSetUp]
         public void FixtureSetUp() {
             var cfg = new Configuration();
-            cfg.SetProperty(Environment.ConnectionString, "Data Source=(localdb)\\Projects;Initial Catalog=TestDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False");
+            cfg.SetProperty(Environment.ConnectionString, "Data Source=db-dev4.gdepb.gov.cn;Initial Catalog=Test;User ID=udev;Password=devdev;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False");
             cfg.SetProperty(Environment.ConnectionProvider, "NHibernate.Connection.DriverConnectionProvider");
             cfg.SetProperty(Environment.ConnectionDriver, "NHibernate.Driver.SqlClientDriver");
             cfg.SetProperty(Environment.Dialect, "NHibernate.Dialect.MsSql2008Dialect");
