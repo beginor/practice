@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CandySearch {
+﻿namespace CandySearch {
 
     public class Candy {
 

@@ -1,11 +1,9 @@
 using System;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
-using MonoTouch.AudioToolbox;
 
 namespace CandySearch {
 
@@ -20,10 +18,6 @@ namespace CandySearch {
         public override void ViewDidLoad() {
             base.ViewDidLoad();
 
-            //RectangleF newBounds = TableView.Bounds;
-            //newBounds.Y = newBounds.Y + SearchBar.Bounds.Size.Height;
-            //TableView.Bounds = newBounds;
-            //SearchBar.Hidden = true;
             TableView.SetContentOffset(new PointF(0f, SearchBar.Bounds.Height), false);
 
             candies = new List<Candy> {
@@ -39,7 +33,6 @@ namespace CandySearch {
                 new Candy("other", "gummi bear")
             };
             filteredCandies = new List<Candy>();
-            //TableView.ReloadData();
         }
 
         public override int RowsInSection(UITableView tableview, int section) {
@@ -84,10 +77,6 @@ namespace CandySearch {
         }
 
         partial void GoToSearch(UIBarButtonItem sender) {
-            //RectangleF newBounds = TableView.Bounds;
-            //newBounds.Y = newBounds.Y - SearchBar.Bounds.Size.Height;
-            //TableView.Bounds = newBounds;
-            //SearchBar.Hidden = false;
             TableView.SetContentOffset(new PointF(0f, 0f), true);
             SearchBar.BecomeFirstResponder();
         }
