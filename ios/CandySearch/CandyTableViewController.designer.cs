@@ -14,8 +14,28 @@ namespace CandySearch
 	[Register ("CandyTableViewController")]
 	partial class CandyTableViewController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar SearchBar { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchDisplayController searchDisplayController { get; set; }
+
+		[Action ("GoToSearch:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void GoToSearch (UIBarButtonItem sender);
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (SearchBar != null) {
+				SearchBar.Dispose ();
+				SearchBar = null;
+			}
+			if (searchDisplayController != null) {
+				searchDisplayController.Dispose ();
+				searchDisplayController = null;
+			}
 		}
 	}
 }

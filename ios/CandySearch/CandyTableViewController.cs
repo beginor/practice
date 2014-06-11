@@ -3,18 +3,29 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Linq;
+using System.Drawing;
+using MonoTouch.AudioToolbox;
 
 namespace CandySearch {
 
-    partial class CandyTableViewController : UITableViewController {
+    partial class CandyTableViewController : UITableViewController, IUISearchBarDelegate {
 
         private IList<Candy> candies;
+        private IList<Candy> filteredCandies;
 
         public CandyTableViewController(IntPtr handle) : base(handle) {
         }
 
         public override void ViewDidLoad() {
             base.ViewDidLoad();
+
+            //RectangleF newBounds = TableView.Bounds;
+            //newBounds.Y = newBounds.Y + SearchBar.Bounds.Size.Height;
+            //TableView.Bounds = newBounds;
+            //SearchBar.Hidden = true;
+            TableView.SetContentOffset(new PointF(0f, SearchBar.Bounds.Height), false);
+
             candies = new List<Candy> {
                 new Candy("chocolate", "chocolate bar"),
                 new Candy("chocolate", "chocolate chip"),
@@ -27,10 +38,12 @@ namespace CandySearch {
                 new Candy("other", "peanut butter cup"),
                 new Candy("other", "gummi bear")
             };
+            filteredCandies = new List<Candy>();
+            //TableView.ReloadData();
         }
 
         public override int RowsInSection(UITableView tableview, int section) {
-            return candies.Count;
+            return tableview == searchDisplayController.SearchResultsTableView ? filteredCandies.Count : candies.Count;
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath) {
@@ -41,9 +54,42 @@ namespace CandySearch {
                     Accessory = UITableViewCellAccessory.DisclosureIndicator
                 };
             }
-            var candy = candies[indexPath.Row];
+            var candy = tableView == searchDisplayController.SearchResultsTableView ? filteredCandies[indexPath.Row] : candies[indexPath.Row];
             cell.TextLabel.Text = candy.Name;
             return cell;
+        }
+
+        private void FilterContent(string searchText, string scope) {
+            IEnumerable<Candy> query =candies;
+            if (!string.IsNullOrEmpty(searchText)) {
+                query = query.Where(c => c.Name.Contains(searchText));
+            }
+                var category = scope.ToLower();
+            if (category != "all") {
+                query = query.Where(c => c.Category == category);
+            }
+            filteredCandies = query.ToList();
+        }
+
+        [Export("searchDisplayController:shouldReloadTableForSearchString:")]
+        public virtual bool ShouldReloadForSearchString(UISearchDisplayController controller, string searchText) {
+            FilterContent(searchText, controller.SearchBar.ScopeButtonTitles[controller.SearchBar.SelectedScopeButtonIndex]);
+            return true;
+        }
+
+        [Export("searchDisplayController:shouldReloadTableForSearchScope:")]
+        public virtual bool ShouldReloadForSearchScope(UISearchDisplayController controller, int searchOption) {
+            FilterContent(controller.SearchBar.Text, controller.SearchBar.ScopeButtonTitles[searchOption]);
+            return true;
+        }
+
+        partial void GoToSearch(UIBarButtonItem sender) {
+            //RectangleF newBounds = TableView.Bounds;
+            //newBounds.Y = newBounds.Y - SearchBar.Bounds.Size.Height;
+            //TableView.Bounds = newBounds;
+            //SearchBar.Hidden = false;
+            TableView.SetContentOffset(new PointF(0f, 0f), true);
+            SearchBar.BecomeFirstResponder();
         }
     }
 }
