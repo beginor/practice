@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CandySearch.Touch", "CandySearch.Touch.csproj", "{B29AB145-F844-431A-8AAB-B23E0F6FBC58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Debug|iPhone.Build.0 = Debug|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Release|iPhone.ActiveCfg = Release|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Release|iPhone.Build.0 = Release|iPhone
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{B29AB145-F844-431A-8AAB-B23E0F6FBC58}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CandySearch.Touch.csproj
+	EndGlobalSection
+EndGlobal
