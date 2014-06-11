@@ -20,18 +20,7 @@ namespace CandySearch {
 
             TableView.SetContentOffset(new PointF(0f, SearchBar.Bounds.Height), false);
 
-            candies = new List<Candy> {
-                new Candy("chocolate", "chocolate bar"),
-                new Candy("chocolate", "chocolate chip"),
-                new Candy("chocolate", "dark chocolate"),
-                new Candy("hard", "lollipop"),
-                new Candy("hard", "candy cane"),
-                new Candy("hard", "jaw breaker"),
-                new Candy("other", "caramel"),
-                new Candy("other", "sour chew"),
-                new Candy("other", "peanut butter cup"),
-                new Candy("other", "gummi bear")
-            };
+            candies = Candy.DefaultList();
             filteredCandies = new List<Candy>();
         }
 
