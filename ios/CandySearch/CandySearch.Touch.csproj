@@ -123,6 +123,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="CandyTableViewController.cs" />
+    <Compile Include="CandyTableViewController.designer.cs">
+      <DependentUpon>CandyTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Candy.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
