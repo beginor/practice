@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/activity_main_options_search"
+          android:showAsAction="ifRoom"
+          android:title="Search"
+          android:icon="@android:drawable/ic_menu_search"
+          android:actionViewClass="android.widget.SearchView"/>
+    <item android:id="@+id/activity_main_options_about"
+          android:title="About"
+          android:showAsAction="never"/>
+</menu>

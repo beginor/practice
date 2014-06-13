@@ -57,11 +57,39 @@ namespace CandySearch
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int activity_main_listview = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int activity_main_listview_item_textview = 2131099649;
+			
+			// aapt resource value: 0x7f060003
+			public const int activity_main_options_about = 2131099651;
+			
+			// aapt resource value: 0x7f060002
+			public const int activity_main_options_search = 2131099650;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int activity_main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int activity_main_listview_item = 2130903041;
 			
 			static Layout()
 			{
@@ -69,6 +97,22 @@ namespace CandySearch
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int activity_main_options = 2131034112;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}
