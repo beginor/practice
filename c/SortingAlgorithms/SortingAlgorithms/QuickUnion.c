@@ -23,6 +23,7 @@ QuickUnion * QuickUnion_create(const int N) {
 
 int QuickUnion_root(QuickUnion * qu, int i) {
     while (qu->arr[i] != i) {
+        qu->arr[i] = qu->arr[qu->arr[i]];
         i = qu->arr[i];
     }
     return i;
