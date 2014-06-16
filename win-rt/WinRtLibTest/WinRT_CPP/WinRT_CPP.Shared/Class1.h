@@ -3,6 +3,7 @@
 #include <collection.h>
 #include <amp.h>
 #include <amp_math.h>
+#include <algorithm>
 
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;

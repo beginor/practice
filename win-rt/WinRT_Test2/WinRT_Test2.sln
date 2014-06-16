@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinRT_CPP", "WinRT_CPP\WinRT_CPP.vcxproj", "{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|Win32 = Debug|Win32
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Debug|ARM.ActiveCfg = Debug|ARM
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Debug|ARM.Build.0 = Debug|ARM
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Debug|Win32.Build.0 = Debug|Win32
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Release|ARM.ActiveCfg = Release|ARM
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Release|ARM.Build.0 = Release|ARM
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Release|Win32.ActiveCfg = Release|Win32
+		{DF2D8DC8-222F-44C1-9174-59C1A33E8AFF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
