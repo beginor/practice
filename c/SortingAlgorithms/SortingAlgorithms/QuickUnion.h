@@ -14,6 +14,7 @@
 typedef struct {
     
     int * arr;
+    int * sz;
     int N;
     
 } QuickUnion;
