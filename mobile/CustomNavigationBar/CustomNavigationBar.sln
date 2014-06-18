@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "CustomNavigationBar.Touch", "CustomNavigationBar.Touch\CustomNavigationBar.Touch.csproj", "{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		Ad-Hoc|iPhoneSimulator = Ad-Hoc|iPhoneSimulator
+		AppStore|iPhone = AppStore|iPhone
+		AppStore|iPhoneSimulator = AppStore|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Ad-Hoc|iPhone.Deploy.0 = Ad-Hoc|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Ad-Hoc|iPhoneSimulator.Deploy.0 = Ad-Hoc|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.AppStore|iPhone.Deploy.0 = AppStore|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.AppStore|iPhoneSimulator.Deploy.0 = AppStore|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Debug|iPhone.ActiveCfg = Debug|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Debug|iPhone.Build.0 = Debug|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Debug|iPhone.Deploy.0 = Debug|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Release|iPhone.ActiveCfg = Release|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Release|iPhone.Build.0 = Release|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Release|iPhone.Deploy.0 = Release|iPhone
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{0E8085AA-4FE5-445F-ADD1-6AF7E8FC06BB}.Release|iPhoneSimulator.Deploy.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CustomNavigationBar.Touch\CustomNavigationBar.Touch.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
