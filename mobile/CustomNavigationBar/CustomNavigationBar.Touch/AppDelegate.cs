@@ -19,7 +19,8 @@ namespace CustomNavigationBar.Touch {
         }
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions) {
-            UINavigationBar.Appearance.BarTintColor = UIColor.Yellow;
+            //UINavigationBar.Appearance.BarTintColor = UIColor.Yellow;
+            UINavigationBar.Appearance.BackgroundColor = UIColor.Yellow;
             return true;
         }
 

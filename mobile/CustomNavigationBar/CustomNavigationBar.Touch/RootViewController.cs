@@ -26,7 +26,7 @@ namespace CustomNavigationBar.Touch {
         }
 
         public override UIStatusBarStyle PreferredStatusBarStyle() {
-            return UIStatusBarStyle.LightContent;
+            return UIStatusBarStyle.Default;
         }
     }
 }
