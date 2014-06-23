@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hello">Hello World, Click Me!</string>
+    <string name="app_name">ImmersiveMode</string>
+    <string name="intro_message">
+        <![CDATA[
+        
+            
+            One of the features introduced in KitKat is "immersive mode". Immersive mode gives the
+            user the ability to show/hide the status bar and navigation bar with a swipe.  To try,
+            click the "Toggle immersive mode" button, then try swiping the bar in and out!
+            
+        
+        ]]>
+    </string>
+    <string name="sample_action">Toggle immersive mode!</string>
+</resources>
