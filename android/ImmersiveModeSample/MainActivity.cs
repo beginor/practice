@@ -11,12 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace ImmersiveModeSample {
 
-    [Activity(Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/ic_launcher")]
+    [Activity(Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/ic_launcher", Theme = "@style/CustomActionBarTheme")]
     public class MainActivity : Android.Support.V4.App.FragmentActivity {
 
         protected override void OnCreate(Bundle savedInstanceState) {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.activity_main);
             Window.DecorView.SystemUiVisibilityChange += (sender, e) => {
                 var layout = FindViewById<LinearLayout>(Resource.Id.sample_main_layout);
                 Console.WriteLine("Current height: {0}", layout.Height);
@@ -24,7 +24,7 @@ namespace ImmersiveModeSample {
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu) {
-            MenuInflater.Inflate(Resource.Menu.main, menu);
+            //MenuInflater.Inflate(Resource.Menu.main, menu);
             return true;
         }
 

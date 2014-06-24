@@ -7,7 +7,6 @@
     android:background="#ff1cab5c">
     <TextView
         android:id="@+id/sample_output"
-        style="@style/Widget.SampleMessage"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
