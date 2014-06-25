@@ -31,14 +31,14 @@ namespace ImmersiveModeSample {
         public override bool OnOptionsItemSelected(IMenuItem item) {
             SystemUiFlags uiOpts = SystemUiFlags.Visible;
             Console.WriteLine(item.TitleFormatted);
-            var title = item.TitleFormatted.ToString();
-            if (title.StartsWith("fullscreen")) {
+
+            if (item.ItemId == Resource.Id.action_fullscreen) {
                 uiOpts = SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation;
             }
-            if (title.StartsWith("immersive")) {
+            if (item.ItemId == Resource.Id.action_immersive) {
                 uiOpts = SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation | SystemUiFlags.Immersive;
             }
-            if (title.StartsWith("sticky")) {
+            if (item.ItemId == Resource.Id.action_immersive_stick) {
                 uiOpts = SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation | SystemUiFlags.ImmersiveSticky;
             }
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOpts;

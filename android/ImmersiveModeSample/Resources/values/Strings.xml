@@ -15,4 +15,5 @@
     </string>
     <string name="sample_action">Toggle immersive mode!</string>
     <string name="helloworld">Hello, World!</string>
+    <string name="helloworld2">Hello, World!</string>
 </resources>
