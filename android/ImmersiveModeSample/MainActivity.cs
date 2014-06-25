@@ -29,13 +29,9 @@ namespace ImmersiveModeSample {
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item) {
-            ToggleImmersiveMode(item.TitleFormatted.ToString().ToLower());
-            return true;
-        }
-
-        private void ToggleImmersiveMode(string title) {
-            Console.WriteLine("Item title: {0}", title);
             SystemUiFlags uiOpts = SystemUiFlags.Visible;
+            Console.WriteLine(item.TitleFormatted);
+            var title = item.TitleFormatted.ToString();
             if (title.StartsWith("fullscreen")) {
                 uiOpts = SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation;
             }
@@ -46,6 +42,7 @@ namespace ImmersiveModeSample {
                 uiOpts = SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation | SystemUiFlags.ImmersiveSticky;
             }
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOpts;
+            return true;
         }
     }
 }
