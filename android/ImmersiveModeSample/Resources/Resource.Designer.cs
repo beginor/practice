@@ -63,9 +63,6 @@ namespace ImmersiveModeSample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070005
-			public const int action_about = 2131165189;
-			
 			// aapt resource value: 0x7f070002
 			public const int action_fullscreen = 2131165186;
 			
@@ -74,6 +71,9 @@ namespace ImmersiveModeSample
 			
 			// aapt resource value: 0x7f070004
 			public const int action_immersive_stick = 2131165188;
+			
+			// aapt resource value: 0x7f070005
+			public const int action_reset = 2131165189;
 			
 			// aapt resource value: 0x7f070000
 			public const int sample_main_layout = 2131165184;

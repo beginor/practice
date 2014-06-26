@@ -5,12 +5,19 @@
     android:layout_height="fill_parent"
     android:id="@+id/sample_main_layout"
     android:background="#ff1cab5c">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="#ffff610d" />
     <TextView
         android:id="@+id/sample_output"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/intro_message" />
+        android:text="@string/intro_message"
+        android:typeface="normal"
+        android:textSize="18sp"
+        android:layout_margin="4dp" />
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
