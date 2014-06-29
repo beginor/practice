@@ -22,7 +22,7 @@ namespace Algorithms {
         public static void Sort<T>(T[] a, IComparer c) {
             int n = a.Length;
             for (int i = 0; i < n; i++) {
-                for (int j = i; j > 0 && Less(c, a[j], a[j - 1]); j--) {
+                for (int j = i; j > 0 && Less(a[j], a[j - 1], c); j--) {
                     Exch(a, j, j - 1);
                 }
             }
@@ -32,7 +32,7 @@ namespace Algorithms {
             return v.CompareTo(w) < 0;
         }
 
-        private static bool Less(IComparer c, object v, object w) {
+        private static bool Less(object v, object w, IComparer c) {
             return c.Compare(v, w) < 0;
         }
 

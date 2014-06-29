@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Algorithms {
 
-    public class Shell {
+    public static class Shell {
 
         public static void Sort<T>(T[] a) where T : IComparable {
             int n = a.Length;
@@ -32,7 +32,7 @@ namespace Algorithms {
             while (h >= 1) {
                 for (int i = h; i < n; i++) {
                     for (int j = i; j >= h; j -= h) {
-                        if (Less(c, a[j], a[j - 1])) {
+                        if (Less(a[j], a[j - 1], c)) {
                             Exch(a, j, j - h);
                             break;
                         }
@@ -46,7 +46,7 @@ namespace Algorithms {
             return v.CompareTo(w) < 0;
         }
 
-        private static bool Less(IComparer c, object v, object w) {
+        private static bool Less(object v, object w, IComparer c) {
             return c.Compare(v, w) < 0;
         }
 
