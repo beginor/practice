@@ -15,7 +15,11 @@ namespace Algorithms {
         }
 
         public static void Sort<T>(T[] a, IComparer c) {
-            throw new NotImplementedException();
+            var aux = new T[a.Length];
+            for (int i = 0; i < a.Length; i++) {
+                aux[i] = a[i];
+            }
+            Sort(a, aux, 0, a.Length - 1, c);
         }
 
         private static void Sort<T>(T[] a, T[] aux, int lo, int hi) where T : IComparable {
@@ -28,14 +32,14 @@ namespace Algorithms {
             MergeArray(a, aux, lo, mid, hi);
         }
 
-        private static void Sort<T>(T[] a, T[] aux, int lo, int hi, IComparer comparer) {
+        private static void Sort<T>(T[] a, T[] aux, int lo, int hi, IComparer c) {
             if (hi <= lo) {
                 return;
             }
             int mid = (lo + hi) / 2;
-            Sort(a, aux, lo, mid, comparer);
-            Sort(a, aux, mid + 1, hi, comparer);
-            MergeArray(a, aux, lo, mid, hi, comparer);
+            Sort(a, aux, lo, mid, c);
+            Sort(a, aux, mid + 1, hi, c);
+            MergeArray(a, aux, lo, mid, hi, c);
         }
 
         private static void MergeArray<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable {
@@ -64,9 +68,9 @@ namespace Algorithms {
             Debug.Assert(IsSorted(a, lo, hi));
         }
 
-        private static void MergeArray<T>(T[] a, T[] aux, int lo, int mid, int hi, IComparer comparer) {
-            Debug.Assert(IsSorted(a, lo, mid, comparer));
-            Debug.Assert(IsSorted(a, mid + 1, hi, comparer));
+        private static void MergeArray<T>(T[] a, T[] aux, int lo, int mid, int hi, IComparer c) {
+            Debug.Assert(IsSorted(a, lo, mid, c));
+            Debug.Assert(IsSorted(a, mid + 1, hi, c));
 
             for (var k = lo; k <= hi; k++) {
                 aux[k] = a[k];
@@ -80,14 +84,14 @@ namespace Algorithms {
                 else if (j > hi) {
                     a[k] = a[i++];
                 }
-                else if (Less(a[j], a[i], comparer)) {
+                else if (Less(a[j], a[i], c)) {
                     a[k] = a[j++];
                 }
                 else {
                     a[k] = a[i++];
                 }
             }
-            Debug.Assert(IsSorted(a, lo, hi, comparer));
+            Debug.Assert(IsSorted(a, lo, hi, c));
         }
 
         private static bool IsSorted<T>(T[] a, int lo, int hi) where T : IComparable {
@@ -99,9 +103,9 @@ namespace Algorithms {
             return true;
         }
 
-        private static bool IsSorted<T>(T[] a, int lo, int hi, IComparer comparer) {
+        private static bool IsSorted<T>(T[] a, int lo, int hi, IComparer c) {
             for (var i = lo; i < hi; i++) {
-                if (!Less(a[i], a[i + 1], comparer)) {
+                if (!Less(a[i], a[i + 1], c)) {
                     return false;
                 }
             }
