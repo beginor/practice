@@ -13,5 +13,9 @@ namespace Algorithms {
             }
             Console.WriteLine();
         }
+
+        public static void WriteLine(string format, params object[] args) {
+            Console.WriteLine(format, args);
+        }
     }
 }

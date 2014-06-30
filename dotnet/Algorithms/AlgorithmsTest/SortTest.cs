@@ -49,5 +49,37 @@ namespace AlgorithmsTest {
             StdRandom.Shuffle(a);
             StdOut.WriteLine(a);
         }
+
+        [Test]
+        public void TestNormalMergeSort() {
+            var a = new int[10];
+            for (int i = 0; i < a.Length; i++) {
+                a[i] = StdRandom.Uniform(10);
+            }
+            StdOut.WriteLine(a);
+            Merge.Sort(a);
+            StdOut.WriteLine(a);
+
+            for (int i = 0; i < a.Length; i++) {
+                a[i] = StdRandom.Uniform(10);
+            }
+
+        }
+
+        [Test]
+        public void TestBottomUpMerge() {
+            var a = new int[10];
+            for (int i = 0; i < a.Length; i++) {
+                a[i] = StdRandom.Uniform(100);
+            }
+            StdOut.WriteLine(a);
+            Merge.SortBU(a);
+            StdOut.WriteLine(a);
+
+            for (int i = 0; i < a.Length; i++) {
+                a[i] = StdRandom.Uniform(10);
+            }
+        }
+
     }
 }
