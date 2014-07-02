@@ -68,18 +68,24 @@ namespace AlgorithmsTest {
 
         [Test]
         public void TestBottomUpMerge() {
-            var a = new int[10];
+            var a = new int[16];
             for (int i = 0; i < a.Length; i++) {
                 a[i] = StdRandom.Uniform(100);
             }
             StdOut.WriteLine(a);
             Merge.SortBU(a);
             StdOut.WriteLine(a);
-
-            for (int i = 0; i < a.Length; i++) {
-                a[i] = StdRandom.Uniform(10);
-            }
         }
 
+        [Test]
+        public void TestQuickSort() {
+            var a = new int[10];
+            for (int i = 0; i < a.Length; i++) {
+                a[i] = StdRandom.Uniform(100);
+            }
+            StdOut.WriteLine(a);
+            Quick.Sort(a);
+            StdOut.WriteLine(a);
+        }
     }
 }
