@@ -79,13 +79,16 @@ namespace AlgorithmsTest {
 
         [Test]
         public void TestQuickSort() {
-            var a = new int[10];
+            var a = new int[16];
             for (int i = 0; i < a.Length; i++) {
                 a[i] = StdRandom.Uniform(100);
             }
             StdOut.WriteLine(a);
             Quick.Sort(a);
             StdOut.WriteLine(a);
+
+            var item4 = Quick.Select(a, 9);
+            StdOut.WriteLine("item7 = {0}", item4);
         }
     }
 }

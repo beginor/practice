@@ -78,6 +78,42 @@ namespace Algorithms {
             return j;
         }
 
+        public static T Select<T>(T[] a, int k) where T : IComparable {
+            StdRandom.Shuffle(a);
+            int lo = 0, hi = a.Length - 1;
+            while (lo < hi) {
+                int j = Partition(a, lo, hi);
+                if (j < k) {
+                    lo = j + 1;
+                }
+                else if (j > k) {
+                    hi = j - 1;
+                }
+                else {
+                    return a[k];
+                }
+            }
+            return a[k];
+        }
+
+        public static T Select<T>(T[] a, int k, IComparer c) {
+            StdRandom.Shuffle(a);
+            int lo = 0, hi = a.Length - 1;
+            while (lo < hi) {
+                int j = Partition(a, lo, hi, c);
+                if (j < k) {
+                    lo = j + 1;
+                }
+                else if (j > k) {
+                    hi = j - 1;
+                }
+                else {
+                    return a[k];
+                }
+            }
+            return a[k];
+        }
+
         private static bool Less(IComparable v, IComparable w) {
             return v.CompareTo(w) < 0;
         }
