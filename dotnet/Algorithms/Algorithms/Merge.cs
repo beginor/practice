@@ -111,8 +111,8 @@ namespace Algorithms {
         }
 
         private static bool IsSorted<T>(T[] a, int lo, int hi) where T : IComparable {
-            for (var i = lo; i < hi; i++) {
-                if (!Less(a[i], a[i + 1])) {
+            for (var i = lo + 1; i <= hi; i++) {
+                if (Less(a[i], a[i - 1])) {
                     return false;
                 }
             }
@@ -120,8 +120,8 @@ namespace Algorithms {
         }
 
         private static bool IsSorted<T>(T[] a, int lo, int hi, IComparer c) {
-            for (var i = lo; i < hi; i++) {
-                if (!Less(a[i], a[i + 1], c)) {
+            for (var i = lo + 1; i <= hi; i++) {
+                if (Less(a[i], a[i - 1], c)) {
                     return false;
                 }
             }
