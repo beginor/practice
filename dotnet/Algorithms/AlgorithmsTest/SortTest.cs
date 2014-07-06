@@ -90,5 +90,16 @@ namespace AlgorithmsTest {
             var item4 = Quick.Select(a, 9);
             StdOut.WriteLine("item7 = {0}", item4);
         }
+
+        [Test]
+        public void TestQuick3Sort() {
+            var a = new int[16];
+            for (int i = 0; i < a.Length; i++) {
+                a[i] = StdRandom.Uniform(10);
+            }
+            StdOut.WriteLine(a);
+            Quick3.Sort(a);
+            StdOut.WriteLine(a);
+        }
     }
 }

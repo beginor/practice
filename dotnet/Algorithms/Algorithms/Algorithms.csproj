@@ -42,6 +42,7 @@
     <Compile Include="LinkedStack.cs" />
     <Compile Include="Merge.cs" />
     <Compile Include="Quick.cs" />
+    <Compile Include="Quick3.cs" />
     <Compile Include="QuickFindUF.cs" />
     <Compile Include="QuickUnionUF.cs" />
     <Compile Include="ResizingArrayBag.cs" />
