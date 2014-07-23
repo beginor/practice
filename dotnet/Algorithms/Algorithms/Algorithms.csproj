@@ -38,10 +38,12 @@
     <Compile Include="Heap.cs" />
     <Compile Include="Insertion.cs" />
     <Compile Include="LinkedBag.cs" />
-    <Compile Include="LinkedList.cs" />
+    <Compile Include="ListIterator.cs" />
     <Compile Include="LinkedQueue.cs" />
     <Compile Include="LinkedStack.cs" />
+    <Compile Include="MaxPQ.cs" />
     <Compile Include="Merge.cs" />
+    <Compile Include="MinPQ.cs" />
     <Compile Include="Quick.cs" />
     <Compile Include="Quick3.cs" />
     <Compile Include="QuickFindUF.cs" />
