@@ -3,11 +3,6 @@ using System.Collections.Generic;
 
 namespace Algorithms {
 
-    class Node<TItem> {
-        public TItem Item;
-        public Node<TItem> Next;
-    }
-
     class ListIterator<TItem> : IEnumerator<TItem> {
 
         private Node<TItem> current;
@@ -50,5 +45,10 @@ namespace Algorithms {
                 return Current;
             }
         }
+    }
+
+    class Node<TItem> {
+        public TItem Item;
+        public Node<TItem> Next;
     }
 }
