@@ -4,17 +4,17 @@ using System.Collections;
 namespace Algorithms {
 
 
-    public static class Quick3 {
+    public static class Quick3<T> where T : IComparable {
 
-        public static void Sort<T>(T[] a) where T : IComparable {
+        public static void Sort(T[] a) {
             Sort(a, 0, a.Length - 1);
         }
 
-        public static void Sort<T>(T[] a, IComparer c) {
+        public static void Sort(T[] a, IComparer c) {
             Sort(a, 0, a.Length - 1, c);
         }
 
-        private static void Sort<T>(T[] a, int lo, int hi) where T : IComparable {
+        private static void Sort(T[] a, int lo, int hi) {
             if (hi <= lo) {
                 return;
             }
@@ -38,7 +38,7 @@ namespace Algorithms {
             Sort(a, gt + 1, hi);
         }
 
-        private static void Sort<T>(T[] a, int lo, int hi, IComparer comp) {
+        private static void Sort(T[] a, int lo, int hi, IComparer comp) {
             if (hi <= lo) {
                 return;
             }
@@ -62,7 +62,7 @@ namespace Algorithms {
             Sort(a, gt + 1, hi, comp);
         }
 
-        private static void Exch<T>(T[] a, int i, int j) {
+        private static void Exch(T[] a, int i, int j) {
             var tmp = a[i];
             a[i] = a[j];
             a[j] = tmp;

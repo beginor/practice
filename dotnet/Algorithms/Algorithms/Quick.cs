@@ -4,19 +4,19 @@ using System.Collections;
 namespace Algorithms {
 
 
-    public static class Quick {
+    public static class Quick<T> where T : IComparable {
 
-        public static void Sort<T>(T[] a) where T : IComparable {
+        public static void Sort(T[] a) {
             StdRandom.Shuffle(a);
             Sort(a, 0, a.Length - 1);
         }
 
-        public static void Sort<T>(T[] a, IComparer c) {
+        public static void Sort(T[] a, IComparer c) {
             StdRandom.Shuffle(a);
             Sort(a, 0, a.Length - 1, c);
         }
 
-        private static void Sort<T>(T[] a, int lo, int hi) where T : IComparable {
+        private static void Sort(T[] a, int lo, int hi) {
             if (lo >= hi) {
                 return;
             }
@@ -25,7 +25,7 @@ namespace Algorithms {
             Sort(a, j + 1, hi);
         }
 
-        private static void Sort<T>(T[] a, int lo, int hi, IComparer c) {
+        private static void Sort(T[] a, int lo, int hi, IComparer c) {
             if (lo >= hi) {
                 return;
             }
@@ -34,7 +34,7 @@ namespace Algorithms {
             Sort(a, j + 1, hi, c);
         }
 
-        private static int Partition<T>(T[] a, int lo, int hi) where T :　IComparable {
+        private static int Partition(T[] a, int lo, int hi) {
             int i = lo, j = hi + 1;
             while (true) {
                 while (Less(a[++i], a[lo])) {
@@ -56,7 +56,7 @@ namespace Algorithms {
             return j;
         }
 
-        private static int Partition<T>(T[] a, int lo, int hi, IComparer c) {
+        private static int Partition(T[] a, int lo, int hi, IComparer c) {
             int i = lo, j = hi + 1;
             while (true) {
                 while (Less(a[++i], a[lo], c)) {
@@ -78,7 +78,7 @@ namespace Algorithms {
             return j;
         }
 
-        public static T Select<T>(T[] a, int k) where T : IComparable {
+        public static T Select(T[] a, int k) {
             StdRandom.Shuffle(a);
             int lo = 0, hi = a.Length - 1;
             while (lo < hi) {
@@ -96,7 +96,7 @@ namespace Algorithms {
             return a[k];
         }
 
-        public static T Select<T>(T[] a, int k, IComparer c) {
+        public static T Select(T[] a, int k, IComparer c) {
             StdRandom.Shuffle(a);
             int lo = 0, hi = a.Length - 1;
             while (lo < hi) {
@@ -122,7 +122,7 @@ namespace Algorithms {
             return c.Compare(v, w) < 0;
         }
 
-        private static void Exch<T>(T[] a, int i, int j) {
+        private static void Exch(T[] a, int i, int j) {
             var tmp = a[i];
             a[i] = a[j];
             a[j] = tmp;

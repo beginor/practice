@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace Algorithms {
 
-    public static class Merge {
+    public static class Merge<T> where T : IComparable {
 
-        public static void Sort<T>(T[] a) where T : IComparable {
+        public static void Sort(T[] a) {
             var aux = new T[a.Length];
             for (int i = 0; i < a.Length; i++) {
                 aux[i] = a[i];
@@ -15,12 +14,12 @@ namespace Algorithms {
             Sort(a, aux, 0, a.Length - 1);
         }
 
-        public static void Sort<T>(T[] a, IComparer c) {
+        public static void Sort(T[] a, IComparer c) {
             var aux = new T[a.Length];
             Sort(a, aux, 0, a.Length - 1, c);
         }
 
-        private static void Sort<T>(T[] a, T[] aux, int lo, int hi) where T : IComparable {
+        private static void Sort(T[] a, T[] aux, int lo, int hi) {
             if (hi <= lo) {
                 return;
             }
@@ -30,7 +29,7 @@ namespace Algorithms {
             MergeArray(a, aux, lo, mid, hi);
         }
 
-        private static void Sort<T>(T[] a, T[] aux, int lo, int hi, IComparer c) {
+        private static void Sort(T[] a, T[] aux, int lo, int hi, IComparer c) {
             if (hi <= lo) {
                 return;
             }
@@ -40,7 +39,7 @@ namespace Algorithms {
             MergeArray(a, aux, lo, mid, hi, c);
         }
 
-        private static void MergeArray<T>(T[] a, T[] aux, int lo, int mid, int hi) where T : IComparable {
+        private static void MergeArray(T[] a, T[] aux, int lo, int mid, int hi) {
             Debug.Assert(IsSorted(a, lo, mid));
             Debug.Assert(IsSorted(a, mid + 1, hi));
 
@@ -66,7 +65,7 @@ namespace Algorithms {
             Debug.Assert(IsSorted(a, lo, hi));
         }
 
-        private static void MergeArray<T>(T[] a, T[] aux, int lo, int mid, int hi, IComparer c) {
+        private static void MergeArray(T[] a, T[] aux, int lo, int mid, int hi, IComparer c) {
             Debug.Assert(IsSorted(a, lo, mid, c));
             Debug.Assert(IsSorted(a, mid + 1, hi, c));
 
@@ -92,25 +91,25 @@ namespace Algorithms {
             Debug.Assert(IsSorted(a, lo, hi, c));
         }
 
-        public static void SortBU<T>(T[] a) where T : IComparable {
-            int N = a.Length;
-            T[] aux = new T[N];
-            for (int n = 1; n < N; n = n + n) {
-                for (int i = 0; i < N - n; i += n + n) {
+        public static void SortBottomUp(T[] a) {
+            int length = a.Length;
+            T[] aux = new T[length];
+            for (int n = 1; n < length; n = n + n) {
+                for (int i = 0; i < length - n; i += n + n) {
                     int lo = i;
                     int mid = i + n - 1;
-                    int hi = Math.Min(i + n + n - 1, N - 1);
+                    int hi = Math.Min(i + n + n - 1, length - 1);
                     MergeArray(a, aux, lo, mid, hi);
                 }
             }
             Debug.Assert(IsSorted(a));
         }
 
-        private static bool IsSorted<T>(T[] a) where T : IComparable {
+        private static bool IsSorted(T[] a) {
             return IsSorted(a, 0, a.Length - 1);
         }
 
-        private static bool IsSorted<T>(T[] a, int lo, int hi) where T : IComparable {
+        private static bool IsSorted(T[] a, int lo, int hi) {
             for (var i = lo + 1; i <= hi; i++) {
                 if (Less(a[i], a[i - 1])) {
                     return false;
@@ -119,7 +118,7 @@ namespace Algorithms {
             return true;
         }
 
-        private static bool IsSorted<T>(T[] a, int lo, int hi, IComparer c) {
+        private static bool IsSorted(T[] a, int lo, int hi, IComparer c) {
             for (var i = lo + 1; i <= hi; i++) {
                 if (Less(a[i], a[i - 1], c)) {
                     return false;

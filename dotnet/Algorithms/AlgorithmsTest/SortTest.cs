@@ -13,7 +13,7 @@ namespace AlgorithmsTest {
                 a[i] = StdRandom.Uniform(10);
             }
             StdOut.WriteLine(a);
-            Selection.Sort(a);
+            Selection<int>.Sort(a);
             StdOut.WriteLine(a);
         }
 
@@ -24,7 +24,7 @@ namespace AlgorithmsTest {
                 a[i] = StdRandom.Uniform(10);
             }
             StdOut.WriteLine(a);
-            Insertion.Sort(a);
+            Insertion<int>.Sort(a);
             StdOut.WriteLine(a);
         }
 
@@ -35,7 +35,7 @@ namespace AlgorithmsTest {
                 a[i] = StdRandom.Uniform(10);
             }
             StdOut.WriteLine(a);
-            Shell.Sort(a);
+            Shell<int>.Sort(a);
             StdOut.WriteLine(a);
         }
 
@@ -57,7 +57,7 @@ namespace AlgorithmsTest {
                 a[i] = StdRandom.Uniform(10);
             }
             StdOut.WriteLine(a);
-            Merge.Sort(a);
+            Merge<int>.Sort(a);
             StdOut.WriteLine(a);
 
             for (int i = 0; i < a.Length; i++) {
@@ -73,7 +73,7 @@ namespace AlgorithmsTest {
                 a[i] = StdRandom.Uniform(100);
             }
             StdOut.WriteLine(a);
-            Merge.SortBU(a);
+            Merge<int>.SortBottomUp(a);
             StdOut.WriteLine(a);
         }
 
@@ -84,22 +84,35 @@ namespace AlgorithmsTest {
                 a[i] = StdRandom.Uniform(100);
             }
             StdOut.WriteLine(a);
-            Quick.Sort(a);
+            Quick<int>.Sort(a);
             StdOut.WriteLine(a);
 
-            var item4 = Quick.Select(a, 9);
+            var item4 = Quick<int>.Select(a, 9);
             StdOut.WriteLine("item7 = {0}", item4);
         }
 
         [Test]
         public void TestQuick3Sort() {
-            var a = new int[16];
+            var a = CreateRandomArray(16);
+            StdOut.WriteLine(a);
+            Quick3<int>.Sort(a);
+            StdOut.WriteLine(a);
+        }
+
+        [Test]
+        public void TestHeapSort() {
+            var a = CreateRandomArray(10);
+            StdOut.WriteLine(a);
+            Heap<int>.Sort(a);
+            StdOut.WriteLine(a);
+        }
+
+        private static int[] CreateRandomArray(int n) {
+            var a = new int[n];
             for (int i = 0; i < a.Length; i++) {
                 a[i] = StdRandom.Uniform(10);
             }
-            StdOut.WriteLine(a);
-            Quick3.Sort(a);
-            StdOut.WriteLine(a);
+            return a;
         }
     }
 }

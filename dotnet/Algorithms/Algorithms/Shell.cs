@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace Algorithms {
 
-    public static class Shell {
+    public static class Shell<T> where T : IComparable {
 
-        public static void Sort<T>(T[] a) where T : IComparable {
+        public static void Sort(T[] a) {
             int n = a.Length;
             int h = 1;
             while (h < n / 3) {
@@ -22,7 +22,7 @@ namespace Algorithms {
             }
         }
 
-        public static void Sort<T>(T[] a, IComparer c) {
+        public static void Sort(T[] a, IComparer c) {
             int n = a.Length;
             int h = 1;
             while (h < n / 3) {
@@ -50,7 +50,7 @@ namespace Algorithms {
             return c.Compare(v, w) < 0;
         }
 
-        private static void Exch<T>(T[] a, int i, int j) {
+        private static void Exch(T[] a, int i, int j) {
             var tmp = a[i];
             a[i] = a[j];
             a[j] = tmp;

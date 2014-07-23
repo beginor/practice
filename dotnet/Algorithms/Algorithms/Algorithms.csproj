@@ -35,6 +35,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Heap.cs" />
     <Compile Include="Insertion.cs" />
     <Compile Include="LinkedBag.cs" />
     <Compile Include="LinkedList.cs" />

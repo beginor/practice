@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace Algorithms {
 
-    public static class Selection {
+    public static class Selection<T> where T : IComparable {
 
-        public static void Sort<T>(T[] array) where T : IComparable {
+        public static void Sort(T[] array) {
             var n = array.Length;
             for (var i = 0; i < n; i++) {
                 var min = i;
@@ -18,7 +18,7 @@ namespace Algorithms {
             }
         }
 
-        public static void Sort<T>(T[] array, IComparer c) {
+        public static void Sort(T[] array, IComparer c) {
             var n = array.Length;
             for (var i = 0; i < n; i++) {
                 var min = i;
@@ -39,7 +39,7 @@ namespace Algorithms {
             return c.Compare(v, w) < 0;
         }
 
-        private static void Exch<T>(T[] a, int i, int j) {
+        private static void Exch(T[] a, int i, int j) {
             var tmp = a[i];
             a[i] = a[j];
             a[j] = tmp;

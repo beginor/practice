@@ -3,7 +3,7 @@
 namespace Algorithms {
 
     public static class StdRandom {
-         
+
         private static Random random = new Random((int)Seed);
         private static double seed = DateTime.Now.Millisecond;
 
