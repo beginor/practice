@@ -10,6 +10,9 @@ namespace Algorithms {
                 if (i < array.Length - 1) {
                     Console.Write(item + " ");
                 }
+                else {
+                    Console.WriteLine(item);
+                }
             }
             Console.WriteLine();
         }
