@@ -40,7 +40,7 @@ namespace Algorithms {
             Debug.Assert(IsMinHeap());
         }
 
-        private bool IsEmpty {
+        public bool IsEmpty {
             get {
                 return n == 0;
             }

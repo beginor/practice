@@ -40,7 +40,7 @@ namespace Algorithms {
             Debug.Assert(IsMaxHeap());
         }
 
-        private bool IsEmpty {
+        public bool IsEmpty {
             get {
                 return n == 0;
             }
