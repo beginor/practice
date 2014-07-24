@@ -57,6 +57,7 @@
     <Compile Include="StdOut.cs" />
     <Compile Include="StdRandom.cs" />
     <Compile Include="WeightedQuickUnionUF.cs" />
+    <Compile Include="BST.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
