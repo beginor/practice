@@ -48,6 +48,7 @@
     <Compile Include="UnionFindTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LinkedTest.cs" />
+    <Compile Include="PriorityQueueTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
