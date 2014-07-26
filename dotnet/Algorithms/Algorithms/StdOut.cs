@@ -1,20 +1,26 @@
 ﻿using System;
+using System.Collections;
+using System.Linq;
+using System.Text;
 
 namespace Algorithms {
 
     public static class StdOut {
 
         public static void WriteLine<T>(T[] array) {
-            for (int i = 0; i < array.Length; i++) {
-                var item = array[i];
-                if (i < array.Length - 1) {
-                    Console.Write(item + " ");
-                }
-                else {
-                    Console.WriteLine(item);
-                }
+            var s = new StringBuilder();
+            foreach (var t in array) {
+                s.AppendFormat("{0} ", t);
             }
-            Console.WriteLine();
+            Console.WriteLine(s);
+        }
+
+        public static void WriteLine(IEnumerable enumerable) {
+            var s = new StringBuilder();
+            foreach (var o in enumerable) {
+                s.AppendFormat("{0} ", o);
+            }
+            Console.Out.WriteLine(s.ToString(0, s.Length - 1));
         }
 
         public static void WriteLine(string format, params object[] args) {

@@ -48,6 +48,7 @@
     <Compile Include="Quick3.cs" />
     <Compile Include="QuickFindUF.cs" />
     <Compile Include="QuickUnionUF.cs" />
+    <Compile Include="RedBlackBST.cs" />
     <Compile Include="ResizingArrayBag.cs" />
     <Compile Include="ResizingArrayQueue.cs" />
     <Compile Include="ResizingArrayStack.cs" />

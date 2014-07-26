@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BstTest.cs" />
     <Compile Include="EvalTest.cs" />
     <Compile Include="ResizingArrayTest.cs" />
     <Compile Include="SortTest.cs" />

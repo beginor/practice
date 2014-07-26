@@ -61,8 +61,8 @@ namespace Algorithms {
         private Node Put(Node x, TKey key, TValue val) {
             if (x == null) {
                 return new Node {
-                                    Key = key, Val = val, N = 1
-                                };
+                    Key = key, Val = val, N = 1
+                };
             }
             int cmp = key.CompareTo(x.Key);
             if (cmp < 0) {
@@ -303,15 +303,17 @@ namespace Algorithms {
             return Rank(hi) - Rank(lo);
         }
 
-        public int Height() {
-            return Height(root);
+        public int Height {
+            get {
+                return NodeHeight(root);
+            }
         }
 
-        private int Height(Node x) {
+        private int NodeHeight(Node x) {
             if (x == null) {
                 return -1;
             }
-            return 1 + Math.Max(Height(x.Left), Height(x.Right));
+            return 1 + Math.Max(NodeHeight(x.Left), NodeHeight(x.Right));
         }
 
         public IEnumerable<TKey> LevelOrder() {
@@ -331,16 +333,19 @@ namespace Algorithms {
         }
 
         private bool Check() {
-            if (!IsBST()) {
+            var isBst = IsBST();
+            var isSizeConsistent = IsSizeConsistent();
+            var isRankConsistent = IsRankConsistent();
+            if (!isBst) {
                 Console.WriteLine("Not in symmetric order");
             }
-            if (!IsSizeConsistent()) {
+            if (!isSizeConsistent) {
                 Console.WriteLine("Subtree counts not consistent");
             }
-            if (!IsRankConsistent()) {
+            if (!isRankConsistent) {
                 Console.WriteLine("Ranks not consistent");
             }
-            return IsBST() && IsSizeConsistent() && IsRankConsistent();
+            return isBst && isSizeConsistent && isRankConsistent;
         }
 
         private bool IsBST() {
@@ -351,10 +356,10 @@ namespace Algorithms {
             if (x == null) {
                 return true;
             }
-            if (min != null && x.Key.CompareTo(min) <= 0) {
+            if (!EqualityComparer<TKey>.Default.Equals(min, default(TKey)) && x.Key.CompareTo(min) <= 0) {
                 return false;
             }
-            if (max != null && x.Key.CompareTo(max) >= 0) {
+            if (!EqualityComparer<TKey>.Default.Equals(max, default(TKey)) && x.Key.CompareTo(max) >= 0) {
                 return false;
             }
             return IsBST(x.Left, min, x.Key) && IsBST(x.Right, x.Key, max);
