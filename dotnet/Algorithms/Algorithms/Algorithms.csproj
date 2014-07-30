@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Heap.cs" />
     <Compile Include="Insertion.cs" />
+    <Compile Include="KdTree.cs" />
     <Compile Include="LinkedBag.cs" />
     <Compile Include="ListIterator.cs" />
     <Compile Include="LinkedQueue.cs" />
