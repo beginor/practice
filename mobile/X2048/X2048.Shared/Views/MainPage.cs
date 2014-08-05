@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Beginor.X2048.Models;
 using Xamarin.Forms;
-using Grid = Xamarin.Forms.Grid;
 
 namespace Beginor.X2048.Views {
 
@@ -28,12 +27,13 @@ namespace Beginor.X2048.Views {
             };
 
             var tileButton = new TileView {
-                BindingContext = new Tile(new Position { X = 0, Y = 0 }, 2)
+                BindingContext = new TileModel(new Position { X = 0, Y = 0 }, value: 2)
             };
-
+            
             grid.Children.Add(tileButton);
 
             Content = grid;
+            BackgroundColor = Color.FromHex("#FAF8EF");
         }
 
     }

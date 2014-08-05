@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "X2048.Shared", "X2048.Shared\X2048.Shared.shproj", "{EE441CB9-1044-42B1-A8D6-F60FB75E9512}"
 EndProject
@@ -26,21 +26,10 @@ Global
 		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Release|iPhone.Build.0 = Release|Any CPU
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Debug|Any CPU.Deploy.0 = Debug|iPhoneSimulator
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Debug|iPhone.Build.0 = Debug|iPhone
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Debug|iPhone.Deploy.0 = Debug|iPhone
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|Any CPU.Deploy.0 = Release|iPhoneSimulator
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|iPhone.ActiveCfg = Release|iPhone
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|iPhone.Build.0 = Release|iPhone
-		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|iPhone.Deploy.0 = Release|iPhone
+		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Release|iPhone.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = X2048.Touch\X2048.Touch.csproj
+		StartupItem = X2048.Droid\X2048.Droid.csproj
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		X2048.Shared\X2048.Shared.projitems*{9d3ac68f-4bc6-48a2-a001-50065472f4db}*SharedItemsImports = 4

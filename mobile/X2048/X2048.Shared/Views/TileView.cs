@@ -13,7 +13,7 @@ namespace Beginor.X2048.Views {
         }
 
         private void OnClicked(object sender, EventArgs e) {
-            var tile = (Tile)BindingContext;
+            var tile = (TileModel)BindingContext;
             tile.Value = tile.Value * 2;
             index++;
             tile.Y = index / 4;

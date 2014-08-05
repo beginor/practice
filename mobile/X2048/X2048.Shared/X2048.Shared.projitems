@@ -11,9 +11,9 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Grid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GridModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Position.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Tile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TileModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TileView.cs" />
   </ItemGroup>
