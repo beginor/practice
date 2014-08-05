@@ -13,7 +13,7 @@ namespace Beginor.X2048 {
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
             Forms.Init();
-            App.GetMainPage().CreateViewController();
+            Window.RootViewController = App.GetMainPage().CreateViewController();
 
             Window.MakeKeyAndVisible();
 

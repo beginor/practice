@@ -64,6 +64,5 @@ namespace Beginor.X2048.Models {
             return ""; //Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public override event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -28,7 +28,7 @@ namespace Beginor.X2048.Views {
             };
 
             var tileButton = new TileView {
-                BindingContext = new Tile(new Position { X = 1, Y = 1 }, 2)
+                BindingContext = new Tile(new Position { X = 0, Y = 0 }, 2)
             };
 
             grid.Children.Add(tileButton);
