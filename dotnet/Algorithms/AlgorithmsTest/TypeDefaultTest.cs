@@ -13,5 +13,14 @@ namespace AlgorithmsTest {
             Console.WriteLine("default(double) = {0}", default(double));
             Console.WriteLine("default(TypeDefaultTest) = {0}", default(TypeDefaultTest));
         }
+
+        [Test]
+        public void TestTuple() {
+            var a = GetCategory();
+        }
+
+        private Tuple<int, string, DateTime> GetCategory() {
+            return Tuple.Create(1, "Category", DateTime.Now);
+        }
     }
 }

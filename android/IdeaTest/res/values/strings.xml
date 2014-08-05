@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IdeaTest</string>
-    <string name="activity_main_action1">activity_main_action1</string>
-    <string name="fragment_place_context_delete_item_title">删除所选地区</string>
-    <string name="fragment_place_context_cancel_item_title">取消</string>
-
-    <string name="activity_user_info_basic_info">基本信息</string>
-    <string name="activity_user_info_tel">电话</string>
-    <string name="activity_userinfo_username_textview_text">姓名</string>
-    <string name="activity_userinfo_department_textview_text">单位</string>
-    <string name="activity_userinfo_title_textview_text">职位</string>
-    <string name="activity_userinfo_mobile_text">手机</string>
-    <string name="activity_userinfo_tel_text">座机</string>
-    <string name="activity_userinfo_mail_text">邮箱</string>
-    <string name="activity_userinfo_email_text">E-mail</string>
-
 </resources>
