@@ -16,6 +16,7 @@ namespace Beginor.X2048.Views {
             var tile = (TileModel)BindingContext;
             tile.Value = tile.Value * 2;
             index++;
+            index = index % 16;
             tile.Y = index / 4;
             tile.X = index % 4;
         }
