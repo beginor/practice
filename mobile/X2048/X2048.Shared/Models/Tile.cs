@@ -14,7 +14,7 @@ namespace Beginor.X2048.Models {
             }
             set {
                 x = value;
-                OnPropertyChanged();
+                OnPropertyChanged("X");
             }
         }
 
@@ -24,7 +24,7 @@ namespace Beginor.X2048.Models {
             }
             set {
                 y = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Y");
             }
         }
 
@@ -34,7 +34,7 @@ namespace Beginor.X2048.Models {
             }
             set {
                 this.value = value;
-                OnPropertyChanged();
+                OnPropertyChanged("Value");
             }
         }
 
@@ -61,7 +61,7 @@ namespace Beginor.X2048.Models {
         }
 
         public string Serialize() {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+            return ""; //Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
         public override event PropertyChangedEventHandler PropertyChanged;

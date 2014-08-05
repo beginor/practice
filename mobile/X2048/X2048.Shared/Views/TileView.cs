@@ -11,6 +11,7 @@ namespace Beginor.X2048.Views {
 
         public TileView() {
             this.Clicked += OnClicked;
+            this.BackgroundColor = Color.Yellow;
         }
 
         private void OnClicked(object sender, EventArgs e) {
