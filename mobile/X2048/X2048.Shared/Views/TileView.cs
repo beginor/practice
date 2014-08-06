@@ -1,34 +1,36 @@
-﻿using System;
-using Beginor.X2048.Models;
+﻿using Beginor.X2048.Models;
 using Xamarin.Forms;
 using Beginor.X2048.Converters;
 
 namespace Beginor.X2048.Views {
 
-    public class TileView : Button {
+    public class TileView : ContentView {
 
         private static readonly IValueConverter TextColorConverter = new TileTextColorConverter();
         private static readonly IValueConverter BackgroundColorConverter = new TileBackgroundColorConverter();
 
         public TileView() {
-            this.Clicked += OnClicked;
-        }
+            var label = new Label {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                Font = Font.SystemFontOfSize(NamedSize.Large, FontAttributes.Bold)
+            };
+            label.SetBinding(Label.TextProperty, "Value");
+            label.SetBinding(Label.TextColorProperty, "Value", BindingMode.Default, TextColorConverter);
+            Content = label;
 
-        private void OnClicked(object sender, EventArgs e) {
-            var tile = (TileModel)BindingContext;
-            tile.Value = tile.Value * 2;
-        }
-
-        protected override void OnBindingContextChanged() {
-            base.OnBindingContextChanged();
-            this.SetBinding(TextProperty, "Value");
             this.SetBinding(Grid.ColumnProperty, "X");
             this.SetBinding(Grid.RowProperty, "Y");
-
             this.SetBinding(BackgroundColorProperty, "Value", BindingMode.Default, BackgroundColorConverter);
-            this.SetBinding(TextColorProperty, "Value", BindingMode.Default, TextColorConverter);
 
-            this.ApplyBindings();
+            
+
+            var tap = new TapGestureRecognizer();
+            tap.Command = new Command(() => {
+                var tile = (TileViewModel)BindingContext;
+                tile.Value *= 2;
+            });
+            GestureRecognizers.Add(tap);
         }
 
     }

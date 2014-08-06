@@ -4,38 +4,38 @@
 
         public int Size { get; set; }
 
-        public TileModel[] Cells { get; set; }
+        public TileViewModel[] Cells { get; set; }
 
-        public GridModel(int size, TileModel[] state = null) {
+        public GridModel(int size, TileViewModel[] state = null) {
             Size = size;
             Cells = state != null ? FromState(state) : Empty();
         }
 
-        private TileModel[] Empty() {
-            return new TileModel[Size * Size];
+        private TileViewModel[] Empty() {
+            return new TileViewModel[Size * Size];
         }
 
-        private TileModel[] FromState(TileModel[] state) {
-            var cells = new TileModel[Size * Size];
+        private TileViewModel[] FromState(TileViewModel[] state) {
+            var cells = new TileViewModel[Size * Size];
             for (var x = 0; x < Size * Size; x++) {
                 cells[x] = state[x];
             }
             return cells;
         }
 
-        public bool CellOccupied(TileModel cell) {
+        public bool CellOccupied(TileViewModel cell) {
             return CellContent(cell) != null;
         }
 
-        public TileModel CellContent(TileModel cell) {
+        public TileViewModel CellContent(TileViewModel cell) {
             if (WithinBounds(new Position {X = cell.X, Y = cell.Y})) {
                 return Cells[cell.X * Size + cell.Y];
             }
             return null;
         }
 
-        public void InsertTile(TileModel tileModel) {
-            Cells[tileModel.X * Size + tileModel.Y] = tileModel;
+        public void InsertTile(TileViewModel tileViewModel) {
+            Cells[tileViewModel.X * Size + tileViewModel.Y] = tileViewModel;
         }
 
         public void RemoveTile(Position position) {

@@ -22,7 +22,7 @@ namespace Beginor.X2048.Converters {
                 index = colors.Length - 1;
             }
 
-            return Color.FromHex(colors[index]);
+            return Color.FromHex(colors[index - 1]);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {

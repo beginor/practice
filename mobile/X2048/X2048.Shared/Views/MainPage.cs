@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Beginor.X2048.Models;
+﻿using Beginor.X2048.Models;
 using Xamarin.Forms;
 
 namespace Beginor.X2048.Views {
@@ -104,7 +101,6 @@ namespace Beginor.X2048.Views {
             };
 
             var grid = new Grid {
-                BackgroundColor = App.Styles.GridBackGroundColor,
                 RowDefinitions = new RowDefinitionCollection {
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
@@ -119,17 +115,50 @@ namespace Beginor.X2048.Views {
                 },
                 Children = {
                     new TileView {
-                        BindingContext = new TileModel(new Position { X = 0, Y = 0 }, value: 2)
+                        BindingContext = new TileViewModel(new Position { X = 0, Y = 0 }, value: 2)
                     },
                     new TileView {
-                        BindingContext = new TileModel(new Position { X = 1, Y = 0 }, value: 4)
+                        BindingContext = new TileViewModel(new Position { X = 1, Y = 0 }, value: 4)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 2, Y = 0 }, value: 8)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 3, Y = 0 }, value: 16)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 0, Y = 1 }, value: 32)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 1, Y = 1 }, value: 64)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 2, Y = 1 }, value: 128)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 3, Y = 1 }, value: 256)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 1, Y = 2 }, value: 512)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 2, Y = 2 }, value: 1024)
+                    },
+                    new TileView {
+                        BindingContext = new TileViewModel(new Position { X = 3, Y = 2 }, value: 2048)
                     }
                 }
             };
 
+            var container = new RelativeLayout {
+                BackgroundColor = App.Styles.GridBackGroundColor,
+            };
+            container.Children.Add(grid, Constraint.Constant(5), Constraint.Constant(5),
+                                   Constraint.RelativeToParent(p => p.Width - 10), Constraint.RelativeToParent(p => p.Height - 10));
+
             Grid.SetRow(head, 0);
             Grid.SetRow(actions, 1);
-            Grid.SetRow(grid, 2);
+            Grid.SetRow(container, 2);
 
             Content = new Grid {
                 Padding = Device.OnPlatform(8, 8, 8),
@@ -139,7 +168,7 @@ namespace Beginor.X2048.Views {
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                 },
                 Children = {
-                    head, actions, grid
+                    head, actions, container
                 }
             };
         }

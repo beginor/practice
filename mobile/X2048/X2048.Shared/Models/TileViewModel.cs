@@ -2,7 +2,7 @@
 
 namespace Beginor.X2048.Models {
 
-    public class TileModel : BaseModel {
+    public class TileViewModel : BaseModel {
 
         private int x;
         private int y;
@@ -40,9 +40,9 @@ namespace Beginor.X2048.Models {
 
         public Position PreviousPosition { get; set; }
 
-        public TileModel MergedFrom { get; set; }
+        public TileViewModel MergedFrom { get; set; }
 
-        public TileModel(Position position, int value = 2) {
+        public TileViewModel(Position position, int value = 2) {
             X = position.X;
             Y = position.Y;
             Value = value;
