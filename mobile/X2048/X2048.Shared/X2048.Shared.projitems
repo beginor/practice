@@ -16,5 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\TileModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TileView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\TileTextColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\TileBackgroundColorConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
   </ItemGroup>
 </Project>
