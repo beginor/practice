@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\MainPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Position.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\GameView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TileView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TileTextColorConverter.cs" />
