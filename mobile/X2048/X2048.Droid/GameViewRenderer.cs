@@ -35,10 +35,10 @@ namespace Beginor.X2048 {
                 var deltaY = e.GetY() - startY;
                 if (Math.Abs(deltaX) > 10 || Math.Abs(deltaY) > 10) {
                     if (Math.Abs(deltaX) > Math.Abs(deltaY)) {
-                        Element.OnSwipe(deltaX > 0 ? SwipDirection.Right : SwipDirection.Left);
+                       Element.OnSwipe(deltaX > 0 ? SwipDirection.Right : SwipDirection.Left);
                     }
                     else {
-                        Element.OnSwipe(deltaY > 0 ? SwipDirection.Down : SwipDirection.Up);
+                       Element.OnSwipe(deltaY > 0 ? SwipDirection.Down : SwipDirection.Up);
                     }
                 }
                 return true;

@@ -102,8 +102,8 @@ namespace Beginor.X2048.Views {
 
             var gameView = new GameView();
 
-            var tile = new TileView() { BindingContext = new TileViewModel(new Position()) };
-            gameView.Children.Add(tile, new Rectangle(100, 100, 100, 100), AbsoluteLayoutFlags.None);
+            var tile = new TileView { BindingContext = new TileViewModel(new Position()) };
+            gameView.Children.Add(tile, new Rectangle(5, 5, 100, 100));
 
             var container = new RelativeLayout {
                 BackgroundColor = App.Styles.GridBackGroundColor,
