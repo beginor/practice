@@ -1,0 +1,29 @@
+﻿using System.ComponentModel;
+using Beginor.X2048.Views;
+using MonoTouch.UIKit;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
+
+namespace Beginor.X2048 {
+
+    public class GameViewRenderer : VisualElementRenderer<GameView> {
+
+        protected override void OnElementChanged(ElementChangedEventArgs<GameView> e) {
+            base.OnElementChanged(e);
+            SetBackgroundColor(Element.BackgroundColor);
+            AddGestureRecognizer(new UISwipeGestureRecognizer(SwipeGestureHandler));
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e) {
+            base.OnElementPropertyChanged(sender, e);
+            if (e.PropertyName == VisualElement.BackgroundColorProperty.PropertyName) {
+                SetBackgroundColor(Element.BackgroundColor);
+            }
+        }
+
+        private async void SwipeGestureHandler(UISwipeGestureRecognizer sgr) {
+            var direction = (SwipDirection) sgr.Direction;
+            await Element.OnSwipe(direction);
+        }
+    }
+}

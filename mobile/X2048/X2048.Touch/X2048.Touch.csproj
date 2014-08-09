@@ -71,6 +71,7 @@
     <MtouchArch>i386</MtouchArch>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameViewRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Info.plist" />
