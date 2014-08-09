@@ -1,4 +1,5 @@
-﻿using Beginor.X2048.Models;
+﻿using System;
+using Beginor.X2048.Models;
 using Xamarin.Forms;
 
 namespace Beginor.X2048.Views {
@@ -8,16 +9,24 @@ namespace Beginor.X2048.Views {
         public MainPage() {
             BackgroundColor = App.Styles.MainPageBackGroundColor;
 
-            var head = new RelativeLayout();
+            var head = new StackLayout {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
 
             var title = new Label {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = "2048",
                 TextColor = Color.FromHex("#776e65"),
                 Font = Font.SystemFontOfSize(60, FontAttributes.Bold)
             };
-            head.Children.Add(title, Constraint.Constant(0), Constraint.Constant(0));
+            head.Children.Add(title);
 
             var score = new StackLayout {
+                HorizontalOptions = LayoutOptions.End,
+                VerticalOptions = LayoutOptions.StartAndExpand,
                 Orientation = StackOrientation.Horizontal,
                 Children = {
                     new StackLayout {
@@ -56,12 +65,11 @@ namespace Beginor.X2048.Views {
                     }
                 }
             };
-            head.Children.Add(score,
-                Constraint.RelativeToParent(p => p.Width - 130),
-                Constraint.Constant(0)
-            );
+            head.Children.Add(score);
 
             var actionLabel = new Label {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FormattedText = new FormattedString {
                     Spans = {
                         new Span {
@@ -77,55 +85,66 @@ namespace Beginor.X2048.Views {
                 TextColor = Color.FromHex("#776e65"),
                 LineBreakMode = LineBreakMode.WordWrap
             };
-            Grid.SetColumn(actionLabel, 0);
+
 
             var actionButton = new Button {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = "New Game",
                 BackgroundColor = Color.FromHex("#8f7a66"),
                 TextColor = Color.FromHex("#f9f6f2")
             };
-            actionButton.Clicked += async (s, e) => {
-                await DisplayAlert("Alert:", "Start a new Game?", "OK");
-            };
-            Grid.SetColumn(actionButton, 1);
+            actionButton.Clicked += async (s, e) => await DisplayAlert("Alert:", "Start a new Game?", "OK");
 
-            var actions = new Grid {
-                ColumnDefinitions = new ColumnDefinitionCollection {
-                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) }
-                },
+
+            var actions = new StackLayout {
+                Orientation = StackOrientation.Vertical,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 Children = {
                     actionLabel,
                     actionButton
                 }
             };
 
-            var gameView = new GameView();
-
-            var tile = new TileView { BindingContext = new TileViewModel(new Position()) };
-            gameView.Children.Add(tile, new Rectangle(5, 5, 100, 100));
-
-            var container = new RelativeLayout {
-                BackgroundColor = App.Styles.GridBackGroundColor,
+            var gameView = new GameView {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                BackgroundColor = App.Styles.GridBackGroundColor
             };
-            container.Children.Add(gameView, Constraint.Constant(5), Constraint.Constant(5),
-                                   Constraint.RelativeToParent(p => p.Width - 10), Constraint.RelativeToParent(p => p.Height - 10));
+            var tile = new TileView { BindingContext = new TileViewModel(0, 0, 2) };
+            gameView.Children.Add(tile, new Rectangle(0, 0, 100, 100));
 
-            Grid.SetRow(head, 0);
-            Grid.SetRow(actions, 1);
-            Grid.SetRow(container, 2);
-
-            Content = new Grid {
-                Padding = Device.OnPlatform(8, 8, 8),
-                RowDefinitions = new RowDefinitionCollection {
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                },
-                Children = {
-                    head, actions, container
+            var stack = new StackLayout {
+                Children = { 
+                    new StackLayout {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        VerticalOptions = LayoutOptions.FillAndExpand,
+                        Children = { head, actions }
+                    },
+                    gameView
                 }
             };
+
+            stack.SizeChanged += (s, e) => {
+                var width = stack.Width;
+                var height = stack.Height;
+                if (width <= 0 || height <= 0) {
+                    return;
+                }
+
+                var tileSize = Math.Min(width, height) / 4;
+                gameView.WidthRequest = tileSize * 4;
+                gameView.HeightRequest = tileSize * 4;
+
+                foreach (View child in gameView.Children) {
+                    var rect = child.Bounds;
+                    AbsoluteLayout.SetLayoutBounds(child, new Rectangle(rect.X, rect.Y, tileSize, tileSize));
+                }
+            };
+
+            Content = stack;
+            Padding = new Thickness (8, Device.OnPlatform (20, 0, 0), 8, 8);
         }
 
     }

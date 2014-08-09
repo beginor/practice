@@ -38,30 +38,10 @@ namespace Beginor.X2048.Models {
             }
         }
 
-        public Position PreviousPosition { get; set; }
-
-        public TileViewModel MergedFrom { get; set; }
-
-        public TileViewModel(Position position, int value = 2) {
-            X = position.X;
-            Y = position.Y;
+        public TileViewModel(int x, int y, int value = 2) {
+            X = x;
+            Y = y;
             Value = value;
-
-            PreviousPosition = null;
-            MergedFrom = null;
-        }
-
-        public void SavePosition() {
-            PreviousPosition = new Position { X = X, Y = Y };
-        }
-
-        public void UpdatePosition(Position position) {
-            X = position.X;
-            Y = position.Y;
-        }
-
-        public string Serialize() {
-            return ""; //Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
     }
