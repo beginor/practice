@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Beginor.X2048.Models;
 using Xamarin.Forms;
 
@@ -6,8 +7,12 @@ namespace Beginor.X2048.Views {
 
     public partial class MainPage : ContentPage {
 
+        private readonly MainPageModel viewModel;
+
         public MainPage() {
-            BackgroundColor = App.Styles.MainPageBackGroundColor;
+            viewModel = new MainPageModel();
+
+            BackgroundColor = App.Consts.MainPageBackGroundColor;
 
             var head = new StackLayout {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -31,7 +36,7 @@ namespace Beginor.X2048.Views {
                 Children = {
                     new StackLayout {
                         Orientation = StackOrientation.Vertical,
-                        BackgroundColor = App.Styles.GridBackGroundColor,
+                        BackgroundColor = App.Consts.GridBackGroundColor,
                         WidthRequest = 60,
                         Children = {
                             new Label {
@@ -49,7 +54,7 @@ namespace Beginor.X2048.Views {
                     },
                     new StackLayout {
                         Orientation = StackOrientation.Vertical,
-                        BackgroundColor = App.Styles.GridBackGroundColor,
+                        BackgroundColor = App.Consts.GridBackGroundColor,
                         WidthRequest = 60,
                         Children = {
                             new Label { Text = "BEST",
@@ -94,8 +99,13 @@ namespace Beginor.X2048.Views {
                 BackgroundColor = Color.FromHex("#8f7a66"),
                 TextColor = Color.FromHex("#f9f6f2")
             };
-            actionButton.Clicked += async (s, e) => await DisplayAlert("Alert:", "Start a new Game?", "OK");
 
+            actionButton.Clicked += async (s, e) => {
+                var confirm = await DisplayAlert("Confirm", "Sure to start new game?", "OK", "Cancel");
+                if (confirm) {
+                    viewModel.StartNewGame();
+                }
+            };
 
             var actions = new StackLayout {
                 Orientation = StackOrientation.Vertical,
@@ -110,10 +120,24 @@ namespace Beginor.X2048.Views {
             var gameView = new GameView {
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                BackgroundColor = App.Styles.GridBackGroundColor
+                BackgroundColor = App.Consts.GridBackGroundColor
             };
-            var tile = new TileView { BindingContext = new TileViewModel(0, 0, 2) };
-            gameView.Children.Add(tile, new Rectangle(0, 0, 100, 100));
+
+            viewModel.Tiles.CollectionChanged += (s, e) => {
+                if (e.OldItems != null) {
+                    var removedModels = e.OldItems.Cast<TileViewModel>();
+                    var toRemove = gameView.Children.Where(v => removedModels.Contains(((TileViewModel)v.BindingContext))).ToList();
+                    foreach (var view in toRemove) {
+                        gameView.Children.Remove(view);
+                    }
+                    toRemove.Clear();
+                }
+                if (e.NewItems != null) {
+                    foreach (TileViewModel newItem in e.NewItems) {
+                        gameView.Children.Add(new TileView { BindingContext = newItem });
+                    } 
+                }
+            };
 
             var stack = new StackLayout {
                 Children = { 
@@ -133,18 +157,22 @@ namespace Beginor.X2048.Views {
                     return;
                 }
 
-                var tileSize = Math.Min(width, height) / 4;
-                gameView.WidthRequest = tileSize * 4;
-                gameView.HeightRequest = tileSize * 4;
+                var tileSize = Math.Min(width, height) / App.Consts.TileCount;
+                gameView.WidthRequest = tileSize * App.Consts.TileCount;
+                gameView.HeightRequest = tileSize * App.Consts.TileCount;
+                App.Consts.SetTileSize(tileSize);
 
-                foreach (View child in gameView.Children) {
-                    var rect = child.Bounds;
-                    AbsoluteLayout.SetLayoutBounds(child, new Rectangle(rect.X, rect.Y, tileSize, tileSize));
+                viewModel.StartNewGame();
+
+                foreach (var child in gameView.Children) {
+                    var model = (TileViewModel)child.BindingContext;
+                    AbsoluteLayout.SetLayoutBounds(child, new Rectangle(model.X * tileSize, model.Y * tileSize, tileSize, tileSize));
                 }
             };
 
             Content = stack;
-            Padding = new Thickness (8, Device.OnPlatform (20, 0, 0), 8, 8);
+            Padding = new Thickness(8, Device.OnPlatform(20, 0, 0), 8, 8);
+            BindingContext = viewModel;
         }
 
     }

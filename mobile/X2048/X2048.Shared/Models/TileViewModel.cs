@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Beginor.X2048.Models {
+﻿namespace Beginor.X2048.Models {
 
     public class TileViewModel : BaseModel {
 
@@ -44,5 +42,30 @@ namespace Beginor.X2048.Models {
             Value = value;
         }
 
+        public override bool Equals(object obj) {
+            if (ReferenceEquals(null, obj)) {
+                return false;
+            }
+            if (ReferenceEquals(this, obj)) {
+                return true;
+            }
+            if (obj.GetType() != this.GetType()) {
+                return false;
+            }
+            return Equals((TileViewModel)obj);
+        }
+
+        protected bool Equals(TileViewModel other) {
+            return x == other.x && y == other.y && value == other.value;
+        }
+
+        public override int GetHashCode() {
+            unchecked {
+                var hashCode = X;
+                hashCode = (hashCode * 397) ^ Y;
+                hashCode = (hashCode * 397) ^ Value;
+                return hashCode;
+            }
+        }
     }
 }
