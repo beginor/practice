@@ -21,9 +21,9 @@ namespace Beginor.X2048 {
             }
         }
 
-        private async void SwipeGestureHandler(UISwipeGestureRecognizer sgr) {
+        private void SwipeGestureHandler(UISwipeGestureRecognizer sgr) {
             var direction = (SwipDirection) sgr.Direction;
-            await Element.OnSwipe(direction);
+            Element.OnSwipe(direction);
         }
     }
 }

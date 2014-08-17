@@ -24,31 +24,23 @@
     <MonoDroidExtraArgs>
     </MonoDroidExtraArgs>
     <DefineConstants>TRACE;DEBUG;__ANDROID__;__MOBILE__</DefineConstants>
-    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <DebugSymbols>true</DebugSymbols>
     <MandroidI18n>cjk</MandroidI18n>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <DefineConstants>TRACE;__ANDROID__;__MOBILE__</DefineConstants>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
-    <AndroidLinkSkip>
-    </AndroidLinkSkip>
+    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
-    <AndroidStoreUncompressedFileExtensions>
-    </AndroidStoreUncompressedFileExtensions>
-    <MandroidI18n>CJK</MandroidI18n>
-    <JavaMaximumHeapSize>
-    </JavaMaximumHeapSize>
-    <JavaOptions>
-    </JavaOptions>
+    <MandroidI18n>cjk</MandroidI18n>
     <MonoDroidExtraArgs>
     </MonoDroidExtraArgs>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

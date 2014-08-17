@@ -123,19 +123,18 @@ namespace Beginor.X2048.Views {
                 BackgroundColor = App.Consts.GridBackGroundColor
             };
 
-            viewModel.Tiles.CollectionChanged += (s, e) => {
-                if (e.OldItems != null) {
-                    var removedModels = e.OldItems.Cast<TileViewModel>();
-                    var toRemove = gameView.Children.Where(v => removedModels.Contains(((TileViewModel)v.BindingContext))).ToList();
-                    foreach (var view in toRemove) {
-                        gameView.Children.Remove(view);
-                    }
-                    toRemove.Clear();
+            viewModel.TileChanged += (s, e) => {
+                var tiles = viewModel.AvailableTiles();
+                var toRemove = gameView.Children.Where(v => tiles.Contains(((TileViewModel)v.BindingContext))).ToList();
+                foreach (var view in toRemove) {
+                    gameView.Children.Remove(view);
                 }
+                toRemove.Clear();
+
                 if (e.NewItems != null) {
                     foreach (TileViewModel newItem in e.NewItems) {
                         gameView.Children.Add(new TileView { BindingContext = newItem });
-                    } 
+                    }
                 }
             };
 
