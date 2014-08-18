@@ -15,12 +15,24 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Position.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TileViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\GameView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\TileView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TileTextColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\TileBackgroundColorConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TileView.xaml.cs">
+      <DependentUpon>TileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

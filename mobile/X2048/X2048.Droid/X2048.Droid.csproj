@@ -28,7 +28,7 @@
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <DebugSymbols>true</DebugSymbols>
     <MandroidI18n>cjk</MandroidI18n>
-    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>

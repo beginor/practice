@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    x:Class="Beginor.X2048.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Beginor.X2048.Views;assembly=Beginor.X2048.Droid"
+    xmlns:models="clr-namespace:Beginor.X2048.Models;assembly=Beginor.X2048.Droid"
+    xmlns:x2048="clr-namespace:Beginor.X2048;assembly=Beginor.X2048.Droid"
+    BackgroundColor="{x:Static x2048:AppConsts.MainPageBackgroundColor}"
+    Padding="{x:Static x2048:AppConsts.MainPagePadding}"
+    >
+
+    <ContentPage.BindingContext>
+        <models:MainPageModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout x:Name="layoutRoot" Orientation="Vertical">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+
+                    <Label Text="2048" Font="{x:Static x2048:AppConsts.TitleFont}" TextColor="{x:Static x2048:AppConsts.TitleTextColor}"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                    <StackLayout HorizontalOptions="End" VerticalOptions="StartAndExpand"
+                                 Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" BackgroundColor="#BBADA0"
+                                     WidthRequest="60">
+                            <Label Text="SCORE" HorizontalOptions="Center" TextColor="White" />
+                            <Label Text="{Binding Path=Score}" HorizontalOptions="Center" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" BackgroundColor="#BBADA0"
+                                     WidthRequest="60">
+                            <Label Text="BEST" HorizontalOptions="Center" TextColor="White" />
+                            <Label Text="{Binding Path=Score}" HorizontalOptions="Center" TextColor="White" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                           TextColor="#776e65" LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Join the numbers and get to the " Font="Medium" />
+                                    <Span Text="2048 tile!" Font="Bold" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Button x:Name="actionButton" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                            Text="New Game" TextColor="#f9f6f2" BackgroundColor="#8f7a66"/>
+                </StackLayout>
+
+            </StackLayout>
+            <views:GameView x:Name="gameView" BackgroundColor="#BBADA0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

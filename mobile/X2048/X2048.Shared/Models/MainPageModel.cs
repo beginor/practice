@@ -10,8 +10,8 @@ namespace Beginor.X2048.Models {
         private static readonly int InitTileCount = 2;
 
         private readonly Random random = new Random(Environment.TickCount);
-        private readonly TileViewModel[,] tiles = new TileViewModel[App.Consts.TileCount, App.Consts.TileCount];
-        private readonly Position[,] positions = new Position[App.Consts.TileCount, App.Consts.TileCount];
+        private readonly TileViewModel[,] tiles = new TileViewModel[AppConsts.TileCount, AppConsts.TileCount];
+        private readonly Position[,] positions = new Position[AppConsts.TileCount, AppConsts.TileCount];
 
         public event EventHandler TileChanged;
 
@@ -63,8 +63,8 @@ namespace Beginor.X2048.Models {
         }
 
         private void EachTile(Action<int, int, TileViewModel> callback) {
-            for (var x = 0; x < App.Consts.TileCount; x++) {
-                for (var y = 0; y < App.Consts.TileCount; y++) {
+            for (var x = 0; x < AppConsts.TileCount; x++) {
+                for (var y = 0; y < AppConsts.TileCount; y++) {
                     callback(x, y, tiles[x, y]);
                 }
             }
@@ -81,8 +81,8 @@ namespace Beginor.X2048.Models {
         }
 
         private void EachCell(Action<int, int, Position> callback) {
-            for (var x = 0; x < App.Consts.TileCount; x++) {
-                for (var y = 0; y < App.Consts.TileCount; y++) {
+            for (var x = 0; x < AppConsts.TileCount; x++) {
+                for (var y = 0; y < AppConsts.TileCount; y++) {
                     callback(x, y, positions[x, y]);
                 }
             }
