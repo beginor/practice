@@ -89,7 +89,6 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
-  <Import Project="..\X2048.Shared\X2048.Shared.projitems" Label="Shared" Condition="Exists('..\X2048.Shared\X2048.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\..\..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\..\..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -105,4 +104,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\X2048.Portable\X2048.Portable.csproj">
+      <Project>{588D035E-79B9-4E47-82FB-21331E7BB6ED}</Project>
+      <Name>X2048.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

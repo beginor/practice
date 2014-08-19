@@ -1,20 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 2012
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "X2048.Shared", "X2048.Shared\X2048.Shared.shproj", "{EE441CB9-1044-42B1-A8D6-F60FB75E9512}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X2048.Droid", "X2048.Droid\X2048.Droid.csproj", "{98BB550D-3170-48CA-A305-350BADB2F9F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X2048.Touch", "X2048.Touch\X2048.Touch.csproj", "{9D3AC68F-4BC6-48A2-A001-50065472F4DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X2048.Portable", "X2048.Portable\X2048.Portable.csproj", "{588D035E-79B9-4E47-82FB-21331E7BB6ED}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		X2048.Shared\X2048.Shared.projitems*{9d3ac68f-4bc6-48a2-a001-50065472f4db}*SharedItemsImports = 4
-		X2048.Shared\X2048.Shared.projitems*{98bb550d-3170-48ca-a305-350badb2f9f3}*SharedItemsImports = 4
-		X2048.Shared\X2048.Shared.projitems*{ee441cb9-1044-42b1-a8d6-f60fb75e9512}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|iPhone = Debug|iPhone
@@ -22,6 +17,14 @@ Global
 		Release|iPhone = Release|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{588D035E-79B9-4E47-82FB-21331E7BB6ED}.Release|iPhone.Build.0 = Release|Any CPU
 		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98BB550D-3170-48CA-A305-350BADB2F9F3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -43,10 +46,15 @@ Global
 		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|iPhone.Build.0 = Release|iPhone
 		{9D3AC68F-4BC6-48A2-A001-50065472F4DB}.Release|iPhone.Deploy.0 = Release|iPhone
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = X2048.Droid\X2048.Droid.csproj
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		X2048.Shared\X2048.Shared.projitems*{9d3ac68f-4bc6-48a2-a001-50065472f4db}*SharedItemsImports = 4
+		X2048.Shared\X2048.Shared.projitems*{98bb550d-3170-48ca-a305-350badb2f9f3}*SharedItemsImports = 4
+		X2048.Shared\X2048.Shared.projitems*{ee441cb9-1044-42b1-a8d6-f60fb75e9512}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
