@@ -18,12 +18,13 @@ namespace Beginor.X2048.Views {
 
         void OnViewModelTileChanged (object sender, EventArgs e) {
             var tiles = viewModel.AvailableTiles();
-            var toRemove = gameView.Children.Where(v => tiles.Contains(((TileViewModel)v.BindingContext))).ToList();
+            var toRemove = gameView.Children.Where(v => !tiles.Contains(((TileViewModel)v.BindingContext))).ToList();
             foreach (var view in toRemove) {
                 gameView.Children.Remove(view);
             }
             toRemove.Clear();
 
+            var exists = gameView.Children.Select(v => v.BindingContext).Cast<TileViewModel>().ToArray();
             //if (e.NewItems != null) {
             //    foreach (TileViewModel newItem in e.NewItems) {
             //        gameView.Children.Add(new TileView { BindingContext = newItem });
@@ -47,7 +48,8 @@ namespace Beginor.X2048.Views {
 
             foreach (var child in gameView.Children) {
                 var model = (TileViewModel)child.BindingContext;
-                AbsoluteLayout.SetLayoutBounds(child, new Rectangle(model.X * tileSize, model.Y * tileSize, tileSize, tileSize));
+                var pos = model.Position;
+                AbsoluteLayout.SetLayoutBounds(child, new Rectangle(pos.X * tileSize, pos.Y * tileSize, tileSize, tileSize));
             }
         }
 

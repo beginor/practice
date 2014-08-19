@@ -2,27 +2,16 @@
 
     public class TileViewModel : BaseModel {
 
-        private int x;
-        private int y;
+        private Position position;
         private int value;
 
-        public int X {
+        public Position Position {
             get {
-                return x;
+                return position;
             }
             set {
-                x = value;
-                OnPropertyChanged("X");
-            }
-        }
-
-        public int Y {
-            get {
-                return y;
-            }
-            set {
-                y = value;
-                OnPropertyChanged("Y");
+                position = value;
+                OnPropertyChanged("Position");
             }
         }
 
@@ -36,10 +25,12 @@
             }
         }
 
-        public TileViewModel(int x, int y, int value = 2) {
-            X = x;
-            Y = y;
-            Value = value;
+        public TileViewModel(int x, int y, int value = 2) : this(new Position { X = x, Y = y }, value) {
+        }
+
+        public TileViewModel(Position position, int value = 2) {
+            this.position = position;
+            this.value = value;
         }
 
         public override bool Equals(object obj) {
@@ -56,13 +47,12 @@
         }
 
         protected bool Equals(TileViewModel other) {
-            return x == other.x && y == other.y && value == other.value;
+            return position.Equals(other.position) && value == other.value;
         }
 
         public override int GetHashCode() {
             unchecked {
-                var hashCode = X;
-                hashCode = (hashCode * 397) ^ Y;
+                var hashCode = position.GetHashCode();
                 hashCode = (hashCode * 397) ^ Value;
                 return hashCode;
             }

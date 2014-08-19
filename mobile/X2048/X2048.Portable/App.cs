@@ -21,6 +21,10 @@ namespace Beginor.X2048 {
         public static readonly Color TitleTextColor = Color.FromHex("#776e65");
         public static readonly Font TitleFont = Font.SystemFontOfSize(20d, FontAttributes.Bold);
 
+        public static readonly Color ScoreLayoutBackgroundColor = Color.FromHex("#BBADA0");
+        public static readonly double ScoreLayoutWidth = 60;
+        public static readonly Color ScoreTextColor = Color.FromHex("#FFFFFF");
+
         public readonly static Color GridBackGroundColor = Color.FromHex("#BBADA0");
 
         public static readonly double CellPadding = Device.OnPlatform(8, 8, 8);

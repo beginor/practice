@@ -17,20 +17,22 @@ namespace Beginor.X2048.Views {
         }
 
         private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e) {
-            if (e.PropertyName == "X" || e.PropertyName == "Y") {
+            if (e.PropertyName == "Position") {
                 await UpdateBoundsAsync();
             }
         }
 
         private void UpdateBounds() {
             var model = (TileViewModel)BindingContext;
-            var rect = new Rectangle(model.X * AppConsts.TileSize, model.Y * AppConsts.TileSize, AppConsts.TileSize, AppConsts.TileSize);
+            var pos = model.Position;
+            var rect = new Rectangle(pos.X * AppConsts.TileSize, pos.Y * AppConsts.TileSize, AppConsts.TileSize, AppConsts.TileSize);
             AbsoluteLayout.SetLayoutBounds(this, rect);
         }
 
         private async Task UpdateBoundsAsync() {
             var model = (TileViewModel)BindingContext;
-            var rect = new Rectangle(model.X * AppConsts.TileSize, model.Y * AppConsts.TileSize, AppConsts.TileSize, AppConsts.TileSize);
+            var pos = model.Position;
+            var rect = new Rectangle(pos.X * AppConsts.TileSize, pos.Y * AppConsts.TileSize, AppConsts.TileSize, AppConsts.TileSize);
             await this.LayoutTo(rect);
             AbsoluteLayout.SetLayoutBounds(this, rect);
         }

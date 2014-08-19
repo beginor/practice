@@ -16,16 +16,16 @@ namespace Beginor.X2048.Models {
         public event EventHandler TileChanged;
 
         private int score;
-        private int highest;
+        private int best;
         private ICommand newGameCommand;
 
-        public int Highest {
+        public int Best {
             get {
-                return highest;
+                return best;
             }
             set {
-                highest = value;
-                OnPropertyChanged("Highest");
+                best = value;
+                OnPropertyChanged("Best");
             }
         }
 
@@ -113,8 +113,8 @@ namespace Beginor.X2048.Models {
 
             var tile = new TileViewModel(cell.X, cell.Y, value);
 
-            positions[tile.X, tile.Y] = null;
-            tiles[tile.X, tile.Y] = tile;
+            positions[tile.Position.X, tile.Position.Y] = null;
+            tiles[tile.Position.X, tile.Position.Y] = tile;
 
             return tile;
         }
