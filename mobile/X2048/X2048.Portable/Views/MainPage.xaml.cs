@@ -17,19 +17,45 @@ namespace Beginor.X2048.Views {
         }
 
         void OnViewModelTileChanged (object sender, EventArgs e) {
-            var tiles = viewModel.AvailableTiles();
-            var toRemove = gameView.Children.Where(v => !tiles.Contains(((TileViewModel)v.BindingContext))).ToList();
-            foreach (var view in toRemove) {
-                gameView.Children.Remove(view);
+            var tileModels = viewModel.AvailableTiles();
+            // remove old items;
+            var tmpViews = new List<TileView>();
+            foreach (var tileView in gameView.Tiles) {
+                var found = false;
+                foreach (var tileModel in tileModels) {
+                    if (tileModel == tileView.ViewModel) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    tmpViews.Add(tileView);
+                }
             }
-            toRemove.Clear();
+            foreach (var v in tmpViews) {
+                gameView.RemoveTile(v);
+            }
+            tmpViews.Clear();
 
-            var exists = gameView.Children.Select(v => v.BindingContext).Cast<TileViewModel>().ToArray();
-            //if (e.NewItems != null) {
-            //    foreach (TileViewModel newItem in e.NewItems) {
-            //        gameView.Children.Add(new TileView { BindingContext = newItem });
-            //    }
-            //}
+            // add new items;
+            var tmpModels = new List<TileViewModel>();
+            foreach (var tileModel in tileModels) {
+                bool found = false;
+                foreach (var tileView in gameView.Tiles) {
+                    if (tileView.ViewModel == tileModel) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    tmpModels.Add(tileModel);
+                }
+            }
+            foreach (var tileModel in tmpModels) {
+                var tileView = new TileView();
+                gameView.AddTile(tileView);
+                tileView.ViewModel = tileModel;
+            }
         }
 
         void OnLayoutRootSizeChanged (object sender, EventArgs e) {
@@ -46,10 +72,10 @@ namespace Beginor.X2048.Views {
 
             viewModel.StartNewGame();
 
-            foreach (var child in gameView.Children) {
-                var model = (TileViewModel)child.BindingContext;
+            foreach (var t in gameView.Tiles) {
+                var model = t.ViewModel;
                 var pos = model.Position;
-                AbsoluteLayout.SetLayoutBounds(child, new Rectangle(pos.X * tileSize, pos.Y * tileSize, tileSize, tileSize));
+                AbsoluteLayout.SetLayoutBounds(t, new Rectangle(pos.X * tileSize, pos.Y * tileSize, tileSize, tileSize));
             }
         }
 

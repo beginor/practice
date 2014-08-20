@@ -7,13 +7,25 @@ namespace Beginor.X2048.Views {
 
     public partial class TileView : ContentView {
 
+        public TileViewModel ViewModel {
+            get {
+                return BindingContext as TileViewModel;
+            }
+            set {
+                BindingContext = value;
+            }
+        }
+
+        protected override void OnBindingContextChanged() {
+            base.OnBindingContextChanged();
+            if (ViewModel != null) {
+                UpdateBounds();
+                ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            }
+        }
+
         public TileView() {
             InitializeComponent();
-            var viewModel = BindingContext as TileViewModel;
-            if (viewModel != null) {
-                UpdateBounds();
-                viewModel.PropertyChanged += OnViewModelPropertyChanged;
-            }
         }
 
         private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e) {

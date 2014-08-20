@@ -1,5 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Beginor.X2048.Views {
 
@@ -12,6 +14,20 @@ namespace Beginor.X2048.Views {
             if (handler != null) {
                 handler(this, new SwipeEventArgs(direction));
             }
+        }
+
+        public IEnumerable<TileView> Tiles {
+            get {
+                return Children.Cast<TileView>();
+            }
+        }
+
+        public void RemoveTile(TileView tile) {
+            Children.Remove(tile);
+        }
+
+        public void AddTile(TileView tile) {
+            Children.Add(tile);
         }
 
     }

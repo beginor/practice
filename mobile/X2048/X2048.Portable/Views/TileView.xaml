@@ -2,20 +2,22 @@
 <ContentView
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converters="clr-namespace:Beginor.X2048.Converters;assembly=Beginor.X2048.Droid"
+    xmlns:converters="clr-namespace:Beginor.X2048.Converters;assembly=Beginor.X2048.Portable"
     x:Class="Beginor.X2048.Views.TileView"
     Padding="2"
     >
 
     <ContentView.Resources>
-        <converters:TileTextColorConverter x:Key="TileTextColorConverter" />
-        <converters:TileBackgroundColorConverter x:Key="TileBackgroundColorConverter" />
+        <ResourceDictionary>
+            <converters:TileTextColorConverter x:Key="TileTextColorConverter" />
+            <converters:TileBackgroundColorConverter x:Key="TileBackgroundColorConverter" />
+        </ResourceDictionary>
     </ContentView.Resources>
 
     <ContentView.Content>
         <Frame BackgroundColor="{Binding Path=Value, Converter={StaticResource TileBackgroundColorConverter}}">
             <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding Path=Value}" Font="Bold"
-                   TextColor="{Binding Path=Value, Converter={StaticResource TileBackgroundColorConverter}}"/>
+                   TextColor="{Binding Path=Value, Converter={StaticResource TileTextColorConverter}}"/>
         </Frame>
     </ContentView.Content>
 </ContentView>

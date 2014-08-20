@@ -100,6 +100,10 @@ namespace Beginor.X2048.Models {
         }
 
         private void InitEmptyCells() {
+            EachTile((x, y, t) => {
+                tiles[x, y] = null;
+            });
+
             EachCell((x, y, p) => {
                 positions[x, y] = new Position {
                     X = x, Y = y
