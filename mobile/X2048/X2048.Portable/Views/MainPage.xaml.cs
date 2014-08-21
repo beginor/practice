@@ -14,6 +14,28 @@ namespace Beginor.X2048.Views {
             viewModel.TileChanged += OnViewModelTileChanged;
             layoutRoot.SizeChanged += OnLayoutRootSizeChanged;
             actionButton.Clicked += OnActionButtonClick;
+            gameView.Swipe += OnGameViewSwip;
+        }
+
+        void OnGameViewSwip(object sender, SwipeEventArgs e) {
+            Vector vector = null;
+            switch (e.Direction) {
+            case SwipDirection.Up:
+                vector = new Vector(x: 0, y: -1);
+                break;
+            case SwipDirection.Left:
+                vector = new Vector(x: 1, y: 0);
+                break;
+            case SwipDirection.Down:
+                vector = new Vector(x: 0, y: 1);
+                break;
+            case SwipDirection.Right:
+                vector = new Vector(x: -1, y: 0);
+                break;
+            }
+            if (vector != null) {
+                viewModel.Move(vector);
+            }
         }
 
         void OnViewModelTileChanged (object sender, EventArgs e) {

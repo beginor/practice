@@ -15,9 +15,9 @@
     </ContentView.Resources>
 
     <ContentView.Content>
-        <Frame BackgroundColor="{Binding Path=Value, Converter={StaticResource TileBackgroundColorConverter}}">
+        <ContentView BackgroundColor="{Binding Path=Value, Converter={StaticResource TileBackgroundColorConverter}}">
             <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding Path=Value}" Font="Bold"
                    TextColor="{Binding Path=Value, Converter={StaticResource TileTextColorConverter}}"/>
-        </Frame>
+        </ContentView>
     </ContentView.Content>
 </ContentView>

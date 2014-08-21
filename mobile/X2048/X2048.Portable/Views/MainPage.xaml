@@ -23,7 +23,7 @@
                     <Label Text="2048" Font="{x:Static x2048:AppConsts.TitleFont}" TextColor="{x:Static x2048:AppConsts.TitleTextColor}"
                            HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
 
-                    <StackLayout HorizontalOptions="End" VerticalOptions="StartAndExpand"
+                    <StackLayout HorizontalOptions="End" VerticalOptions="CenterAndExpand"
                                  Orientation="Horizontal">
                         <StackLayout Orientation="Vertical" BackgroundColor="{x:Static x2048:AppConsts.ScoreLayoutBackgroundColor}"
                                      WidthRequest="{x:Static x2048:AppConsts.ScoreLayoutWidth}">
@@ -51,7 +51,7 @@
                         </Label.FormattedText>
                     </Label>
                     <Button x:Name="actionButton" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
-                            Text="New Game" TextColor="#f9f6f2" BackgroundColor="#8f7a66"/>
+                            Text=" New Game " TextColor="#f9f6f2" BackgroundColor="#8f7a66"/>
                 </StackLayout>
 
             </StackLayout>

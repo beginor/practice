@@ -123,5 +123,27 @@ namespace Beginor.X2048.Models {
             return tile;
         }
 
+        private void MoveTile(TileViewModel tile, Position cell) {
+            positions[cell.X, cell.Y] = null;
+            tiles[tile.Position.X, tile.Position.Y] = null;
+            tiles[cell.X, cell.Y] = tile;
+            tile.Position = cell;
+        }
+
+        public void Move(Vector vector) {
+
+        }
+    }
+
+    public class Vector {
+
+        public int X { get; private set; }
+        public int Y { get; private set; }
+
+        public Vector(int x, int y) {
+            X = x;
+            Y = y;
+        }
+
     }
 }
