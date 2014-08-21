@@ -53,8 +53,8 @@ namespace Beginor.X2048.Views {
             }
             foreach (var tileModel in tmpModels) {
                 var tileView = new TileView();
-                gameView.AddTile(tileView);
                 tileView.ViewModel = tileModel;
+                gameView.AddTile(tileView);
             }
         }
 
