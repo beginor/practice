@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiOwin", "WebApiOwin\WebApiOwin.csproj", "{FBC17903-A1D5-4F1D-BED1-10069C3207CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowinApp", "NowinApp\NowinApp.csproj", "{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Debug|x86.ActiveCfg = Debug|x86
+		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Debug|x86.Build.0 = Debug|x86
+		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Release|x86.ActiveCfg = Release|x86
+		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Release|x86.Build.0 = Release|x86
+		{FBC17903-A1D5-4F1D-BED1-10069C3207CB}.Debug|x86.ActiveCfg = Debug|x86
+		{FBC17903-A1D5-4F1D-BED1-10069C3207CB}.Debug|x86.Build.0 = Debug|x86
+		{FBC17903-A1D5-4F1D-BED1-10069C3207CB}.Release|x86.ActiveCfg = Release|x86
+		{FBC17903-A1D5-4F1D-BED1-10069C3207CB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = NowinApp\NowinApp.csproj
+	EndGlobalSection
+EndGlobal
