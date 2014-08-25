@@ -57,5 +57,9 @@
                 return hashCode;
             }
         }
+
+        public override string ToString() {
+            return string.Format("[TileViewModel: Position={0}, Value={1}]", Position, Value);
+        }
     }
 }

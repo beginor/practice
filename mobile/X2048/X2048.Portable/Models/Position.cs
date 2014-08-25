@@ -32,5 +32,13 @@ namespace Beginor.X2048.Models {
                 return (X * 397) ^ Y;
             }
         }
+
+        public Position Clone() {
+            return new Position { X = X, Y = Y };
+        }
+
+        public override string ToString() {
+            return string.Format("[X={0}, Y={1}]", X, Y);
+        }
     }
 }

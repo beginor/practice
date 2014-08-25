@@ -24,13 +24,13 @@ namespace Beginor.X2048.Views {
                 vector = new Vector(x: 0, y: -1);
                 break;
             case SwipDirection.Left:
-                vector = new Vector(x: 1, y: 0);
+                vector = new Vector(x: -1, y: 0);
                 break;
             case SwipDirection.Down:
                 vector = new Vector(x: 0, y: 1);
                 break;
             case SwipDirection.Right:
-                vector = new Vector(x: -1, y: 0);
+                vector = new Vector(x: 1, y: 0);
                 break;
             }
             if (vector != null) {

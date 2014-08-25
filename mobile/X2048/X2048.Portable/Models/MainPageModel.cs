@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Beginor.X2048.Models {
 
@@ -18,6 +20,28 @@ namespace Beginor.X2048.Models {
         private int score;
         private int best;
         private ICommand newGameCommand;
+        private bool won;
+        private bool over;
+
+        public bool Over {
+            get {
+                return over;
+            }
+            set {
+                over = value;
+                OnPropertyChanged("Over");
+            }
+        }
+
+        public bool Won {
+            get {
+                return won;
+            }
+            set {
+                won = value;
+                OnPropertyChanged("Won");
+            }
+        }
 
         public int Best {
             get {
@@ -113,6 +137,9 @@ namespace Beginor.X2048.Models {
 
         private TileViewModel GenerateRandomTile(int value) {
             var availableCells = AvailableCells();
+            if (availableCells.Count == 0) {
+                return null;
+            }
             var cell = availableCells[random.Next(0, availableCells.Count)];
 
             var tile = new TileViewModel(cell.X, cell.Y, value);
@@ -131,7 +158,157 @@ namespace Beginor.X2048.Models {
         }
 
         public void Move(Vector vector) {
+            // if (this.isGameTerminated()) return;
+            Position cell;
+            TileViewModel tile;
 
+            var traversals = Traversals.FromVector(vector);
+            var moved = false;
+
+            //this.prepareTiles();
+
+            foreach (var x in traversals.X) {
+                foreach (var y in traversals.Y) {
+                    cell = new Position { X = x, Y = y };
+                    tile = CellContent(cell);
+
+                    if (tile != null) {
+                        var farthest = FindFarthestPosition(cell, vector);
+                        var next = CellContent(farthest.Next);
+
+                        if (next != null && next.Value == tile.Value /* && !next.mergedFrom */) {
+                            var merged = new TileViewModel(next.Position, tile.Value * 2);
+
+                            tiles[tile.Position.X, tile.Position.Y] = null;
+                            positions[tile.Position.X, tile.Position.Y] = tile.Position.Clone();
+                            tiles[next.Position.X, tile.Position.Y] = null;
+                            positions[next.Position.X, next.Position.Y] = next.Position.Clone();
+
+                            tiles[merged.Position.X, merged.Position.Y] = merged;
+                            positions[merged.Position.X, merged.Position.Y] = null;
+
+                            OnTileChanged();
+
+                            if (tile.Value == 2048) {
+                                Won = true;
+                            }
+                        }
+                        else {
+                            MoveTile(tile, farthest.Farthest);
+                        }
+
+                        if (!PositionsEqual(cell, tile)) {
+                            moved = true;
+                        }
+                    }
+                }
+            }
+
+            if (moved) {
+                AddRandomTile();
+                if (!MovesAvailable()) {
+                    this.Over = true; // game over;
+                }
+            }
+
+            //this.actuate();
+        }
+
+        private void AddRandomTile() {
+            var tile = GenerateRandomTile(random.NextDouble() > 0.9 ? 4 : 2);
+            if (tile != null) {
+                OnTileChanged();
+            }
+        }
+
+        private bool PositionsEqual(Position cell, TileViewModel tile) {
+            return cell.X == tile.Position.X &&
+                   cell.Y == tile.Position.Y;
+        }
+
+        private FarthestPosition FindFarthestPosition(Position p, Vector v) {
+            Position cell = p;
+            Position prev;
+
+            do {
+                prev = cell;
+                cell = new Position { X = prev.X + v.X, Y = prev.Y + v.Y };
+            }
+            while (WithinBounds(cell) && PositionAvailable(cell));
+
+            return new FarthestPosition {
+                Farthest = prev,
+                Next = cell
+            };
+        }
+
+        private bool PositionAvailable(Position p) {
+            return positions[p.X, p.Y] != null;
+        }
+
+        private bool MovesAvailable() {
+            return AvailableCells().Count > 0 && TileMatchesAvailable();
+        }
+
+        private bool TileMatchesAvailable() {
+            for (var x = 0; x < AppConsts.TileCount; x++) {
+                for (var y = 0; y < AppConsts.TileCount; y++) {
+                    var tile = tiles[x, y];
+                    if (tile != null) {
+                        var p1 = tile.Position;
+                        for (var idx = 0; idx < 4; idx++) {
+                            var v = Vector.FromInt(idx);
+                            var p2 = new Position {
+                                X = p1.X + v.X,
+                                Y = p1.Y + v.Y
+                            };
+                            var other = CellContent(p2);
+                            if (other != null && other.Value == tile.Value) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool WithinBounds(Position p) {
+            return p.X >= 0 && p.X < AppConsts.TileCount &&
+                   p.Y >= 0 && p.Y < AppConsts.TileCount;
+        }
+
+        private TileViewModel CellContent(Position p) {
+            if (WithinBounds(p)) {
+                return tiles[p.X, p.Y];
+            }
+            return null;
+        }
+    }
+
+    public class Traversals {
+
+        public int[] X { get; private set; }
+        public int[] Y { get; private set; }
+
+        private Traversals() {
+            X = new int[AppConsts.TileCount];
+            Y = new int[AppConsts.TileCount];
+            for (var pos = 0; pos < AppConsts.TileCount; pos++) {
+                X[pos] = pos;
+                Y[pos] = pos;
+            }
+        }
+
+        public static Traversals FromVector(Vector v) {
+            var traversals = new Traversals();
+            if (v.X == 1) {
+                traversals.X = traversals.X.Reverse().ToArray();
+            }
+            if (v.Y == 1) {
+                traversals.Y = traversals.Y.Reverse().ToArray();
+            }
+            return traversals;
         }
     }
 
@@ -140,10 +317,31 @@ namespace Beginor.X2048.Models {
         public int X { get; private set; }
         public int Y { get; private set; }
 
+        private static readonly Vector[] vectors = new [] {
+            new Vector(0, -1), // Up
+            new Vector(1, 0),  // Right
+            new Vector(0, 1),  // Down
+            new Vector(-1, 0)  // Left
+        };
+
         public Vector(int x, int y) {
             X = x;
             Y = y;
         }
+
+        public static Vector FromInt(int idx) {
+            if (idx < 0 || idx > 3) {
+                throw new ArgumentOutOfRangeException();
+            }
+            return vectors[idx];
+        }
+
+    }
+
+    public class FarthestPosition {
+
+        public Position Farthest { get; set; }
+        public Position Next { get; set; }
 
     }
 }
