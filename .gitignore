@@ -16,6 +16,7 @@
 [Ss]ql
 [Gg]enerated [Ff]iles
 ipch
+AppPackages
 *.user
 *.suo
 *.exe
