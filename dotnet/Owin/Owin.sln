@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiOwin", "WebApiOwin\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowinApp", "NowinApp\NowinApp.csproj", "{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin01_Helloworld", "Owin01_Helloworld\Owin01_Helloworld.csproj", "{7EBF4A7D-AA9D-4D06-A109-63C25723F4DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EBF4A7D-AA9D-4D06-A109-63C25723F4DA}.Debug|x86.ActiveCfg = Debug|x86
+		{7EBF4A7D-AA9D-4D06-A109-63C25723F4DA}.Debug|x86.Build.0 = Debug|x86
+		{7EBF4A7D-AA9D-4D06-A109-63C25723F4DA}.Release|x86.ActiveCfg = Release|x86
+		{7EBF4A7D-AA9D-4D06-A109-63C25723F4DA}.Release|x86.Build.0 = Release|x86
 		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Debug|x86.ActiveCfg = Debug|x86
 		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Debug|x86.Build.0 = Debug|x86
 		{AE9984C8-AE54-4BBC-B18C-CA89A9E50B05}.Release|x86.ActiveCfg = Release|x86
