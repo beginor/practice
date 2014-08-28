@@ -1,7 +1,5 @@
-﻿using System;
-using Owin;
+﻿using Owin;
 using Microsoft.Owin;
-using Microsoft.Owin.Hosting;
 using System.Threading.Tasks;
 
 namespace Owin01_Helloworld {
@@ -12,7 +10,7 @@ namespace Owin01_Helloworld {
             appBuilder.Run(HandleRequest);
         }
 
-        Task HandleRequest(IOwinContext context) {
+        static Task HandleRequest(IOwinContext context) {
             context.Response.ContentType = "text/plain";
             return context.Response.WriteAsync("Hello, world!");
         }

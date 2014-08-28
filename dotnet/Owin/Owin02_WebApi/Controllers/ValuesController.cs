@@ -2,7 +2,7 @@
 using System.Web.Http;
 using System.Collections.Generic;
 
-namespace WebApiOwin.Controllers {
+namespace Owin02_WebApi.Controllers {
 
     public class ValuesController : ApiController {
 
