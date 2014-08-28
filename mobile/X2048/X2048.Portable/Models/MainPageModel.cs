@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Beginor.X2048.Models {
 
