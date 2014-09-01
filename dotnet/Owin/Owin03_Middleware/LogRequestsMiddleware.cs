@@ -3,9 +3,9 @@ using Microsoft.Owin;
 
 namespace Owin03_Middleware {
 
-    public class LogRequestsMiddleware : OwinMiddleware  {
+    //public class LogRequestsMiddleware : OwinMiddleware  {
 
-        public LogRequestsMiddleware(RequestDelegate next, string label) : base()
-    }
+        //public LogRequestsMiddleware(RequestDelegate next, string label) : base()
+    //}
 }
 
