@@ -9,9 +9,15 @@ namespace Owin03_Middleware {
 
     public class Startup {
 
-        public void Configuration(IAppBuilder appBuilder) {
+        public void Configuration(IAppBuilder app) {
 
-            appBuilder.Run(async context => {
+            app.Use(new Func<AppFunc, AppFunc>(next => (async env => {
+                Console.WriteLine("Middleware with AppFunc begin.");
+                await next.Invoke(env);
+                Console.WriteLine("Middleware with AppFunc end.");
+            })));
+
+            app.Run(async context => {
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync("Hello, world!");
             });

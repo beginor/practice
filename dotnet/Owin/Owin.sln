@@ -39,6 +39,6 @@ Global
 		{91FC757E-5205-4C0B-82BA-A4CB40D3722E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Owin01_Helloworld\Owin01_Helloworld.csproj
+		StartupItem = Owin03_Middleware\Owin03_Middleware.csproj
 	EndGlobalSection
 EndGlobal
