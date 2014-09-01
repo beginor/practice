@@ -17,6 +17,12 @@ namespace Owin03_Middleware {
                 Console.WriteLine("Middleware with AppFunc end.");
             })));
 
+            app.Use(async (context, next) => {
+                Console.WriteLine("Middleware with Lambda begin.");
+                await next();
+                Console.WriteLine("Middleware with Lambda end.");
+            });
+
             app.Run(async context => {
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync("Hello, world!");
