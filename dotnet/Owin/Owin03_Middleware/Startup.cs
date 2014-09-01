@@ -23,10 +23,16 @@ namespace Owin03_Middleware {
                 Console.WriteLine("Middleware with Lambda end.");
             });
 
+            app.Use<LogMiddleware>();
+
+            var instance = new InstanceMiddleware();
+            app.Use(instance);
+
             app.Run(async context => {
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync("Hello, world!");
             });
+
         }
     }
 }
