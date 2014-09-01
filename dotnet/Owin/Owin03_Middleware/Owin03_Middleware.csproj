@@ -54,6 +54,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="LogMiddleware.cs" />
     <Compile Include="InstanceMiddleware.cs" />
+    <Compile Include="LogOwinMiddleware.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

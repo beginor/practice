@@ -28,6 +28,8 @@ namespace Owin03_Middleware {
             var instance = new InstanceMiddleware();
             app.Use(instance);
 
+            app.Use<LogOwinMiddleware>();
+
             app.Run(async context => {
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync("Hello, world!");
