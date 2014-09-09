@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Beginor.X2048.Models;
-using System.Linq;
+using System.ComponentModel;
 
 namespace Beginor.X2048.Views {
 
@@ -11,10 +11,17 @@ namespace Beginor.X2048.Views {
         public MainPage() {
             InitializeComponent();
             BindingContext = viewModel;
+            viewModel.PropertyChanged += OnViewModelPropertyChanged;
             viewModel.TileChanged += OnViewModelTileChanged;
             layoutRoot.SizeChanged += OnLayoutRootSizeChanged;
             actionButton.Clicked += OnActionButtonClick;
             gameView.Swipe += OnGameViewSwip;
+        }
+
+        private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e) {
+            if (e.PropertyName == "Over") {
+                await DisplayAlert("Alert", "Game over!", "OK");
+            }
         }
 
         void OnGameViewSwip(object sender, SwipeEventArgs e) {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System.Linq;
 
 namespace Beginor.X2048.Models {
 
@@ -151,8 +150,11 @@ namespace Beginor.X2048.Models {
 
         private void MoveTile(TileViewModel tile, Position cell) {
             positions[cell.X, cell.Y] = null;
-            tiles[tile.Position.X, tile.Position.Y] = null;
             tiles[cell.X, cell.Y] = tile;
+
+            positions[tile.Position.X, tile.Position.Y] = tile.Position.Clone();
+            tiles[tile.Position.X, tile.Position.Y] = null;
+
             tile.Position = cell;
         }
 
@@ -283,64 +285,5 @@ namespace Beginor.X2048.Models {
             }
             return null;
         }
-    }
-
-    public class Traversals {
-
-        public int[] X { get; private set; }
-        public int[] Y { get; private set; }
-
-        private Traversals() {
-            X = new int[AppConsts.TileCount];
-            Y = new int[AppConsts.TileCount];
-            for (var pos = 0; pos < AppConsts.TileCount; pos++) {
-                X[pos] = pos;
-                Y[pos] = pos;
-            }
-        }
-
-        public static Traversals FromVector(Vector v) {
-            var traversals = new Traversals();
-            if (v.X == 1) {
-                traversals.X = traversals.X.Reverse().ToArray();
-            }
-            if (v.Y == 1) {
-                traversals.Y = traversals.Y.Reverse().ToArray();
-            }
-            return traversals;
-        }
-    }
-
-    public class Vector {
-
-        public int X { get; private set; }
-        public int Y { get; private set; }
-
-        private static readonly Vector[] vectors = new [] {
-            new Vector(0, -1), // Up
-            new Vector(1, 0),  // Right
-            new Vector(0, 1),  // Down
-            new Vector(-1, 0)  // Left
-        };
-
-        public Vector(int x, int y) {
-            X = x;
-            Y = y;
-        }
-
-        public static Vector FromInt(int idx) {
-            if (idx < 0 || idx > 3) {
-                throw new ArgumentOutOfRangeException();
-            }
-            return vectors[idx];
-        }
-
-    }
-
-    public class FarthestPosition {
-
-        public Position Farthest { get; set; }
-        public Position Next { get; set; }
-
     }
 }

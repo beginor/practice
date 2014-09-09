@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Beginor.X2048.Models {
+﻿namespace Beginor.X2048.Models {
 
     public class Position {
 
