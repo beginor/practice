@@ -6,9 +6,9 @@ using Xamarin.Forms.Platform.iOS;
 
 namespace Beginor.X2048 {
 
-    public class GameViewRenderer : VisualElementRenderer<GameView> {
+    public class GameViewRenderer : VisualElementRenderer<GridView> {
 
-        protected override void OnElementChanged(ElementChangedEventArgs<GameView> e) {
+        protected override void OnElementChanged(ElementChangedEventArgs<GridView> e) {
             base.OnElementChanged(e);
             SetBackgroundColor(Element.BackgroundColor);
             AddGestureRecognizer(new UISwipeGestureRecognizer(SwipeGestureHandler));

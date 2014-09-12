@@ -55,7 +55,7 @@
                 </StackLayout>
 
             </StackLayout>
-            <views:GameView x:Name="gameView" BackgroundColor="#BBADA0"/>
+            <views:GridView x:Name="gameView" BackgroundColor="#BBADA0"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

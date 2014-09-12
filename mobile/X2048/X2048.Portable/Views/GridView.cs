@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Beginor.X2048.Views {
 
-    public class GameView : AbsoluteLayout {
+    public class GridView : AbsoluteLayout {
 
         public event EventHandler<SwipeEventArgs> Swipe;
 
