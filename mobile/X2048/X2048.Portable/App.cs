@@ -31,6 +31,8 @@ namespace Beginor.X2048 {
 
         public static readonly int TileCount = 4;
 
+        public static readonly Random Random = new Random(Environment.TickCount);
+
         private static double tileSize = 50;
 
         public static double TileSize {

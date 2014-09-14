@@ -37,8 +37,8 @@
     <Compile Include="Converters\TileTextColorConverter.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\MainPageModel.cs" />
-    <Compile Include="Models\Position.cs" />
-    <Compile Include="Models\TileViewModel.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\Tile.cs" />
     <Compile Include="Views\GridView.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

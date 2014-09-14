@@ -7,9 +7,9 @@ namespace Beginor.X2048.Views {
 
     public partial class TileView : ContentView {
 
-        public TileViewModel ViewModel {
+        public Tile ViewModel {
             get {
-                return BindingContext as TileViewModel;
+                return BindingContext as Tile;
             }
             set {
                 BindingContext = value;
@@ -20,7 +20,7 @@ namespace Beginor.X2048.Views {
             base.OnBindingContextChanged();
             if (ViewModel != null) {
                 UpdateBounds();
-                ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+                ViewModel.PositionUpdated += OnViewModelPositionUpdated;
             }
         }
 
@@ -28,22 +28,18 @@ namespace Beginor.X2048.Views {
             InitializeComponent();
         }
 
-        private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e) {
-            if (e.PropertyName == "Position") {
-                await UpdateBoundsAsync();
-            }
+        async void OnViewModelPositionUpdated(object sender, System.EventArgs e) {
+            await UpdateBoundsAsync();
         }
 
         private void UpdateBounds() {
-            var model = (TileViewModel)BindingContext;
-            var pos = model.Position;
+            var pos = (Tile)BindingContext;
             var rect = new Rectangle(pos.X * AppConsts.TileSize, pos.Y * AppConsts.TileSize, AppConsts.TileSize, AppConsts.TileSize);
             AbsoluteLayout.SetLayoutBounds(this, rect);
         }
 
         private async Task UpdateBoundsAsync() {
-            var model = (TileViewModel)BindingContext;
-            var pos = model.Position;
+            var pos = (Tile)BindingContext;
             var rect = new Rectangle(pos.X * AppConsts.TileSize, pos.Y * AppConsts.TileSize, AppConsts.TileSize, AppConsts.TileSize);
             await this.LayoutTo(rect);
             AbsoluteLayout.SetLayoutBounds(this, rect);

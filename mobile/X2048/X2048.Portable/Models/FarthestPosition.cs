@@ -8,8 +8,8 @@ namespace Beginor.X2048.Models {
 
     public class FarthestPosition {
 
-        public Position Farthest { get; set; }
-        public Position Next { get; set; }
+        public Cell Farthest { get; set; }
+        public Cell Next { get; set; }
 
     }
 }

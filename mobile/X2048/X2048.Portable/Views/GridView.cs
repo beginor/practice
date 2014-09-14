@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
+using Beginor.X2048.Models;
 
 namespace Beginor.X2048.Views {
 
@@ -16,18 +17,38 @@ namespace Beginor.X2048.Views {
             }
         }
 
+        protected override void OnBindingContextChanged() {
+            base.OnBindingContextChanged();
+            var viewModel = BindingContext as GridViewModel;
+            if (viewModel == null) {
+                return;
+            }
+
+            SyncTiles();
+            viewModel.TileChanged += OnViewModelTileChanged;
+        }
+
+        void OnViewModelTileChanged(object sender, EventArgs e) {
+            SyncTiles();
+        }
+
+        void SyncTiles() {
+            var viewModel = (GridViewModel)BindingContext;
+            viewModel.EachCell((x, y, tile) => {
+                var view = Tiles.FirstOrDefault(v => v.ViewModel.X == x && v.ViewModel.Y == y);
+                if (tile == null && view != null) {
+                    Children.Remove(view);
+                }
+                if (tile != null && view == null) {
+                    Children.Add(new TileView { ViewModel = tile });
+                }
+            });
+        }
+
         public IEnumerable<TileView> Tiles {
             get {
                 return Children.Cast<TileView>();
             }
-        }
-
-        public void RemoveTile(TileView tile) {
-            Children.Remove(tile);
-        }
-
-        public void AddTile(TileView tile) {
-            Children.Add(tile);
         }
 
     }

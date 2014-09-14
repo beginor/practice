@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -7,19 +8,23 @@ namespace Beginor.X2048.Models {
 
     public class MainPageModel : BaseModel {
 
-        private static readonly int InitTileCount = 2;
+        private static readonly int StartTiles = 2;
 
         private readonly Random random = new Random(Environment.TickCount);
-        private readonly TileViewModel[,] tiles = new TileViewModel[AppConsts.TileCount, AppConsts.TileCount];
-        private readonly Position[,] positions = new Position[AppConsts.TileCount, AppConsts.TileCount];
-
-        public event EventHandler TileChanged;
 
         private int score;
         private int best;
         private ICommand newGameCommand;
         private bool won;
         private bool over;
+
+        private GridViewModel grid;
+
+        public GridViewModel Grid {
+            get {
+                return grid;
+            }
+        }
 
         public bool Over {
             get {
@@ -67,138 +72,80 @@ namespace Beginor.X2048.Models {
             }
         }
 
-        protected virtual void OnTileChanged() {
-            var handler = TileChanged;
-            if (handler != null) {
-                handler(this, EventArgs.Empty);
-            }
-        }
-
-        private IList<Position> AvailableCells() {
-            var cells = new List<Position>();
-            EachCell((x, y, p) => {
-                if (p != null) {
-                    cells.Add(p);
-                }
-            });
-            return cells;
-        }
-
-        private void EachTile(Action<int, int, TileViewModel> callback) {
-            for (var x = 0; x < AppConsts.TileCount; x++) {
-                for (var y = 0; y < AppConsts.TileCount; y++) {
-                    callback(x, y, tiles[x, y]);
-                }
-            }
-        }
-
-        public IList<TileViewModel> AvailableTiles() {
-            var avaiableTiles = new List<TileViewModel>();
-            EachTile((x, y, t) => {
-                if (t != null) {
-                    avaiableTiles.Add(t);
-                }
-            });
-            return avaiableTiles;
-        }
-
-        private void EachCell(Action<int, int, Position> callback) {
-            for (var x = 0; x < AppConsts.TileCount; x++) {
-                for (var y = 0; y < AppConsts.TileCount; y++) {
-                    callback(x, y, positions[x, y]);
-                }
-            }
+        public MainPageModel() {
+            grid = new GridViewModel(AppConsts.TileCount);
+            score = 0;
+            over = false;
+            won = false;
         }
 
         public void StartNewGame() {
-            InitEmptyCells();
-
-            for (var i = 0; i < InitTileCount; i++) {
-                var val = random.NextDouble() > 0.9 ? 4 : 2;
-                GenerateRandomTile(val);
+            grid.Empty();
+            for (var i = 0; i < StartTiles; i++) {
+                AddRandomTile();
             }
-
-            OnTileChanged();
         }
 
-        private void InitEmptyCells() {
-            EachTile((x, y, t) => {
-                tiles[x, y] = null;
-            });
-
-            EachCell((x, y, p) => {
-                positions[x, y] = new Position {
-                    X = x, Y = y
-                };
-            });
-        }
-
-        private TileViewModel GenerateRandomTile(int value) {
-            var availableCells = AvailableCells();
-            if (availableCells.Count == 0) {
-                return null;
+        private void AddRandomTile() {
+            if (grid.CellsAvailable) {
+                var val = random.NextDouble() < 0.9 ? 2 : 4;
+                var tile = new Tile(grid.RandomAvailableCell(), val);
+                grid.InsertTile(tile);
             }
-            var cell = availableCells[random.Next(0, availableCells.Count)];
-
-            var tile = new TileViewModel(cell.X, cell.Y, value);
-
-            positions[tile.Position.X, tile.Position.Y] = null;
-            tiles[tile.Position.X, tile.Position.Y] = tile;
-
-            return tile;
         }
 
-        private void MoveTile(TileViewModel tile, Position cell) {
-            positions[cell.X, cell.Y] = null;
-            tiles[cell.X, cell.Y] = tile;
-
-            positions[tile.Position.X, tile.Position.Y] = tile.Position.Clone();
-            tiles[tile.Position.X, tile.Position.Y] = null;
-
-            tile.Position = cell;
+        void PrepareTiles() {
+            grid.EachCell((x, y, tile) => {
+                if (tile != null) {
+                    tile.MergedFrom = null;
+                    tile.SavePosition();
+                }
+            });
         }
+
+
 
         public void Move(Vector vector) {
             // if (this.isGameTerminated()) return;
-            Position cell;
-            TileViewModel tile;
 
             var traversals = Traversals.FromVector(vector);
             var moved = false;
 
-            //this.prepareTiles();
+            PrepareTiles();
 
             foreach (var x in traversals.X) {
                 foreach (var y in traversals.Y) {
-                    cell = new Position { X = x, Y = y };
-                    tile = CellContent(cell);
+                    var cell = new Cell { X = x, Y = y };
+                    var tile = grid.CellContent(cell);
 
                     if (tile != null) {
-                        var farthest = FindFarthestPosition(cell, vector);
-                        var next = CellContent(farthest.Next);
+                        var positions = FindFarthestPosition(cell, vector);
+                        var next = grid.CellContent(positions.Next);
 
-                        if (next != null && next.Value == tile.Value /* && !next.mergedFrom */) {
-                            var merged = new TileViewModel(next.Position, tile.Value * 2);
+                        if (next != null && next.Value == tile.Value && next.MergedFrom == null) {
 
-                            tiles[tile.Position.X, tile.Position.Y] = null;
-                            positions[tile.Position.X, tile.Position.Y] = tile.Position.Clone();
-                            tiles[next.Position.X, tile.Position.Y] = null;
-                            positions[next.Position.X, next.Position.Y] = next.Position.Clone();
 
-                            tiles[merged.Position.X, merged.Position.Y] = merged;
-                            positions[merged.Position.X, merged.Position.Y] = null;
+                            //grid.RemoveTile(tile);
+                            // Converge the two tiles' positions
+                            //tile.UpdatePosition(positions.Next);
+                            grid.RemoveTile(tile);
+                            grid.RemoveTile(next);
 
-                            OnTileChanged();
+                            var merged = new Tile(next.X, next.Y, tile.Value * 2);
+                            merged.MergedFrom = new[] { tile, next };
+                            grid.InsertTile(merged);
 
-                            if (tile.Value == 2048) {
+                            Score += merged.Value;
+
+                            if (merged.Value == 2048) {
                                 Won = true;
                             }
                         }
                         else {
-                            MoveTile(tile, farthest.Farthest);
+                            grid.MoveTile(tile, positions.Farthest);
                         }
 
-                        if (!PositionsEqual(cell, tile)) {
+                        if (!tile.PositionsEqual(cell)) {
                             moved = true;
                         }
                     }
@@ -208,34 +155,22 @@ namespace Beginor.X2048.Models {
             if (moved) {
                 AddRandomTile();
                 if (!MovesAvailable()) {
-                    this.Over = true; // game over;
+                    Over = true; // game over;
                 }
             }
 
             //this.actuate();
         }
 
-        private void AddRandomTile() {
-            var tile = GenerateRandomTile(random.NextDouble() > 0.9 ? 4 : 2);
-            if (tile != null) {
-                OnTileChanged();
-            }
-        }
-
-        private bool PositionsEqual(Position cell, TileViewModel tile) {
-            return cell.X == tile.Position.X &&
-                   cell.Y == tile.Position.Y;
-        }
-
-        private FarthestPosition FindFarthestPosition(Position p, Vector v) {
-            Position cell = p;
-            Position prev;
+        private FarthestPosition FindFarthestPosition(Cell p, Vector v) {
+            Cell cell = p;
+            Cell prev;
 
             do {
                 prev = cell;
-                cell = new Position { X = prev.X + v.X, Y = prev.Y + v.Y };
+                cell = new Cell { X = prev.X + v.X, Y = prev.Y + v.Y };
             }
-            while (WithinBounds(cell) && PositionAvailable(cell));
+            while (grid.WithinBounds(cell) && grid.CellAvailable(cell));
 
             return new FarthestPosition {
                 Farthest = prev,
@@ -243,29 +178,27 @@ namespace Beginor.X2048.Models {
             };
         }
 
-        private bool PositionAvailable(Position p) {
-            return positions[p.X, p.Y] != null;
-        }
-
         private bool MovesAvailable() {
-            return AvailableCells().Count > 0 && TileMatchesAvailable();
+            var cellsAvailable = grid.CellsAvailable;
+            var matchesAvailable = TileMatchesAvailable();
+            return cellsAvailable || matchesAvailable;
         }
 
         private bool TileMatchesAvailable() {
             for (var x = 0; x < AppConsts.TileCount; x++) {
                 for (var y = 0; y < AppConsts.TileCount; y++) {
-                    var tile = tiles[x, y];
+                    var tile = grid.CellContent(new Cell { X = x, Y = y });
                     if (tile != null) {
-                        var p1 = tile.Position;
+                        var p1 = tile;
                         for (var idx = 0; idx < 4; idx++) {
                             var v = Vector.FromInt(idx);
-                            var p2 = new Position {
+                            var p2 = new Cell {
                                 X = p1.X + v.X,
                                 Y = p1.Y + v.Y
                             };
-                            var other = CellContent(p2);
+                            var other = grid.CellContent(p2);
                             if (other != null && other.Value == tile.Value) {
-                                return true;
+                                return true; // These two tiles can be merged
                             }
                         }
                     }
@@ -274,16 +207,5 @@ namespace Beginor.X2048.Models {
             return false;
         }
 
-        private bool WithinBounds(Position p) {
-            return p.X >= 0 && p.X < AppConsts.TileCount &&
-                   p.Y >= 0 && p.Y < AppConsts.TileCount;
-        }
-
-        private TileViewModel CellContent(Position p) {
-            if (WithinBounds(p)) {
-                return tiles[p.X, p.Y];
-            }
-            return null;
-        }
     }
 }
