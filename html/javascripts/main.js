@@ -3,13 +3,14 @@
 requirejs.config({
     baseUrl: 'javascripts/libs',
     paths: {
-        app: '../app'
+        'app': '../req-app'
     }
 });
 
 require(
-    ['jquery/2.1.1/jquery-2.1.1', 'app'],
-    function(jquery, sub) {
-
+    ['app'],
+    function(app) {
+        console.log('app loaded in main.js');
+        console.log('app version is ' + app.version);
     }
-)
+);
