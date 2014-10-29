@@ -78,3 +78,5 @@ out
 # xcode
 *.xcodeproj
 *.dSYM
+
+.sass-cache
