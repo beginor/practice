@@ -3,6 +3,7 @@
 requirejs.config({
     baseUrl: 'javascripts/libs',
     paths: {
+        'jquery': 'jquery/2.1.1/jquery-2.1.1',
         'app': '../req-app'
     }
 });
