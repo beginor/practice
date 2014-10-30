@@ -1,11 +1,20 @@
-﻿'use strict';
+﻿(function(angular) {
+    'use strict';
 
-var demoControllers = angular.module('demoControllers', []);
+    var demoControllers = angular.module('demoControllers', []);
 
-demoControllers.controller('DialogsController', ['$scope', function ($scope) {
-    $scope.greeting = 'Hello';
-}]);
+    demoControllers.controller('DialogsController', ['$scope', '$location', '$rootScope',
+        //
+        function ($scope, $location, $rootScope) {
+        $scope.greeting = 'Hello';
 
-demoControllers.controller('ListController', ['$scope', function($scope) {
-    $scope.greeting = 'List';
-}]);
+        //
+        $scope.$on('$destroy', function(evt, next, current) {
+            console.log('destroy.');
+        });
+    }]);
+
+    demoControllers.controller('ListController', ['$scope', function($scope) {
+        $scope.greeting = 'List';
+    }]);
+}(window.angular));
