@@ -1,17 +1,21 @@
 'use strict';
 
 requirejs.config({
-    baseUrl: 'javascripts/libs',
+    baseUrl: 'javascripts',
     paths: {
-        'jquery': 'jquery/2.1.1/jquery-2.1.1',
-        'app': '../req-app'
+        jquery: 'libs/jquery/2.1.1/jquery-2.1.1',
+        bootstrap: 'libs/bootstrap/3.2.0/js/bootstrap',
+        app: 'req-app'
+    },
+    shim: {
+        bootstrap: { deps: ['jquery'] }
     }
 });
 
-require(
-    ['app'],
-    function(app) {
-        console.log('app loaded in main.js');
-        console.log('app version is ' + app.version);
+require(['jquery', 'bootstrap'],
+    function ($) {
+        $(function() {
+            $('#carousel-example-generic').carousel();
+        });
     }
 );
