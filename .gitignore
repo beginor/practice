@@ -80,3 +80,4 @@ out
 *.dSYM
 
 .sass-cache
+*.ide
