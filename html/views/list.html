@@ -1,1 +1,24 @@
-﻿<h2 class="sub-header">{{greeting}}<h2>
+﻿<div class="panel panel-default">
+    <div class="panel-heading">{{greeting}}</div>
+    <div class="panel-body">
+        category list table.
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cat in data">
+                <td>{{cat.CategoryName}}</td>
+                <td>{{cat.Description}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="panel-footer">
+        We have got {{data.length}} categories.
+    </div>
+</div>
+

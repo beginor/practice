@@ -3,11 +3,14 @@
 
     var list = angular.module('list', []);
 
-    list.controller('ListController', ['$scope',
+    list.controller('ListController', ['$scope', '$http',
         //
-        function ($scope) {
-            $scope.greeting = 'List controller';
+        function ($scope, $http) {
+            $scope.greeting = 'Category list';
 
+            $http.get('api/category').success(function (data, status, headers) {
+                $scope.data = data;
+            });
             //
             $scope.$on('$destroy', function(evt) {
                 console.log('list controller destroy.');
