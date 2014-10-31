@@ -1,16 +1,27 @@
 ﻿(function(angular) {
     'use strict';
 
-    var list = angular.module('list', []);
+    var list = angular.module('list', ['ngResource', 'ngRoute']);
 
-    list.controller('ListController', ['$scope', '$http',
+    list.factory('Category', ['$resource',
+        function($resource) {
+            return $resource('/api/category/:id', null, {
+            });
+        }
+    ]);
+
+    list.controller('ListController', ['$scope', 'Category',
         //
-        function ($scope, $http) {
+        function ($scope, Category) {
             $scope.greeting = 'Category list';
 
-            $http.get('api/category').success(function (data, status, headers) {
+            Category.query(function (data) {
                 $scope.data = data;
             });
+
+            $scope.edit = function (id) {
+                console.log(id);
+            };
             //
             $scope.$on('$destroy', function(evt) {
                 console.log('list controller destroy.');
