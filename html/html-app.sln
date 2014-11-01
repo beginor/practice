@@ -22,9 +22,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "www", "http://localhost:605
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "www\"
+		StartServerOnDebug = "true"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinApiHost", "OwinApiHost\OwinApiHost.csproj", "{CA73573C-49CD-47DF-AA44-B944EA13BA32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{766B7CA4-DF5A-4735-B689-12CAD0B07CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +43,10 @@ Global
 		{CA73573C-49CD-47DF-AA44-B944EA13BA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA73573C-49CD-47DF-AA44-B944EA13BA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA73573C-49CD-47DF-AA44-B944EA13BA32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{766B7CA4-DF5A-4735-B689-12CAD0B07CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{766B7CA4-DF5A-4735-B689-12CAD0B07CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{766B7CA4-DF5A-4735-B689-12CAD0B07CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{766B7CA4-DF5A-4735-B689-12CAD0B07CE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

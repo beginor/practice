@@ -1,19 +1,16 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Microsoft.Owin;
 using Owin;
-using OwinApiHost.Middlewares;
 
-[assembly: OwinStartup(typeof(OwinApiHost.Startup))]
+[assembly: OwinStartup(typeof(WebApi.Startup))]
 
-namespace OwinApiHost {
+namespace WebApi {
 
     public class Startup {
 
         public void Configuration(IAppBuilder app) {
 
-            app.Use<LogOwinMiddleware>();
+            //app.Use<LogOwinMiddleware>();
 
             var config = new HttpConfiguration();
             config.MapHttpAttributeRoutes();

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Security.Policy;
 using System.Web.Http;
-using OwinApiHost.Models;
+using WebApi.Models;
 
-namespace OwinApiHost.Controllers {
+namespace WebApi.Controllers {
 
     /// <summary>
     /// Summary description for CategoryController

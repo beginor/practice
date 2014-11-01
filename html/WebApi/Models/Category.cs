@@ -1,4 +1,4 @@
-﻿namespace OwinApiHost.Models {
+﻿namespace WebApi.Models {
 
     public class Category {
 
