@@ -17,9 +17,11 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'angular', 'req-app'],
-    function ($, angular, app) {
+require(['req-app', 'req-app-routes', 'req-app-controllers'],
+    function (app) {
         console.log(app);
-        $(function() { angular.bootstrap(document, ['app']); });
+        $(function() {
+            angular.bootstrap(document, ['app']);
+        });
     }
 );
