@@ -4,9 +4,9 @@ using Microsoft.Owin;
 
 namespace OwinApiHost.Middlewares {
 
-    public class LogOwinMiddleware : OwinMiddleware {
+    public class ConsoleLogMiddleware : OwinMiddleware {
 
-        public LogOwinMiddleware(OwinMiddleware next)
+        public ConsoleLogMiddleware(OwinMiddleware next)
             : base(next) {
         }
 

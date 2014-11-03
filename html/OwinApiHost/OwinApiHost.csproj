@@ -72,10 +72,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Middlewares\LogOwinMiddleware.cs" />
-    <Compile Include="Middlewares\SimpleFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Middlewares\SimpleStaticFileMiddleWare.cs" />
+    <Compile Include="Middlewares\ConsoleLogMiddleware.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

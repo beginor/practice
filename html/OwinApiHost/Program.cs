@@ -13,7 +13,9 @@ namespace OwinApiHost {
             var appBuilder = new AppBuilder();
             Nowin.OwinServerFactory.Initialize(appBuilder.Properties);
 
-            appBuilder.Use<LogOwinMiddleware>();
+            appBuilder.Use<ConsoleLogMiddleware>();
+
+            appBuilder.Use<SimpleStaticFileMiddleWare>(System.IO.Path.Combine(Environment.CurrentDirectory, @"../../../www"));
 
             var startup = new WebApi.Startup();
             startup.Configuration(appBuilder);
