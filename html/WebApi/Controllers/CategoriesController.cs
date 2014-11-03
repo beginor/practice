@@ -8,9 +8,6 @@ using WebApi.Models;
 
 namespace WebApi.Controllers {
 
-    /// <summary>
-    /// Summary description for CategoryController
-    /// </summary>
     public class CategoriesController : ApiController {
 
         private static readonly IList<Category> Data;
@@ -28,8 +25,8 @@ namespace WebApi.Controllers {
             };
         }
 
-        public IEnumerable<Category> GetAll() {
-            return Data;
+        public IHttpActionResult GetAll() {
+            return Ok(Data);
         }
 
         public IHttpActionResult Get(int id) {
