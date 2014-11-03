@@ -5,7 +5,7 @@
 
     list.factory('Category', ['$resource',
         function($resource) {
-            return $resource('/api/category/:id', null, {
+            return $resource('/api/categories/:id', null, {
             });
         }
     ]);
