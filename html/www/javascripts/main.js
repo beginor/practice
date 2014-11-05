@@ -21,7 +21,7 @@ requirejs.config({
     }
 });
 
-require(['app', 'app/welcome', 'app/dialogs', 'app/list', 'app/user', 'app/help'],
+require(['jquery', 'angular', 'app'],
     function(app) {
         angular.bootstrap(document, ['app']);
     }

@@ -1,4 +1,4 @@
-﻿define('app', ['angular', 'angular-route', 'angular-resource'],
+﻿define('app', ['angular', 'angular-route', 'angular-resource', , 'app/welcome', 'app/dialogs', 'app/list', 'app/user', 'app/help'],
     function(angular) {
         'use strict';
 
