@@ -2,7 +2,7 @@
 
 namespace CastleWinsor {
 
-    public class TestController {
+    public class MyController {
 
         readonly ILog log;
 
@@ -11,7 +11,7 @@ namespace CastleWinsor {
             set;
         }
 
-        public TestController(ILog log) {
+        public MyController(ILog log) {
             this.log = log;
         }
 
