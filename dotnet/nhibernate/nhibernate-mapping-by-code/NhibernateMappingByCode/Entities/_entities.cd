@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NhibernateMappingByCode.Entities.Employee">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Store" Type="NhibernateMappingByCode.Entities.Store" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="1.625" />
+        <Point X="5" Y="1.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAg=</HashCode>
+      <FileName>Entities\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Store" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NhibernateMappingByCode.Entities.Product">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="StoresStockedIn" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NhibernateMappingByCode.Entities.Store">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Products" Type="NhibernateMappingByCode.Entities.Product" FixedFromPoint="true">
+      <Path>
+        <Point X="3.5" Y="1.625" />
+        <Point X="2" Y="1.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAQAQAACAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Entities\Store.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Staff" />
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

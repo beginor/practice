@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" namespace="NhibernateMappingByCode.Entities" assembly="NhibernateMappingByCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xmlns="urn:nhibernate-mapping-2.2">
+
+    <class name="Employee" table="employee">
+        <id name="Id" column="id" type="Int32">
+            <generator class="identity" />
+        </id>
+        <property name="FirstName" type="String" column="first_name" length="20" />
+        <property name="LastName" type="String" column="last_name" length="20" />
+        <many-to-one name="Store" class="Store" column="store_id" cascade="all" foreign-key="employee_to_store" />
+    </class>
+    
+    <class name="Store" table="store">
+        <id name="Id" column="id" type="Int32">
+            <generator class="identity" />
+        </id>
+        <property name="Name" type="String" column="name" length="20" />
+        
+        <bag name="Products" table="store_product">
+            <key column="store_id" foreign-key="store_product_to_store" />
+            <many-to-many class="Product" column="product_id" />
+        </bag>
+        <bag name="Staff" table="employee">
+            <key column="store_id" foreign-key="employee_to_store" />
+            <one-to-many class="Employee" />
+        </bag>
+    </class>
+    
+    <class name="Product" table="product">
+        <id name="Id" column="id" type="Int32">
+            <generator class="identity" />
+        </id>
+        <property name="Name" type="String" column="name" length="20" />
+        <property name="Price" type="Double" column="price" />
+        <bag name="StoresStockedIn" table="store_product">
+            <key column="product_id" foreign-key="store_product_to_product" />
+            <many-to-many class="Store" column="store_id"/>
+        </bag>
+    </class>
+    
+</hibernate-mapping>
