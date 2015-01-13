@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity01", "Identity01\Identity01.csproj", "{94B43956-7C96-483D-A7FE-078C14266414}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{C0A8F3E7-B96E-4AEA-8576-0B1EEBB5CA11}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94B43956-7C96-483D-A7FE-078C14266414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94B43956-7C96-483D-A7FE-078C14266414}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94B43956-7C96-483D-A7FE-078C14266414}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94B43956-7C96-483D-A7FE-078C14266414}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0A8F3E7-B96E-4AEA-8576-0B1EEBB5CA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C0A8F3E7-B96E-4AEA-8576-0B1EEBB5CA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A8F3E7-B96E-4AEA-8576-0B1EEBB5CA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
