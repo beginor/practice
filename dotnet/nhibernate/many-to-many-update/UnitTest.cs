@@ -59,12 +59,9 @@ namespace ManyToManyUpdate {
             using (var session = sessionFactory.OpenSession()) {
                 var user = session.Query<User>().First();
 
-                var role5 = session.Get<Role>(5);
-
-                user.Roles.Remove(role5);
-
-                var role2 = session.Get<Role>(2);
-                user.Roles.Add(role2);
+                var firstRole = user.Roles.First();
+                user.Roles.Remove(firstRole);
+                session.Update(user);
 
                 var roleCount = session.Query<Role>().Count();
                 var role = new Role { Name = "Role " + (roleCount + 1) };
@@ -110,7 +107,7 @@ namespace ManyToManyUpdate {
                 { NhCfgEnv.ConnectionDriver, "NHibernate.Driver.SqlClientDriver" },
                 { NhCfgEnv.Dialect, "NHibernate.Dialect.MsSql2005Dialect" },
                 { NhCfgEnv.ProxyFactoryFactoryClass, "NHibernate.Bytecode.DefaultProxyFactoryFactory, NHibernate" },
-                { NhCfgEnv.FormatSql, bool.TrueString },
+                { NhCfgEnv.FormatSql, bool.FalseString },
                 { NhCfgEnv.ShowSql, bool.TrueString },
                 { NhCfgEnv.BatchSize, "0" }
             };
