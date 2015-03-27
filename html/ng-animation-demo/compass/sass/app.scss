@@ -1,0 +1,72 @@
+﻿@import "_base.scss";
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "compass/utilities";
+
+html {
+    overflow-y:hidden;
+}
+
+.page {
+    bottom: 0;
+    padding-top: 200px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+
+    h1 {
+        font-size: 60px;
+    }
+
+    a {
+        margin-top: 50px;
+    }
+}
+
+#about {
+    color: #333;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    width: 100%;
+}
+
+/* pages */
+.page-home {
+    background: #00D0BC;
+    color: #00907c;
+}
+
+.page-about {
+    background: #E59400;
+    color: #a55400;
+}
+
+.page-contact {
+    background: #ffa6bb;
+    color: #9e0000;
+}
+
+/* animations */
+.page.ng-leave {
+    z-index: 9999;
+}
+
+.page.ng-enter {
+    z-index: 8888;
+}
+
+/* page specific animations */
+/* home */
+.page-home.ng-leave {
+    @include transform-origin(0% 0%);
+    @include animation(rotateFall 1s both ease-in);
+}
+.page-home.ng-enter {
+    @include animation(scaleUp 0.5s both ease-in)
+}
+/* about */
+.page-about.ng-leave {
+    @include animation(slideOutLeft 0.5s both ease-in);
+}

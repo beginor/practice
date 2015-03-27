@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>ngAnimation Demo</title>
+    <!-- CSS -->
+    <!-- load bootstrap (bootswatch version) -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="compass/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="compass/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+    <link href="compass/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- apply our angular app -->
+<body>
+    <!-- inject our views using ng-view -->
+    <!-- each angular controller applies a different class here -->
+    <div class="page {{ pageClass }}" ng-view></div>
+
+    <div id="about">
+        <p>A demo on Angular Animations: ng-view</p>
+        <p>
+            View the <a href="http://scotch.io/tutorials/javascript/animating-angularjs-apps-ngview">Scotch.io Tutorial</a>
+        </p>
+    </div>
+    <script src="bower_components/requirejs/require.js" data-main="app.main"></script>
+</body>
+</html>
