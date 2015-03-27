@@ -1,0 +1,89 @@
+/* line 6, ../sass/app.scss */
+html {
+  overflow-y: hidden;
+}
+
+/* line 10, ../sass/app.scss */
+.page {
+  bottom: 0;
+  padding-top: 200px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+/* line 18, ../sass/app.scss */
+.page h1 {
+  font-size: 60px;
+}
+/* line 22, ../sass/app.scss */
+.page a {
+  margin-top: 50px;
+}
+
+/* line 27, ../sass/app.scss */
+#about {
+  color: #333;
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  width: 100%;
+}
+
+/* pages */
+/* line 36, ../sass/app.scss */
+.page-home {
+  background: #00D0BC;
+  color: #00907c;
+}
+
+/* line 41, ../sass/app.scss */
+.page-about {
+  background: #E59400;
+  color: #a55400;
+}
+
+/* line 46, ../sass/app.scss */
+.page-contact {
+  background: #ffa6bb;
+  color: #9e0000;
+}
+
+/* animations */
+/* line 52, ../sass/app.scss */
+.page.ng-leave {
+  z-index: 9999;
+}
+
+/* line 56, ../sass/app.scss */
+.page.ng-enter {
+  z-index: 8888;
+}
+
+/* page specific animations */
+/* home */
+/* line 62, ../sass/app.scss */
+.page-home.ng-leave {
+  -moz-transform-origin: 0% 0% 50%;
+  -ms-transform-origin: 0% 0% 50%;
+  -webkit-transform-origin: 0% 0% 50%;
+  transform-origin: 0% 0% 50%;
+  -moz-animation: rotateFall 1s both ease-in;
+  -webkit-animation: rotateFall 1s both ease-in;
+  animation: rotateFall 1s both ease-in;
+}
+
+/* line 66, ../sass/app.scss */
+.page-home.ng-enter {
+  -moz-animation: scaleUp 0.5s both ease-in;
+  -webkit-animation: scaleUp 0.5s both ease-in;
+  animation: scaleUp 0.5s both ease-in;
+}
+
+/* about */
+/* line 70, ../sass/app.scss */
+.page-about.ng-leave {
+  -moz-animation: slideOutLeft 0.5s both ease-in;
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
+  animation: slideOutLeft 0.5s both ease-in;
+}
