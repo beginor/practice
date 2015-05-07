@@ -17,6 +17,8 @@
 [Gg]enerated [Ff]iles
 ipch
 AppPackages
+.vs
+artifacts
 *.user
 *.suo
 *.exe
