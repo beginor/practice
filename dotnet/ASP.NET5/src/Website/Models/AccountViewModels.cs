@@ -5,25 +5,25 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Mvc.Rendering;
 
-namespace Website.Models
-{
-    public class ExternalLoginConfirmationViewModel
-    {
+namespace Website.Models {
+
+    public class ExternalLoginConfirmationViewModel {
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
-    public class SendCodeViewModel
-    {
+    public class SendCodeViewModel {
+
         public string SelectedProvider { get; set; }
         public ICollection<SelectListItem> Providers { get; set; }
         public string ReturnUrl { get; set; }
         public bool RememberMe { get; set; }
     }
 
-    public class VerifyCodeViewModel
-    {
+    public class VerifyCodeViewModel {
+
         [Required]
         public string Provider { get; set; }
 
@@ -38,8 +38,8 @@ namespace Website.Models
         public bool RememberMe { get; set; }
     }
 
-    public class ResetPasswordViewModel
-    {
+    public class ResetPasswordViewModel {
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -59,15 +59,15 @@ namespace Website.Models
         public string Code { get; set; }
     }
 
-    public class ForgotPasswordViewModel
-    {
+    public class ForgotPasswordViewModel {
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
-    public class LoginViewModel
-    {
+    public class LoginViewModel {
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -82,8 +82,8 @@ namespace Website.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
-    {
+    public class RegisterViewModel {
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }

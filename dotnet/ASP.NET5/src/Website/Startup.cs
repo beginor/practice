@@ -22,19 +22,17 @@ using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
 using Website.Models;
 
-namespace Website
-{
-    public class Startup
-    {
-        public Startup(IHostingEnvironment env)
-        {
+namespace Website {
+
+    public class Startup {
+
+        public Startup(IHostingEnvironment env) {
             // Setup configuration sources.
             var configuration = new Configuration()
                 .AddJsonFile("config.json")
                 .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
 
-            if (env.IsEnvironment("Development"))
-            {
+            if (env.IsEnvironment("Development")) {
                 // This reads the configuration keys from the secret store.
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
                 configuration.AddUserSecrets();
@@ -46,8 +44,7 @@ namespace Website
         public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             // Add Application settings to the services container.
             services.Configure<AppSettings>(Configuration.GetSubKey("AppSettings"));
 
@@ -65,14 +62,12 @@ namespace Website
             // Configure the options for the authentication middleware.
             // You can add options for Google, Twitter and other middleware as shown below.
             // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
-            services.Configure<FacebookAuthenticationOptions>(options =>
-            {
+            services.Configure<FacebookAuthenticationOptions>(options => {
                 options.AppId = Configuration["Authentication:Facebook:AppId"];
                 options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
 
-            services.Configure<MicrosoftAccountAuthenticationOptions>(options =>
-            {
+            services.Configure<MicrosoftAccountAuthenticationOptions>(options => {
                 options.ClientId = Configuration["Authentication:MicrosoftAccount:ClientId"];
                 options.ClientSecret = Configuration["Authentication:MicrosoftAccount:ClientSecret"];
             });
@@ -86,22 +81,19 @@ namespace Website
         }
 
         // Configure is called after ConfigureServices is called.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory)
-        {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory) {
             // Configure the HTTP request pipeline.
 
             // Add the console logger.
             loggerfactory.AddConsole(minLevel: LogLevel.Warning);
 
             // Add the following to the request pipeline only in development environment.
-            if (env.IsEnvironment("Development"))
-            {
+            if (env.IsEnvironment("Development")) {
                 app.UseBrowserLink();
                 app.UseErrorPage(ErrorPageOptions.ShowAll);
                 app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
-            else
-            {
+            else {
                 // Add Error handling middleware which catches all application specific errors and
                 // sends the request to the following path or controller action.
                 app.UseErrorHandler("/Home/Error");
@@ -121,8 +113,7 @@ namespace Website
             // app.UseTwitterAuthentication();
 
             // Add MVC to the request pipeline.
-            app.UseMvc(routes =>
-            {
+            app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action}/{id?}",
