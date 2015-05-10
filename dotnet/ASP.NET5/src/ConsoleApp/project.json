@@ -1,0 +1,32 @@
+﻿{
+    "authors": [ "" ],
+    "commands": {
+        "ConsoleApp": "ConsoleApp",
+        "gen": "Microsoft.Framework.CodeGeneration",
+        "ef": "EntityFramework.Commands"
+    },
+    "dependencies": {
+        "EntityFramework": "7.0.0-beta4"
+    },
+    "description": "",
+    "frameworks": {
+        "dnx451": {
+            "frameworkAssemblies": {
+                "System.ComponentModel.DataAnnotations": "4.0.0.0"
+            }
+        },
+        "dnxcore50": {
+            "dependencies": {
+                "System.Console": "4.0.0-beta-22816",
+                "System.Collections": "4.0.10-beta-22816",
+                "System.Linq": "4.0.0-beta-22816",
+                "System.Threading": "4.0.10-beta-22816",
+                "Microsoft.CSharp": "4.0.0-beta-22816"
+            }
+        }
+    },
+    "licenseUrl": "",
+    "projectUrl": "",
+    "tags": [ "" ],
+    "version": "1.0.0-*"
+}
